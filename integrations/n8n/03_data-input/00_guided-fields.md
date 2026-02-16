@@ -37,6 +37,8 @@ For example:
 
 This structure keeps configuration simple while still reflecting the expected data type.
 
+![Guided Fields.](/assets/integrations/n8n/guided-fields.png)
+
 ---
 
 ## Limitations
