@@ -28,7 +28,7 @@ To solve this, we group fields into three categories:
 * **Boolean Fields** — For true/false or on/off values
 * **Date Fields** — For date and time values
 
-You manually enter the template field name and its value into the appropriate group.
+You select the template field from a pre-populated list and provide its value in the appropriate group.
 
 For example:
 
