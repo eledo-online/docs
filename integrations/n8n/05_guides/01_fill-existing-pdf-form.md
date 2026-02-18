@@ -16,7 +16,7 @@ Once you understand this pattern, you can adapt it to other data sources and sto
 
 ## Step 1 — Upload a fillable PDF into Eledo
 
-For this guide, we have prepared a sample PDF with fillable form. While you might use arbitrary PDF, we recommend to use ours so it's easier to follow our guide.
+For this guide, we have prepared a sample fillable PDF. While you may use any PDF, we recommend using ours so it is easier to follow along.
 
 ### Instructions
 
@@ -31,18 +31,18 @@ For this guide, we have prepared a sample PDF with fillable form. While you migh
 
 ## Step 2 — Map PDF form fields to Eledo data fields
 
-While the PDF has already fillable fields, these are internal to the PDF document. You have to tell Eledo what fields you want to fill and with which data. Essentially you're mapping internal PDF form fields into Eledo data model.
+Although the PDF already contains fillable fields, these are internal to the document. You must tell Eledo which fields to populate and with what data. Essentially, you are mapping internal PDF form fields to the Eledo data model.
 
 > Note: It is entirely up to you which form fields you want to populate. You might map only certain fields. Equally you can add new fields into the document. Adding new fields is outside of scope of this guide.
 
-Mapping the fields is straight-forward. Every form field has a correct type. You just need to bind it with a proper data name inside Eledo. This is the field you will further use from inside n8n. See below for an example how we mapped the `fullName` text field. Continue with the mapping for remaining fields.
+Mapping the fields is straight-forward. Every form field has a correct type. You simply need to bind each field to a corresponding data name in Eledo. This is the field you will further use from inside n8n. See below for an example of how we mapped the `fullName` text field. Continue with the mapping for remaining fields.
 
 ![Fillable PDF Map Fields](/assets/integrations/n8n/fillable-pdf-map-fields.png)
 
 After you're done mapping the fields, hit `Save` button to store the changes. Now you have a proper Eledo template.
 
 ### Optional step — Check the full data structure in JSON
-In the left-side drawer menu click on `API`. You will see the full data model. It helps you to double-check your field mapping. See the payload inside `HTTP Request Body`.
+In the left-side drawer menu click on `API`. You will see the full data model. It helps you double-check your field mapping. See the payload inside `HTTP Request Body`.
 
 ![Verify Data Mapping](/assets/integrations/n8n/pdf-form-verify-data-mapping.png)
 
@@ -56,7 +56,7 @@ Create a new workflow in n8n and add three nodes:
 * **Eledo**
 * **Google Drive** (storage)
 
-> Note: Configuration of Google Sheets and Google Drive nodes is outside the scope of this guide. Follow official n8n documentation for authentication and basic setup.
+> Note: Configuration of Google Sheets and Google Drive nodes is outside the scope of this guide. Follow the official n8n documentation for authentication and basic setup.
 
 ![Eledo Workflow](/assets/integrations/n8n/eledo-workflow-template.png)
 
@@ -145,7 +145,7 @@ By default, Eledo uses the latest version of the selected template. You may opti
 ## Step 6 — Bind Data Using Guided Fields
 
 Guided Fields are the recommended input method for most templates.
-They support flat structures (text, number, date fields).
+They support flat data structures (text, number, and date fields).
 
 More complex templates require JSON mode.
 
@@ -159,7 +159,7 @@ While the PDF form expects 6 parameters, it doesn't mean you have to store all o
 
 1. Under **Text / Number Fields**, add fields for `fullName`, `nameId`, `gender`, `city` and `notes`.
 2. Under **Boolean Fields**, add field for `isMarried`.
-3. For some values you might temporary use static values, just to see the effect.
+3. For some values, you might temporarily use static values just to see the effect.
 4. However, our document uses exclusively dynamic fields. Switch all your fields (`fullName`, `nameId`, ...) into **Expression mode**.
 5. Bind values coming from the Google Sheets node.
 
@@ -212,7 +212,7 @@ Google Sheets → Eledo → Google Drive
 
 From here, you can:
 
-* Add more rows to your sheet and observe automatic generation
+* Add more rows to your sheet and observe the automatic generation
 * Experiment with dynamic expressions
 * Use JSON mode for complex templates
 * Replace Google Sheets or Google Drive with other integrations
