@@ -10,7 +10,7 @@ We will build a workflow with three components:
 2. **Eledo** — PDF generation
 3. **Data sink** — Google Drive (stores generated PDFs)
 
-Once you understand this pattern, you can adapt it to other data sources and storage systems supported by n8n. In this guide we will look at complex templates and JSON input mode.
+Once you understand this pattern, you can adapt it to other data sources and storage systems supported by n8n. In this guide, we will look at complex templates and the JSON input mode.
 
 ---
 
@@ -29,7 +29,7 @@ Use JSON mode when:
 * You need full structural control
 * Guided Fields do not expose all required attributes
 
-JSON mode supports the entire template structure without limitations.
+JSON mode supports the entire template structure without limitations imposed by the UI.
 
 ---
 
@@ -39,7 +39,7 @@ For this guide, we will use a complex template with nested fields.
 
 Instead of creating a template from scratch, we recommend selecting one from the public template library and modifying it. This allows you to get started quickly.
 
-If you prefer to create a template manually, refer to:
+If you prefer to create a template from scratch, refer to:
 
 [https://eledo.online/documentation/template](https://eledo.online/documentation/template)
 
@@ -59,7 +59,14 @@ You can freely modify your private copy.
 ---
 
 ### Step 2 — Design your data binding to match the JSON data structure
-In the left-side drawer menu click on `API`. You will see the full template data model. See the payload inside `HTTP Request Body`. Have a detailed look at the payload. Here comes the design phase — you have to decide which fields will be populated from data fetched dynamically from other sources, which fields stay static (prepopulated to some constant value) and which fields stay unpopulated (You're not obliged to fill every single field. Eledo can generate documents even with partial data).
+In the left-side drawer menu, click on `API`. You will see the full template data model. Review the payload inside `HTTP Request Body` carefully.
+
+This is the design phase — you must decide:
+- which fields will be populated dynamically from external data sources,
+- which fields will remain static (prepopulated with constant values),
+- and which fields will remain unpopulated.
+
+You are not obliged to fill every field. Eledo can generate documents even with partial data.
 
 ![Complex Template JSON Structure](/assets/integrations/n8n/complex-template-json-structure.png)
 
@@ -80,7 +87,7 @@ We will define two clients to fill in this part of the JSON payload:
 ...
 ```
 
-In real scenario you would likely bind `items` to real data source as well:
+In a real scenario, you would likely bind `items` to a real data source as well:
 
 ```
         "items": [
@@ -92,7 +99,7 @@ In real scenario you would likely bind `items` to real data source as well:
         ],
 ```
 
-And there are other attributes worth mapping to dynamic data sources. For the demonstration purposes, only clients will be fetched dynamically while the remaining fields will stay constant.
+And there are other attributes worth mapping to dynamic data sources. For demonstration purposes, only client data will be fetched dynamically, while the remaining fields will remain constant.
 
 ---
 
@@ -138,7 +145,7 @@ In this example, we selected a document named **Eledo demo**.
 
 ![Google Sheet n8n](/assets/integrations/n8n/google-sheet-n8n.png)
 
-When you're done configuring, click on `Fetch Test Event`. This will fetch your data and make it visible inside Eledo node.
+When you're done configuring, click on `Fetch Test Event`. This will fetch your data and make it visible inside the Eledo node.
 
 ---
 
@@ -193,7 +200,7 @@ By default, Eledo uses the latest version of the selected template. You may opti
 ---
 
 ## Step 6 — Bind Data Using JSON
-In Step 2 we have looked at full template data structure. Now it is time to go back to this page and grab the JSON as our payload.
+In Step 2 we have looked at full template data structure. Now it is time to return to that page and copy the JSON payload.
 
 ### Get empty JSON payload
 
@@ -235,12 +242,12 @@ We're interested in the `HTTP Request Body` section. But not the whole section. 
 2. Change input from `Guided Fields` to `JSON`
 3. Paste your empty JSON from the prior step into `Payload (JSON)`
 
-At this stage, when you hit `Execute step`, Eledo will already generate a PDF for you, only it will have no real data. Try it out!
+At this stage, when you click `Execute step`, Eledo will already generate a PDF — but it will contain no real data.
 
 ![Empty JSON Template in Payload](/assets/integrations/n8n/eledo-empty-json-template.png)
 
 ### Bind dynamic data and finish the configuration
-While you might edit the JSON payload right in the main configuration dialog, we strongly recommend clicking on a small expansion icon down below under the text box.
+While you can edit the JSON payload directly in the main configuration dialog, we strongly recommend clicking the small expansion icon below the text box.
 
 ![Expand JSON Payload](/assets/integrations/n8n/json-payload-expand.png)
 
@@ -293,7 +300,7 @@ Google Sheets → Eledo → Google Drive
 
 From here, you can:
 
-* Add more rows to your sheet and observe the automatic generation
+* Add more rows to your sheet and observe automatic document generation
 * Replace Google Sheets or Google Drive with other integrations
 * Change output from `File` to `Base64`
 
@@ -305,4 +312,4 @@ The pattern remains the same.
 By default we output binary data exactly as received from Eledo. You might change this to get a `Base64` string representation. Please read our [**Output Modes**](/integrations/n8n/04_output-modes.md) document.
 
 ## Addendum: Version Pinning (Optional Advanced Tip)
-n8n allows you to install a specific version of the Eledo node. This feature is called `version pinning` and might come useful for example when you want to lock your Eledo node to a specific version while you test never releases in a different sandbox environment. Please refer to our [**Installation**](/integrations/n8n/01_installation.md) document for more details.
+n8n allows you to install a specific version of the Eledo node. This feature is called `version pinning` and can be useful when you want to lock your Eledo node to a specific version while testing newer releases in a separate sandbox environment. Please refer to our [**Installation**](/integrations/n8n/01_installation.md) document for more details.
