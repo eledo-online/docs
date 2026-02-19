@@ -37,6 +37,12 @@ You can freely modify your private copy.
 
 ![Certificate of Attendance](/assets/integrations/n8n/public-template-certificate.png)
 
+
+### Optional step — Check the full data structure in JSON
+In the left-side drawer menu click on `API`. You will see the full data model. It might help you later when you map the fields using `Guided Fields` later. See the payload inside `HTTP Request Body`.
+
+![Certificate Template Data Model](/assets/integrations/n8n/certificate-template-data-model.png)
+
 ---
 
 ## Step 2 — Create the n8n Workflow
