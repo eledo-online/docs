@@ -3,7 +3,7 @@
 Eledo supports two output modes — **File** (default) and **Base64**.
 In most workflows, you should keep the default **File** mode.
 
-![Supported output modes.](/assets/integrations/n8n/output-modes.png)
+![Supported output modes](/assets/integrations/n8n/output-modes.png)
 
 ---
 
@@ -76,4 +76,4 @@ You can also reference individual fields, such as `pdfBase64` or `filename`, usi
 
 > Tip: Type `{{` inside any expression field and rely on n8n's interactive autocompletion to explore available properties.
 
-![Supported output modes.](/assets/integrations/n8n/field-expressions.png)
+![Field Expressions](/assets/integrations/n8n/field-expressions.png)
