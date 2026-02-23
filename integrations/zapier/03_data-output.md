@@ -1,14 +1,30 @@
 # Data Output
 
-Our Eledo app currently supports only one output mode — **File**. It is transparent to you. Once Zapier receives the response from Eledo, it wraps the data into a zapier link that allows you to download the file.
+The Eledo app in Zapier currently supports a single output type — **File**.
+
+After a successful execution, Eledo returns a generated PDF file. Zapier makes this file available as a downloadable URL and as a mappable variable for subsequent steps.
 
 ![Zapier File URL](/assets/integrations/zapier/zapier-file-url.png)
 
 ---
 
-## Using the Output in Other Nodes
+## Using the Output in Other Steps
 
-In apps connected after the Eledo app, you can reference the file the same way as when you referenced data in template fields. Zapier makes sure the available file is available as a variable. See the image below:
+In steps that follow the Eledo action, you can reference the generated file just like any other output value.
+
+For example, you can:
+
+- Upload the file to Google Drive
+- Send it via email
+- Attach it to a CRM record
+- Store it in another storage service
+
+To use the file:
+
+1. Click the `+` icon in the target field.
+2. Select the **File** output from the Eledo step.
+3. Optionally, map the **Filename** field if the receiving app supports custom naming.
+
+Zapier ensures the file remains accessible during the Zap execution.
 
 ![Bind file from Eledo in another app](/assets/integrations/zapier/bind-file-in-another-app.png)
-
