@@ -17,7 +17,7 @@ This integration uses a simple **API Key**.
 
 If you do not have an API key yet, you can generate one in this section.
 
-![API key location inside Profile → API.](/assets/integrations/n8n/eledo-api-key.png)
+![API key location inside Profile → API.](/assets/integrations/shared/eledo-api-key.png)
 
 ---
 
