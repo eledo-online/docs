@@ -1,8 +1,8 @@
 # Authentication
 
-Authentication allows Zapier to communicate securely with your Eledo account.
+Authentication allows Zapier to securely communicate with your Eledo account.
 
-Without authentication, Eledo does not know which account should receive the request and cannot generate documents for you.
+Without authentication, Eledo does not know which account should process the request and cannot generate documents on your behalf.
 
 This integration uses a simple **API Key**.
 
@@ -11,7 +11,7 @@ This integration uses a simple **API Key**.
 ## Step 1 — Create an API Key in Eledo
 
 1. Log into your Eledo account at [https://eledo.online/](https://eledo.online/)
-2. Click on **Profile** (bottom-left corner of the screen)
+2. Click **Profile** (bottom-left corner of the screen)
 3. Open the **API** tab under the *Your Profile* section
 4. Copy your API key
 
@@ -21,27 +21,28 @@ If you do not have an API key yet, you can generate one in this section.
 
 ---
 
-## Step 2 — Create Account in Zapier
+## Step 2 — Connect Your Account in Zapier
 
-Open the Eledo app inside your Zap.
+Open the Eledo step inside your Zap.
 
-At the bottom of the `Setup` configuration panel, locate the field **Account**.
+At the bottom of the `Setup` configuration panel, locate the **Account** field.
 
 If this is your first time setting up authentication:
 
 1. Click the `Select` button
-2. Select **+ Connect a new account**
+2. Choose **+ Connect a new account**
 3. Paste your API key into the **API Key** field
-4. Click on `Yes, continue to Eledo`
-
+4. Click `Yes, continue to Eledo`
 
 ![Credentials window with API key.](/assets/integrations/zapier/auth-api-key.png)
 
-Afterwards, the account will appear in the account list that can be displayed by clicking on `Select` button in the `Account` field. You can add as many accounts as you want. Zapier allows you to select the account you need for the specific Zap.
+After completing these steps, the account will appear in the list available under the `Select` button in the **Account** field.
 
-> Note: Zapier automatically tests the connection with Eledo. Either the flow succeeds and you will see the account in the list or your will see an error telling you what is wrong.
+You can add multiple Eledo accounts. Zapier allows you to choose which account should be used for each specific Zap.
 
-![Credentials window with API key - Error.](/assets/integrations/zapier/auth-api-key-error.png)
+> Note: Zapier automatically tests the connection with Eledo. If successful, the account will appear in the list. If not, Zapier will display an error message explaining the issue.
+
+![Credentials window with API key – Error.](/assets/integrations/zapier/auth-api-key-error.png)
 
 If you receive an error:
 
@@ -54,7 +55,7 @@ If you receive an error:
 ## Notes
 
 * You can generate a new API key at any time under **Profile → API**.
-* If you regenerate the key, remember to update it in your Zap as well.
-* Invalid or outdated keys are the most common cause of authentication errors.
+* If you regenerate the key, remember to update it in any existing Zaps.
+* Invalid or outdated API keys are the most common cause of authentication errors.
 
-Once authentication is complete, you can proceed to configuring your template and mapping data.
+Once authentication is complete, you can proceed to selecting a template and mapping your data.
