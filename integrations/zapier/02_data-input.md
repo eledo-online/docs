@@ -1,39 +1,67 @@
 # Data Input
 
-Data input is configured in Eledo app at the `Configure` tab. First you have to select a template. Once you do that, Zapier automatically fetches the template schema and creates a dynamic UI form with all the data. This is the most straight-forward and currently the only way to bind your existing data with the template fields.
+Data input is configured in the Eledo step under the `Configure` tab.
+
+First, select a template. Once selected, Zapier automatically retrieves the template schema and generates a dynamic UI form that mirrors all template fields.
+
+This is currently the only supported way to bind your data to template fields in Zapier.
 
 ![Zapier Dynamic Form.](/assets/integrations/zapier/zapier-dynamic-form.png)
 
+---
+
 ## Assigning data to template fields
-With the UI form that perfectly matches the template, your work is already simplified.
 
-> Note: When it comes to Zapier, all your data is treated as a text - whether it is a number, a date or an actual text.
+Because the form structure matches your template exactly, assigning data is straightforward.
 
-When it comes to assigning data to the template fields, you have three options:
-- You bind the field to the data from a previous app in the Zap
-- You fill the field with a static text that is used in every flow
-- You keep the field unpopulated
+> Note: In Zapier, all input values are treated as text. Whether the original value is a number, date, or string, it is passed to Eledo as text.
 
-We specifically mention all three options because you are not obliged to fill the data at all. It is up to you to decide which fields need to be filled and with which data.
+You have three options when filling template fields:
 
-### Assigning a static text
-To assign a static text, just click the desired field and type whatever text you want. See the image below for illustration.
+- Map the field to data from a previous step in your Zap  
+- Enter a static value that will be used in every execution  
+- Leave the field empty  
+
+You are not required to populate every field. It is up to you to decide which fields should receive data and how.
+
+---
+
+### Assigning a static value
+
+To enter a static value, click the desired field and type the text directly.
 
 ![Zapier Static Text.](/assets/integrations/zapier/zapier-static-text.png)
 
-### Assigning a dynamic text
-Dynamic text maps to a real value, for example it might be a specific column in your Google Sheets table. Adding it is similar to the static text, except you click the `+` sign next to the field. Then you are shown a dialog with all available values you might map to the field.
+---
 
-> Note: Make sure you have a proper data source app (like Google Sheets) added into your Zap, and properly configured. Otherwise, Zapier will warn you about this and instruct you to add such app into the Zap.
+### Assigning a dynamic value
+
+Dynamic values come from previous steps in your Zap — for example, a column from Google Sheets.
+
+To insert dynamic data:
+
+1. Click the `+` icon next to the field.
+2. Select a value from the available list.
+
+Zapier displays all outputs from previous steps in a searchable panel.
+
+> Note: Make sure a data source step (such as Google Sheets) is properly added and configured before mapping dynamic values. Otherwise, Zapier will prompt you to configure one.
 
 ![Zapier Data Binding.](/assets/integrations/zapier/zapier-data-binding.png)
 
-Zapier allows you to select more than one value for the given field. Likely, the values are then concatenated into a text. In most cases, you map one value into one template field.
+Zapier allows you to insert multiple values into a single field. In such cases, the values are typically combined into a single text string.
+
+In most scenarios, one value is mapped to one template field.
+
+---
 
 ## Complex data
-Zapier dynamic forms UI supports not just primitive fields like a text, number or date but also complex objects that might contain these fields.
 
-For you this is transparent. You just fill out the data the same way as if it were simple text files.
+Zapier’s dynamic UI supports not only simple fields (text, number, date) but also structured objects defined in your template.
+
+For example, if your template contains a nested object like a `Client` section, Zapier will display its fields grouped together.
+
+From your perspective, this behaves the same way as filling simple fields — you assign values individually to each visible field.
 
 ![Zapier Complex Object.](/assets/integrations/zapier/zapier-complex-object.png)
 
@@ -41,4 +69,8 @@ For you this is transparent. You just fill out the data the same way as if it we
 
 ## Limitations
 
-At the moment, Zapier does not allow you to add an array of items. You are allowed to enter just one item.
+At the moment, Zapier does not support adding multiple items to array-type fields.
+
+If your template contains a repeatable structure (for example, a list of `Items`), Zapier allows you to define only a single item.
+
+For more advanced scenarios involving arrays, consider using n8n or Make, which provide more flexible data structures.
