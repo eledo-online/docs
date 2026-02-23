@@ -69,8 +69,6 @@ From your perspective, this behaves the same way as filling simple fields — yo
 
 ## Limitations
 
-At the moment, Zapier does not support adding multiple items to array-type fields.
+In the current integration, array-type fields (such as lists of items) are displayed as a single entry in the Zapier UI. This means you can define one item directly in the Eledo step.
 
-If your template contains a repeatable structure (for example, a list of `Items`), Zapier allows you to define only a single item.
-
-For more advanced scenarios involving arrays, consider using n8n or Make, which provide more flexible data structures.
+If your workflow requires multiple items, additional configuration may be needed. We will expand this section as the integration evolves.
