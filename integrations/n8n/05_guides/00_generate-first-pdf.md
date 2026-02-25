@@ -70,7 +70,7 @@ Create a Google Sheet with the following structure:
 
 Each row represents one student.
 
-![Google Sheet Document](/assets/integrations/n8n/google-sheet-doc.png)
+![Google Sheet Document](/assets/integrations/shared/google-sheet-doc.png)
 
 Set up a trigger so that the workflow runs when a row is added or updated.
 

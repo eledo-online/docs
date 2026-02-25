@@ -129,7 +129,7 @@ Create a Google Sheet with the following structure:
 
 Each row represents one unique person.
 
-![Google Sheet Document](/assets/integrations/n8n/google-sheet-doc-3.png)
+![Google Sheet Document](/assets/integrations/shared/google-sheet-doc-3.png)
 
 Set up a trigger so that the workflow runs when a row is added or updated.
 

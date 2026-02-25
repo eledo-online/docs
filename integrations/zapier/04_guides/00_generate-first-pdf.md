@@ -73,7 +73,7 @@ Create a Google Sheet with the following structure:
 
 Each row represents one student.
 
-![Google Sheet Document](/assets/integrations/n8n/google-sheet-doc.png)
+![Google Sheet Document](/assets/integrations/shared/google-sheet-doc.png)
 
 Set up the trigger so that the Zap runs when a row is added or updated.
 
