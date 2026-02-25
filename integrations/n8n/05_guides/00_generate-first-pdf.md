@@ -35,13 +35,13 @@ If you prefer to create a template manually, refer to:
 
 You can freely modify your private copy.
 
-![Certificate of Attendance](/assets/integrations/n8n/public-template-certificate.png)
+![Certificate of Attendance](/assets/integrations/shared/public-template-certificate.png)
 
 
 ### Optional step — Check the full data structure in JSON
 In the left-side drawer menu click on `API`. You will see the full data model. It might help you later when you map the fields using `Guided Fields` later. See the payload inside `HTTP Request Body`.
 
-![Certificate Template Data Model](/assets/integrations/n8n/certificate-template-data-model.png)
+![Certificate Template Data Model](/assets/integrations/shared/certificate-template-data-model.png)
 
 ---
 
@@ -203,7 +203,7 @@ See the screenshot below for exact expression examples.
 ![Dynamic Fields Configuration](/assets/integrations/n8n/n8n-google-drive.png)
 
 ## What’s Next?
-![Eledo Certificate Example](/assets/integrations/n8n/eledo-certificate-example.png)
+![Eledo Certificate Example](/assets/integrations/shared/eledo-certificate-example.png)
 
 You now have a working automation:
 
