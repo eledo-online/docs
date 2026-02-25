@@ -1,17 +1,18 @@
 # Build a Zap Using Copilot AI
 
 ## Introduction
-In this guide we will demonstrate Zap building using `Copilot AI`. This guide will be intentionally brief.
 
-The point is to show you where to start. But it is not possible to fully guide you step by step when using AI assistants.
+In this guide, we demonstrate how to build a Zap using **Copilot AI** inside Zapier.
 
-Instead:
-- We will adopt our [first guide](/integrations/zapier/04_guides/00_generate-first-pdf.md). If you get stuck, have a look at the original guide.
-- We will tell you where to start and what to check to get the flow running
+This guide is intentionally brief. The goal is to show you where to start and what to verify. AI-assisted setup is interactive by nature, so it cannot be described fully step by step.
+
+If you get stuck, refer to our [original guide](/integrations/zapier/04_guides/00_generate-first-pdf.md).
+
+---
 
 ## What You Will Build
 
-We will build a Zap with three components:
+We will create a Zap with three components:
 
 1. **Data source** — Google Sheets  
 2. **Eledo** — PDF generation  
@@ -23,7 +24,7 @@ Once you understand this pattern, you can adapt it to other data sources and sto
 
 ## Step 1 — Create a Simple Template in Eledo
 
-For this guide, we will use a simple template with only a few dynamic fields.
+For this guide, we will use a simple template with a few dynamic fields.
 
 Instead of creating a template from scratch, we recommend selecting one from the public template library and modifying it. This allows you to get started quickly.
 
@@ -47,15 +48,15 @@ You can freely modify your private copy.
 
 ### Optional — Inspect the Data Structure (Advanced)
 
-In the left-side menu, open **Profile → API** to see the full data model.
+Open **Profile → API** in the left-side menu.
 
-You can review the payload inside the `HTTP Request Body` section. This may help you understand how fields are structured before mapping them in Zapier.
+You can review the payload inside the `HTTP Request Body` section. This helps you understand how fields are structured before mapping them in Zapier.
 
 ![Certificate Template Data Model](/assets/integrations/shared/certificate-template-data-model.png)
 
 ---
 
-## Step 2 — Create a Google Sheet document
+## Step 2 — Create a Google Sheet
 
 Create a Google Sheet with the following structure:
 
@@ -72,35 +73,51 @@ Each row represents one student.
 
 ---
 
-## Step 3 — Ask Copilot AI to create a Zap for you
+## Step 3 — Ask Copilot AI to Create the Zap
 
-There are two steps you have to make:
-1. Create a new (empty) Zap
-2. Right at the top there is a Copilot AI prompt where you can tell what you need. Describe the flow you want in human words. See the screenshot below as an example.
+1. Create a new (empty) Zap.
+2. At the top of the editor, locate the **Copilot AI** prompt.
+3. Describe the flow you want in plain language.
+
+Example prompt:
+
+> I want to create a new Zap where I read data from Google Sheets, process them in Eledo, and store the resulting PDF files in Google Drive.
+
+See the screenshot below for reference.
 
 ![Zapier Copilot AI](/assets/integrations/zapier/zapier-copilot.png)
 
-Afterwards, Copilot will guide you with the process.
+After you submit the prompt, Copilot will guide you through the setup process.
 
-- It will ask you to enter your credentials into Google Sheets, Google Drive and Eledo
-- It will test whether the apps are properly set up
-- It might ask for clarifying questions
-- ...
+It may:
 
-Follow the instructions. It is safe to make incorrect settings while the Zap is not published. Just play around.
+- Ask you to authenticate Google Sheets, Google Drive, and Eledo
+- Test whether the apps are properly configured
+- Ask clarifying questions
+- Suggest adjustments
 
-It is very likely that Copilot succeeds with setting up the basic flow but it will just make sure the apps can communicate. If Copilot gets stuck, it will tell you what is wrong. Once you fix it and Copilot doesn't continue, just instruct Copilot to proceed with the flow.
+It is safe to experiment while the Zap is not published.
+
+Copilot is usually successful at setting up the basic structure (trigger → action → storage). However, it primarily ensures that the apps can communicate.
+
+If Copilot gets stuck, it will explain what needs to be fixed. After resolving the issue, you can instruct it to continue.
 
 ![Zapier Copilot AI Automated Build](/assets/integrations/zapier/copilot-automated-zap-build.png)
 
-## Step 4 — Verify and correct
-What you have to do is check and fix what was configured incorrectly:
-- Very likely Copilot configured an improper Google Sheet as a data source. Verify and fix that.
-- It is almost certain that Copilot didn't select a proper Eledo template.
-- You will likely have to map the dynamic fields manually. See our [original guide](/integrations/zapier/04_guides/00_generate-first-pdf.md).
-- Google Drive may point to incorrect folder.
+---
 
-These are the basic checks we recommend to do. Afterwards you can test the flow and correct whatever else is standing out.
+## Step 4 — Verify and Correct the Configuration
+
+Even if Copilot builds the Zap automatically, you should manually review the configuration.
+
+Common adjustments:
+
+- Verify that the correct Google Sheet and worksheet are selected.
+- Ensure the proper Eledo template is selected.
+- Map dynamic fields manually if needed (see the original guide).
+- Confirm that Google Drive points to the correct folder.
+
+After verification, test the Zap and adjust any remaining issues.
 
 ---
 
@@ -114,7 +131,7 @@ Google Sheets → Eledo → Google Drive
 
 From here, you can:
 
-- Add more rows to your sheet and observe automatic generation  
+- Add more rows and observe automatic PDF generation  
 - Replace Google Sheets with another trigger app  
 - Replace Google Drive with email, CRM, or cloud storage
 
