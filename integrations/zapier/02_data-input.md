@@ -8,7 +8,7 @@ This is currently the only supported way to bind your data to template fields in
 
 ![Zapier Dynamic Form.](/assets/integrations/zapier/zapier-dynamic-form.png)
 
-> Note: At the moment, Eledo integration does not support template scope. It lists only your private templates.
+> Note: The Zapier integration currently lists only your private templates. Public templates must first be copied into your account before they can be used in a Zap.
 
 ---
 
@@ -70,9 +70,10 @@ From your perspective, this behaves the same way as filling simple fields — yo
 ---
 
 ## Limitations
-- Eledo app supports only private template scope
-- It is not possible to specify a template version. Latest version is used all the time.
+- Only **private templates** are available in the Zapier integration.
+Public templates must first be copied into your account.
+- It is not possible to select a specific template version. The latest published version of the template is always used.
+- Array-type fields (for example, lists of items) are currently displayed as a single entry in the Zapier UI. This means you can define one item directly in the Eledo step.
 
-In the current integration, array-type fields (such as lists of items) are displayed as a single entry in the Zapier UI. This means you can define one item directly in the Eledo step.
-
-If your workflow requires multiple items, additional configuration may be needed. We will expand this section as the integration evolves.
+If your workflow requires multiple items, additional processing outside of the Eledo step may be necessary.
+This area may evolve as the integration develops.
