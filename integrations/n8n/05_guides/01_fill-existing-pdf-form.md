@@ -20,12 +20,12 @@ For this guide, we have prepared a sample fillable PDF. While you may use any PD
 
 ### Instructions
 
-1. Download a sample PDF from [this link](/assets/integrations/n8n/pdf-form.pdf)
+1. Download a sample PDF from [this link](/assets/integrations/shared/pdf-form.pdf)
 2. Log into your Eledo account.
 3. Open **My Templates**.
 4. Click **Upload PDF**, select your file and give it a proper name.
 
-![Fillable PDF Upload](/assets/integrations/n8n/fillable-pdf-upload.png)
+![Fillable PDF Upload](/assets/integrations/shared/fillable-pdf-upload.png)
 
 ---
 
@@ -37,14 +37,14 @@ Although the PDF already contains fillable fields, these are internal to the doc
 
 Mapping the fields is straight-forward. Every form field has a correct type. You simply need to bind each field to a corresponding data name in Eledo. This is the field you will further use from inside n8n. See below for an example of how we mapped the `fullName` text field. Continue with the mapping for remaining fields.
 
-![Fillable PDF Map Fields](/assets/integrations/n8n/fillable-pdf-map-fields.png)
+![Fillable PDF Map Fields](/assets/integrations/shared/fillable-pdf-map-fields.png)
 
 After you're done mapping the fields, hit `Save` button to store the changes. Now you have a proper Eledo template.
 
 ### Optional step — Check the full data structure in JSON
 In the left-side drawer menu click on `API`. You will see the full data model. It helps you double-check your field mapping. See the payload inside `HTTP Request Body`.
 
-![Verify Data Mapping](/assets/integrations/n8n/pdf-form-verify-data-mapping.png)
+![Verify Data Mapping](/assets/integrations/shared/pdf-form-verify-data-mapping.png)
 
 ---
 
@@ -74,7 +74,7 @@ Create a Google Sheet with the following structure:
 
 Each row represents one unique person.
 
-![Google Sheet Document](/assets/integrations/n8n/google-sheet-doc-2.png)
+![Google Sheet Document](/assets/integrations/shared/google-sheet-doc-2.png)
 
 Set up a trigger so that the workflow runs when a row is added or updated.
 
@@ -204,7 +204,7 @@ See the screenshot below for exact expression examples.
 ![Dynamic Fields Configuration](/assets/integrations/n8n/n8n-google-drive.png)
 
 ## What’s Next?
-![Eledo PDF Form Example](/assets/integrations/n8n/eledo-pdfform-example.png)
+![Eledo PDF Form Example](/assets/integrations/shared/eledo-pdfform-example.png)
 
 You now have a working automation:
 
