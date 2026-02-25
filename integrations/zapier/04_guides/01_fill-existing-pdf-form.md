@@ -1,8 +1,8 @@
-# Fill an Existing PDF Form
+# Fill an Existing PDF Form with Zapier
 
 ## What You Will Build
 
-This guide does not attempt to cover every possible template or app combination. Instead, it introduces a simple pattern that you can reuse and extend.
+This guide introduces a practical pattern for filling an existing PDF form using Zapier and Eledo.
 
 We will build a Zap with three components:
 
@@ -10,39 +10,53 @@ We will build a Zap with three components:
 2. **Eledo** — PDF generation  
 3. **Data sink** — Google Drive (stores generated PDFs)
 
-Once you understand this pattern, you can adapt it to other data sources and storage systems supported by Zapier.
+Once you understand this structure, you can adapt it to other data sources and storage systems supported by Zapier.
 
 ---
 
-## Step 1 — Upload a fillable PDF into Eledo
+## Step 1 — Upload a Fillable PDF into Eledo
 
-For this guide, we have prepared a sample fillable PDF. While you may use any PDF, we recommend using ours so it is easier to follow along.
+For this guide, we prepared a sample fillable PDF. You may use any PDF form, but using the sample makes it easier to follow along.
 
 ### Instructions
 
-1. Download a sample PDF from [this link](/assets/integrations/shared/pdf-form.pdf)
+1. Download the sample PDF from [this link](/assets/integrations/shared/pdf-form.pdf)
 2. Log into your Eledo account.
 3. Open **My Templates**.
-4. Click **Upload PDF**, select your file and give it a proper name.
+4. Click **Upload PDF**, select your file, and provide a template name.
 
 ![Fillable PDF Upload](/assets/integrations/shared/fillable-pdf-upload.png)
 
 ---
 
-## Step 2 — Map PDF form fields to Eledo data fields
+## Step 2 — Map PDF Form Fields to Eledo Data Fields
 
-Although the PDF already contains fillable fields, these are internal to the document. You must tell Eledo which fields to populate and with what data. Essentially, you are mapping internal PDF form fields to the Eledo data model.
+Although the PDF already contains fillable form fields, these fields are internal to the document. You must explicitly define which fields Eledo should populate and how they map to your data model.
 
-> Note: It is entirely up to you which form fields you want to populate. You might map only certain fields. Equally you can add new fields into the document. Adding new fields is outside of scope of this guide.
+In other words, you are mapping internal PDF form fields to Eledo data fields.
 
-Mapping the fields is straight-forward. Every form field has a correct type. You simply need to bind each field to a corresponding data name in Eledo. This is the field you will further use from inside n8n. See below for an example of how we mapped the `fullName` text field. Continue with the mapping for remaining fields.
+> Note: You are not required to map every form field. You may populate only selected fields. Adding new PDF form fields is outside the scope of this guide.
+
+Mapping is straightforward:
+
+- Each PDF form field has a type (text, checkbox, etc.).
+- You assign a corresponding data field name in Eledo.
+
+Below is an example of mapping the `fullName` field.
 
 ![Fillable PDF Map Fields](/assets/integrations/shared/fillable-pdf-map-fields.png)
 
-After you're done mapping the fields, hit `Save` button to store the changes. Now you have a proper Eledo template.
+Repeat the process for the remaining fields.
 
-### Optional step — Check the full data structure in JSON
-In the left-side drawer menu click on `API`. You will see the full data model. It helps you double-check your field mapping. See the payload inside `HTTP Request Body`.
+After completing the mapping, click **Save**. You now have a fully usable Eledo template based on your PDF form.
+
+---
+
+### Optional — Verify the Data Structure (Advanced)
+
+Open **Profile → API** in the left-side menu.
+
+You can inspect the payload inside the `HTTP Request Body` section. This helps verify that your field mapping matches the expected data structure.
 
 ![Verify Data Mapping](/assets/integrations/shared/pdf-form-verify-data-mapping.png)
 
@@ -67,24 +81,24 @@ Create a new Zap and add three apps in this order:
 Create a Google Sheet with the following structure:
 
 | fullName | nameId | gender | isMarried | city | notes |
-| --- | --- | --- | --- | --- | --- |
+|----------|--------|--------|-----------|------|-------|
 | John Smith | 1 | Male | TRUE | Paris | Loves reading. |
 | Peter File | 2 | Male | FALSE | London | Makes own music. |
 | Valentina Rossi | 3 | Female | FALSE | Rome | Rides motorcycles. |
 
-Each row represents one unique person.
+Each row represents one person.
 
 ![Google Sheet Document](/assets/integrations/shared/google-sheet-doc-2.png)
 
-Set up a trigger so that the workflow runs when a row is added or updated.
+Configure the trigger so the Zap runs when a row is added or updated.
 
-> Note: The first row must contain headers. Zapier automatically uses these headers (`fullName`, `nameId`, ...) as property names.
+> The first row must contain headers. Zapier automatically uses these headers (`fullName`, `nameId`, etc.) as property names.
 
-In the Google Sheets node:
+In the Google Sheets step:
 
-* Authenticate
-* Select the correct document
-* Select the appropriate sheet
+- Authenticate your account  
+- Select the correct spreadsheet  
+- Select the appropriate worksheet
 
 In this example, we selected a document named **Eledo demo**.
 
@@ -94,9 +108,9 @@ In this example, we selected a document named **Eledo demo**.
 
 ## Step 5 — Configure Eledo (Setup Tab)
 
-The Eledo step is triggered by Google Sheets and generates a PDF document.
+The Eledo step is triggered by Google Sheets and generates the completed PDF form.
 
-Open the Eledo step and stay on the **Setup** tab.
+Open the Eledo step and remain on the **Setup** tab.
 
 Set the **Action event** to **Create PDF Document**.
 
@@ -106,42 +120,40 @@ Set the **Action event** to **Create PDF Document**.
 
 In the Eledo step, locate the **Account** field.
 
-If this is your first time using Eledo in Zapier, you need to connect your account.
+If this is your first time using Eledo in Zapier, connect your account by providing your API key.
 
-Follow the **Authentication** documentation to configure your API key.
+Refer to the **Authentication** documentation for detailed instructions.
 
 ---
 
-## Step 7 — Select a Template
+## Step 7 — Select the Template
 
 Switch to the **Configure** tab in the Eledo step.
 
-> At the moment, the Zapier integration lists only your private templates.
+> The Zapier integration lists only your private templates.
 
-Select your copied template (for example: `Fillable PDF`).
+Select your uploaded template (for example: `Fillable PDF`).
 
-Eledo always uses the latest version of the selected template. Selecting a specific template version is not currently supported.
-
-Template names may differ slightly — this is expected.
+Eledo always uses the latest published version of the template. Selecting a specific version is not currently supported.
 
 ---
 
 ## Step 8 — Bind Data
 
-After selecting the template, Zapier displays a dynamic form matching the template structure.
+After selecting the template, Zapier generates a dynamic form that mirrors the mapped PDF fields.
 
-### Why Your Sheet Might Have Less Columns
+### Why Your Sheet Might Contain Fewer Columns
 
-While the PDF form expects 6 parameters, it doesn't mean you have to store all of them in the table. For example, you might use the same `Notes` value for every generated PDF.
+Even if the PDF form expects multiple fields, you do not need to store all values in Google Sheets. Some values may remain static or be reused across documents.
 
 ---
 
 ### Configure Form Fields
 
-Each field is treated as text. It does not matter whether you insert a number, date, or string.
+Each field is treated as text, regardless of whether you enter a number, date, or string.
 
-1. Bind values coming from the Google Sheets app for `fullName`, `nameId`, `gender`, `city`, `isMarried` and `notes`. Use the `*` button next to the field you want to map.
-2. For some values, you might temporarily use static values just to see the effect.
+1. Bind dynamic values from Google Sheets for `fullName`, `nameId`, `gender`, `isMarried`, `city`, and `notes` using the `+` button next to each field.
+2. You may temporarily enter static values to test visual output.
 
 See the screenshot below for reference.
 
@@ -153,17 +165,17 @@ See the screenshot below for reference.
 
 Switch to the **Test** tab and click **Test step**.
 
-If everything is configured correctly, Zapier will generate a PDF based on the first row of your sheet.
+If configured correctly, Zapier generates a PDF using the first row from your sheet.
 
-Download the file and verify the result.
+Download and verify the result.
 
 ---
 
 ## Step 10 — Configure Google Drive
 
-Google Drive stores the generated PDFs.
+Google Drive stores the generated PDF documents.
 
-Create a folder in Google Drive where documents will be uploaded.
+Create a target folder in Google Drive.
 
 In the Google Drive step:
 
@@ -197,8 +209,8 @@ Google Sheets → Eledo → Google Drive
 
 From here, you can:
 
-- Add more rows to your sheet and observe automatic generation  
+- Add more rows and observe automatic form filling  
 - Replace Google Sheets with another trigger app  
 - Replace Google Drive with email, CRM, or cloud storage
 
-The pattern remains the same.
+The automation pattern remains the same.
