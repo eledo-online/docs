@@ -49,6 +49,22 @@ For complex templates with repeatable items, Zapier may support only a single it
 
 ---
 
+## Prebuilt Zap Templates (Optional)
+
+Eledo also provides ready-made Zap templates [directly on our website](https://eledo.online/integrations/Eledo_Zapier).
+
+These workflows are hosted by Zapier and can help you get started faster by preconfiguring common automation patterns (for example: form submission → PDF → storage).
+
+When available, you can click Use this workflow and Zapier will open the template inside your account.
+
+> Note: If the template does not load correctly, try using a different browser or disabling browser extensions. Some privacy-focused browsers may block embedded Zapier flows.
+
+You can also build the same automation manually by following the guides in this documentation.
+
+![Ready Zaps](/assets/integrations/zapier/zapier-ready-workflows.png)
+
+---
+
 ## What to expect in this documentation
 
 This documentation is split into focused sections. You do not need to read everything—open the part relevant to your current task.
