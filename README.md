@@ -30,10 +30,11 @@ All changes are incremental and aligned with existing constraints.
 ## Repository Structure
 
 ```
-/assets        → Images and static assets
-/core          → Shared documentation topics (optional, reusable content)
-/drafts        → Work-in-progress articles and structural experiments
-/integrations  → Integration-specific documentation
+/assets           → Images and static assets
+/drafts           → Work-in-progress articles and structural experiments
+/integrations     → Integration-specific documentation
+/rendering        → Shared Eledo documentation topics (optional, reusable content)
+/template-engine  → Shared Eledo documentation topics (optional, reusable content)
 ```
 
 Example:

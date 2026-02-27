@@ -6,7 +6,7 @@ In this guide, we demonstrate how to build a Zap using **Copilot AI** inside Zap
 
 This guide is intentionally brief. The goal is to show you where to start and what to verify. AI-assisted setup is interactive by nature, so it cannot be described fully step by step.
 
-If you get stuck, refer to our [original guide](/integrations/zapier/04_guides/00_zaps/00_generate-first-pdf.md).
+If you get stuck, refer to our [original guide](/integrations/zapier/04_guides/01_zaps/00_generate-first-pdf.md).
 
 ---
 
