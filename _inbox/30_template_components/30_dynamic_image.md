@@ -1,0 +1,31 @@
+# Dynamic Image
+
+Very interesting component giving you image flexibility. You can specify image parameters in the template and send them in the document generation request.  
+Profile picture, shopping item thumbnail, or image attachments are just a few examples.
+
+### Configuration
+
+Click on the **Dynamic Image** button in the editor's toolbar and a configuration window will appear. Once confirmed, the image component will be placed at the cursor's location.
+
+**Type**
+
+- **URL** – Image will be downloaded from the URL provided in the document generation request.  
+- **Image** – Image data will be sent directly in the document generation request. The image format is recognized based on its content.
+
+**Data (expression)**
+
+Define a simple field name or formula using the [expression language](/_inbox/60_guides/10_expressions.md) to be evaluated as image URL or image data.
+
+Examples:  
+`ImageURL` – simple field name populated with URL (**Type** set to *URL*)  
+`ImageData` – simple field name populated with image data (**Type** set to *Image*)
+
+**Width (optional)**
+
+You can pre-set the width of the image. It will be scaled in the PDF to have the specified width.  
+If height is not defined, it will be calculated to maintain the original aspect ratio.
+
+**Height (optional)**
+
+You can pre-set the height of the image. It will be scaled in the PDF to have the specified height.  
+If width is not defined, it will be calculated to maintain the original aspect ratio.

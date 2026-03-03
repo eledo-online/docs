@@ -1,0 +1,20 @@
+# Form Checkbox
+
+This form component enables you to add an interactive checkbox field with a prefilled value into your PDF document.
+
+### Configuration
+
+Click on the **Form** dropdown and select the **Checkbox** item in the editor's toolbar. A configuration window will appear. Once confirmed, the Form Checkbox will be placed at the cursor's location.
+
+**Name**
+
+Technical name for the field in the PDF Form document. It should be unique within the document.
+
+**Data (expression)**
+
+Define a simple boolean field name or formula using the [expression language](/_inbox/60_guides/10_expressions.md) to be evaluated and printed into the document.
+
+Examples:  
+`Question1` – single field expression to check or uncheck the box based on the `Question1` value (`true` or `false`)  
+`Amount > 100` – expression to check the box if `Amount` is greater than 100  
+`Chooser1 == "Red"` – expression to check the box if `Chooser1` value is equal to `"Red"`

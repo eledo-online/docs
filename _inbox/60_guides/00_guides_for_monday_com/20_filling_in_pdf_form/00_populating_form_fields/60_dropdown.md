@@ -1,0 +1,16 @@
+# Populating Dropdown Field
+
+To populate a Dropdown field in your PDF Form from a Status column, follow these steps:  
+- In Eledo editor click on the dropdown form field and configuration window will appear.
+- Click into **Data (expression)** field to open Data Expression builder.
+- Find and select a Status Column using the Fields navigation menu. Start with the **item** and continue with **status**, **label**.
+- Confirm twice and you're done!
+
+## Value mapping
+To successfully populate dropdown field, the label of your monday.com status has to match one of the dropdown's options exactly. If they don't match for any reason, you will need to map your status labels into the dropdown options. For this purpose we can use **SWITCH** function:
+
+`SWITCH(item.status.label, "Mon", "Monday", "Tue", "Tuesday", "Wed", "Wednesday", "Thu", "Thursday", "Fri", "Friday")`
+
+In this case "Mon" label will be mapped to "Monday" option and so on.
+
+![image](/assets/guides/MondayPDFFormDropdownFormField.gif)

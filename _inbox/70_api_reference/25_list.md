@@ -1,0 +1,35 @@
+# List
+
+Provides a list of Templates.
+
+- **HTTP Method:** `GET`  
+- **Endpoint:** `https://eledo.online/api/RESTv1/List`
+
+---
+
+### Query String Parameters
+
+| Name    | Type    | Required | Description                                |
+|---------|---------|----------|--------------------------------------------|
+| `scope` | String  | No       | `"Mine"` or `"Public"` scope               |
+| `limit` | Integer | No       | Limits result size (useful for pagination) |
+| `page`  | Integer | No       | Page number (useful for pagination)        |
+
+---
+
+### Response Body Parameters
+
+| Name        | Type                     | Description         |
+|-------------|--------------------------|---------------------|
+| `templates` | Array of Template objects| List of templates   |
+
+---
+
+### Template Object Properties
+
+| Property  | Type     | Description                                      |
+|-----------|----------|--------------------------------------------------|
+| `id`      | String   | Unique identifier of the Template                |
+| `name`    | String   | Template name                                    |
+| `version` | Integer  | Template version                                 |
+| `bulk`    | Boolean  | `true` if the Template is designed for bulk use  |
