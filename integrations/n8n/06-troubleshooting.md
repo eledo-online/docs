@@ -12,7 +12,7 @@ If authentication fails:
 * Ensure there are no extra spaces when copying the key.
 * Try generating a new API key in your Eledo account and updating the credential.
 
-Refer to the **Authentication** documentation for full setup instructions.
+Refer to the **[Authentication](/integrations/n8n/02-authentication.md)** documentation for full setup instructions.
 
 ---
 
@@ -24,7 +24,7 @@ If the generated PDF contains only static template text and no dynamic data, che
 * The JSON payload is empty (`{}`) or `null`.
 * Field names in JSON do not match the template exactly.
 
-Review the **Guided Fields** and **JSON Mode** sections to confirm proper data mapping.
+Review the **[Guided Fields](/integrations/n8n/03-data-input/00-guided-fields.md)** and **[JSON Mode](/integrations/n8n/03-data-input/01-json-mode.md)** sections to confirm proper data mapping.
 
 ---
 
@@ -58,4 +58,4 @@ If you cannot find the Eledo node in n8n:
 * Ensure you are the **instance owner** (required for installing verified community nodes).
 * Restart your n8n instance after installation if necessary.
 
-Refer to the **Installation** section for detailed instructions.
+Refer to the **[Installation](/integrations/n8n/01-installation.md)** section for detailed instructions.

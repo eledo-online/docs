@@ -16,7 +16,7 @@ Once you understand this pattern, you can adapt it to other data sources and sto
 
 ## When to Use JSON Mode
 
-> **Note:** JSON mode is intended for advanced users. If you are working with simple templates, read the **Guided Fields** documentation first.
+> **Note:** JSON mode is intended for advanced users. If you are working with simple templates, read the **[Guided Fields](/integrations/n8n/03-data-input/00-guided-fields.md)** documentation first.
 
 JSON mode gives you full control over the data sent to Eledo. Instead of filling fields through the UI groups, you provide a complete JSON payload that matches your template structure.
 
@@ -177,7 +177,7 @@ Open the Eledo node configuration.
 
 Before it can be used, credentials must be created.
 
-Follow the **Authentication** documentation to configure your API key.
+Follow the **[Authentication](/integrations/n8n/02-authentication.md)** documentation to configure your API key.
 
 ---
 
@@ -309,7 +309,7 @@ The pattern remains the same.
 ---
 
 ## Addendum: Handling Output
-By default we output binary data exactly as received from Eledo. You might change this to get a `Base64` string representation. Please read our [**Output Modes**](/integrations/n8n/04_output-modes.md) document.
+By default we output binary data exactly as received from Eledo. You might change this to get a `Base64` string representation. Please read our [**Output Modes**](/integrations/n8n/04-output-modes.md) document.
 
 ## Addendum: Version Pinning (Optional Advanced Tip)
-n8n allows you to install a specific version of the Eledo node. This feature is called `version pinning` and can be useful when you want to lock your Eledo node to a specific version while testing newer releases in a separate sandbox environment. Please refer to our [**Installation**](/integrations/n8n/01_installation.md) document for more details.
+n8n allows you to install a specific version of the Eledo node. This feature is called `version pinning` and can be useful when you want to lock your Eledo node to a specific version while testing newer releases in a separate sandbox environment. Please refer to our [**Installation**](/integrations/n8n/01-installation.md) document for more details.

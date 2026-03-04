@@ -116,7 +116,7 @@ Open the Eledo node configuration.
 
 Before it can be used, credentials must be created.
 
-Follow the **Authentication** documentation to configure your API key.
+Follow the **[Authentication](/integrations/n8n/02-authentication.md)** documentation to configure your API key.
 
 ---
 

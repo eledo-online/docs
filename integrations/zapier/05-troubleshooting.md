@@ -13,7 +13,7 @@ If authentication fails:
 * Confirm that the API key is still valid in your Eledo account.
 * Try generating a new API key and reconnecting the account in Zapier.
 
-Refer to the **Authentication** section for detailed setup instructions.
+Refer to the **[Authentication](/integrations/zapier/01-authentication.md)** section for detailed setup instructions.
 
 ---
 
@@ -25,7 +25,7 @@ If the generated PDF contains only static template text and no dynamic values:
 * Confirm that your trigger step (for example, Google Sheets) is correctly configured and returning data.
 * Run a **Test** in Zapier to verify that input data is present before the Eledo step executes.
 
-Review the **Data Input** section to confirm proper field mapping.
+Review the **[Data Input](/integrations/zapier/02-data-input.md)** section to confirm proper field mapping.
 
 ---
 

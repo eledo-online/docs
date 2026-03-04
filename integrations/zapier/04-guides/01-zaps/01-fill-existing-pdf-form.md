@@ -122,7 +122,7 @@ In the Eledo step, locate the **Account** field.
 
 If this is your first time using Eledo in Zapier, connect your account by providing your API key.
 
-Refer to the **Authentication** documentation for detailed instructions.
+Refer to the **[Authentication](/integrations/zapier/01-authentication.md)** documentation for detailed instructions.
 
 ---
 
