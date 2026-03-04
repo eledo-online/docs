@@ -4,7 +4,7 @@ To print a number value into your PDF using Make.com, follow these steps:
 - In Eledo editor click on a **Text box** component from top toolbar. Configuration window will appear. 
 - Click into **Data (expression)** field to open Data Expression builder.
 - Type a word you want to represent the number value. It will be used as input field name. This word cannot contain a space nor special characters, just letters, numbers and underscore. In our case we type **Quantity**
-- If you need to format this value, try one of our [number formatting functions](/_inbox/40_data_expressions/40_number_functions.md) such as [CURR](/_inbox/60_guides/11_formatting_numbers.md) or [NUM](/_inbox/60_guides/11_formatting_numbers.md) 
+- If you need to format this value, try one of our [number formatting functions](/_inbox/40-data-expressions/40-number-functions.md) such as [CURR](/_inbox/60-guides/11-formatting-numbers.md) or [NUM](/_inbox/60-guides/11-formatting-numbers.md) 
 - Confirm twice and dynamic text component will be placed at cursor position.
 - Save the template and input field will be automatically created from the data expression.
 
@@ -64,4 +64,4 @@ Salary = 56789.996
 `CONCAT("$", CURR(Salary, 0, 2))`  Output: $56,789.99
 
 
-Discover all the number functions here: [Number Functions](/_inbox/40_data_expressions/40_number_functions.md)
+Discover all the number functions here: [Number Functions](/_inbox/40-data-expressions/40-number-functions.md)

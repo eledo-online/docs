@@ -23,4 +23,4 @@ With Eledo it is also possible to print multiple images from Files column of you
 
 ![image](/assets/guides/MondayPrintingImages2.gif)
 
-If you're interested in printing your images inline, check out our guide [here](/_inbox/60_guides/40_images_in_line.md).
+If you're interested in printing your images inline, check out our guide [here](/_inbox/60-guides/40-images-in-line.md).

@@ -12,7 +12,7 @@ Technical name for the field in the PDF Form document. It should be unique withi
 
 **Data (expression)**
 
-Define a simple text field name or formula using the [expression language](/_inbox/60_guides/10_expressions.md) to be evaluated and printed into the document.
+Define a simple text field name or formula using the [expression language](/_inbox/60-guides/10-expressions.md) to be evaluated and printed into the document.
 
 Examples:  
 `Surname` – single field expression to put the surname in place  

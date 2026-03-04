@@ -8,7 +8,7 @@ Click on **Text Box** button in editor's toolbar and a configuration window will
 
 **Data (expression)**
 
-Define a simple text field name or formula using [expression language](/_inbox/60_guides/10_expressions.md) to be evaluated and print the resulting value to a document.
+Define a simple text field name or formula using [expression language](/_inbox/60-guides/10-expressions.md) to be evaluated and print the resulting value to a document.
 
 Examples:  
 `Surname` – single field expression to put surname in place  

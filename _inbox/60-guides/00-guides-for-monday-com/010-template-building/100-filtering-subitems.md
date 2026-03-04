@@ -1,7 +1,7 @@
 # Filtering Subitems
 Sometimes you don't want to print all subitems from your board, but limit the list by some logic. Filtering allows you to do it with simple  but also complex filtering condition.
 
-Filtering of any kind of list of items can be done using [FILTER](/_inbox/40_data_expressions/60_array_functions.md) function in Eledo data expression. It has two parameters, the source array and filtering conditon. Condition can be comparison of a single column value and a constant, but also combined using [OR and AND](/_inbox/40_data_expressions/70_logical_functions.md) functions.
+Filtering of any kind of list of items can be done using [FILTER](/_inbox/40-data-expressions/60-array-functions.md) function in Eledo data expression. It has two parameters, the source array and filtering conditon. Condition can be comparison of a single column value and a constant, but also combined using [OR and AND](/_inbox/40-data-expressions/70-logical-functions.md) functions.
 
 # Filtering condition
 
@@ -29,7 +29,7 @@ We can combine multiple conditions to check whether the number is in range:
 
 # Where to apply?
 
-Result of FILTER function is a filtered list. To print that list we use Block Repetition. How to setup the Block Repetition we describe in [Printing Subitems](/_inbox/60_guides/00_guides_for_monday_com/010_template_building/020_printing_subitems.md) guide.
+Result of FILTER function is a filtered list. To print that list we use Block Repetition. How to setup the Block Repetition we describe in [Printing Subitems](/_inbox/60-guides/00-guides-for-monday-com/010-template-building/020-printing-subitems.md) guide.
 
 We apply the filtering function in Block Repetition's data expression.
 

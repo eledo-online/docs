@@ -4,7 +4,7 @@ To print a value from a Number column from your monday.com board, follow these s
 - In Eledo editor, click on a **Text box** component from top toolbar. Configuration window will appear.
 - Click into **Data (expression)** field to open Data Expression builder.
 - Find and select a number column using the Fields navigation menu. Start with the **item** and continue with **number** for example.
-- If you need to format this value, try one of our [number formatting functions](/_inbox/40_data_expressions/40_number_functions.md) such as [CURR](/_inbox/60_guides/11_formatting_numbers.md) or [NUM](/_inbox/60_guides/11_formatting_numbers.md) 
+- If you need to format this value, try one of our [number formatting functions](/_inbox/40-data-expressions/40-number-functions.md) such as [CURR](/_inbox/60-guides/11-formatting-numbers.md) or [NUM](/_inbox/60-guides/11-formatting-numbers.md) 
 - Confirm twice and you're done! Dynamic text component will be placed at cursor position.
 
 ![image](/assets/guides/MondayPrintNumberColumn.gif)
@@ -50,6 +50,6 @@ item.number = 56789.996
 
 `CONCAT("$", CURR(item.number, 0, 2))`  Output: $56,789.99
 
-Find more information about number formatting in this article: [Formatting Numbers](/_inbox/60_guides/11_formatting_numbers.md)
+Find more information about number formatting in this article: [Formatting Numbers](/_inbox/60-guides/11-formatting-numbers.md)
 
-Discover all the number functions here: [Number Functions](/_inbox/40_data_expressions/40_number_functions.md)
+Discover all the number functions here: [Number Functions](/_inbox/40-data-expressions/40-number-functions.md)

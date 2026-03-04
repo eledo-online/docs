@@ -16,7 +16,7 @@ Click on the **Barcodes 1D** or **Barcodes 2D** drop-down button in the editor's
 
 **Data (expression)**
 
-Define a simple text field name or formula using the [expression language](/_inbox/60_guides/10_expressions.md) to be evaluated and used by the barcode generation algorithm.
+Define a simple text field name or formula using the [expression language](/_inbox/60-guides/10-expressions.md) to be evaluated and used by the barcode generation algorithm.
 
 Examples:  
 `ProductSKU` – single field expression to get product SKU and generate a barcode (e.g. EAN)  

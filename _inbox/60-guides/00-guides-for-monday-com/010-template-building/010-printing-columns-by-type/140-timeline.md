@@ -4,7 +4,7 @@ To print a value ​​from a Timeline Column from your monday.com board, follow
 - In Eledo editor click on a **Text box** component from top toolbar. Configuration window will appear. 
 - Click into **URL (expression)** field to open Data Expression builder.
 - Find and select a timeline column using the Fields navigation menu. Start with the **item** and continue with **timeline**, **from** for example.
-- If you need to format this value, try one of our [DATE functions](/_inbox/60_guides/12_formatting_dates.md)
+- If you need to format this value, try one of our [DATE functions](/_inbox/60-guides/12-formatting-dates.md)
 - Confirm twice and you're done! Dynamic link component will be placed at cursor position.
 
 ![image](/assets/guides/PrintingMondayTimelineColumn.gif)
@@ -29,8 +29,8 @@ item.timeline.from = 14. July 2025
 
 `DATE(item.timeline.from, "dd MMMM yyyy")`   Output: 14 July 2025
 
-Date formatting letters are listed in this article: [Formatting Dates](/_inbox/60_guides/12_formatting_dates.md)
+Date formatting letters are listed in this article: [Formatting Dates](/_inbox/60-guides/12-formatting-dates.md)
 
-Find more information about data formatting in this article: [Formatting Dates](/_inbox/60_guides/12_formatting_dates.md) 
+Find more information about data formatting in this article: [Formatting Dates](/_inbox/60-guides/12-formatting-dates.md) 
 
-Discover all date functions here: [Date Functions](/_inbox/40_data_expressions/50_date_functions.md)
+Discover all date functions here: [Date Functions](/_inbox/40-data-expressions/50-date-functions.md)

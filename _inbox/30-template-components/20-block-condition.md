@@ -10,7 +10,7 @@ Use the **Select parent element** button to choose the parent of the currently s
 
 **Test (expression)**
 
-Define a simple field name or formula using the [expression language](/_inbox/60_guides/10_expressions.md) that evaluates to a boolean value.  
+Define a simple field name or formula using the [expression language](/_inbox/60-guides/10-expressions.md) that evaluates to a boolean value.  
 If the result is `true`, the block will be visible; otherwise, it will be hidden.
 
 Examples:  

@@ -14,7 +14,7 @@ Click on the **Dynamic Image** button in the editor's toolbar and a configuratio
 
 **Data (expression)**
 
-Define a simple field name or formula using the [expression language](/_inbox/60_guides/10_expressions.md) to be evaluated as image URL or image data.
+Define a simple field name or formula using the [expression language](/_inbox/60-guides/10-expressions.md) to be evaluated as image URL or image data.
 
 Examples:  
 `ImageURL` – simple field name populated with URL (**Type** set to *URL*)  

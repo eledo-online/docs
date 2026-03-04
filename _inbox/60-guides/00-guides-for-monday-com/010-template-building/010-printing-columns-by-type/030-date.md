@@ -4,7 +4,7 @@ To print a value ​​from a Date Column from your monday.com board, follow the
 - In Eledo editor click on a **Text box** component from top toolbar. Configuration window will appear. 
 - Click into **Data (expression)** field to open Data Expression builder.
 - Find and select a date column using the Fields navigation menu. Start with the **item** and continue with **date** for example.
-- If you need to format this value, try one of our [DATE functions](/_inbox/60_guides/12_formatting_dates.md)
+- If you need to format this value, try one of our [DATE functions](/_inbox/60-guides/12-formatting-dates.md)
 - Confirm twice and you're done! Dynamic text component will be placed at cursor position.
 
 ![image](/assets/guides/MondayPrintDateColumn.gif)
@@ -29,7 +29,7 @@ item.date = 14. July 2025
 
 `DATE(item.date, "dd MMMM yyyy")`   Output: 14 July 2025
 
-Date formatting letters are listed in this article: [Formatting Dates](/_inbox/60_guides/12_formatting_dates.md)
+Date formatting letters are listed in this article: [Formatting Dates](/_inbox/60-guides/12-formatting-dates.md)
 
 **Tips:**
 
@@ -41,6 +41,6 @@ item.date = 1. January 2025 ;  item.date_1 = 20. January 2025
 
 `DAYS_BETWEEN(item.date, item.date_1)` Output: 19
 
-Find more information about data formatting in this article: [Formatting Dates](/_inbox/60_guides/12_formatting_dates.md) 
+Find more information about data formatting in this article: [Formatting Dates](/_inbox/60-guides/12-formatting-dates.md) 
 
-Discover all date functions here: [Date Functions](/_inbox/40_data_expressions/50_date_functions.md) 
+Discover all date functions here: [Date Functions](/_inbox/40-data-expressions/50-date-functions.md) 

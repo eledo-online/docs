@@ -12,7 +12,7 @@ Technical name for the field in the PDF Form document. It should be unique withi
 
 **Data (expression)**
 
-Define a simple boolean field name or formula using the [expression language](/_inbox/60_guides/10_expressions.md) to be evaluated and printed into the document.
+Define a simple boolean field name or formula using the [expression language](/_inbox/60-guides/10-expressions.md) to be evaluated and printed into the document.
 
 Examples:  
 `Question1` – single field expression to check or uncheck the box based on the `Question1` value (`true` or `false`)  

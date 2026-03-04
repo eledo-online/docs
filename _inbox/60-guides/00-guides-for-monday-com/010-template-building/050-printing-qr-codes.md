@@ -33,4 +33,4 @@ Example: ``mailto:support@example.com?subject=Feedback&body=Hello!``
 Data expression: ``CONCAT("mailto:", item.email, "?subject=Feedback&body=Hello!")``
 
 ### More use cases
-Find out more use cases in [Generating QR codes](/_inbox/60_guides/50_generating_qr_codes.md) article.
+Find out more use cases in [Generating QR codes](/_inbox/60-guides/50-generating-qr-codes.md) article.

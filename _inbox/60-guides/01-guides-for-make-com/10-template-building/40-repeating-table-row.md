@@ -15,7 +15,7 @@ This setup ensures the table row will be repeated as many times as there are ite
 - In Eledo editor click on a **Text box** component from top toolbar. Configuration window will appear. 
 - Click into **Data (expression)** field to open Data Expression builder.
 - Type a word you want to represent the column value. It will be used as input field name. This word cannot contain a space nor special characters, just letters, numbers and underscore. For example: **Name**, **Quantity** and **DeliveryDate**.
-- If you need to format this value, try one of our [text formatting functions](/_inbox/40_data_expressions/30_text_functions.md)
+- If you need to format this value, try one of our [text formatting functions](/_inbox/40-data-expressions/30-text-functions.md)
 - Confirm twice and dynamic text component will be placed at cursor position.
 - Don´t forget to Save the template.
 

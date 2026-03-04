@@ -9,7 +9,7 @@ If it's not possible to select the exact element you want to repeat, select a ne
 
 **Data (expression)**
 
-Define an array field name or formula using the [expression language](/_inbox/60_guides/10_expressions.md) to be evaluated as an array of items. The selected block will be repeated based on the array items count, and each block's data context will be the corresponding item.
+Define an array field name or formula using the [expression language](/_inbox/60-guides/10-expressions.md) to be evaluated as an array of items. The selected block will be repeated based on the array items count, and each block's data context will be the corresponding item.
 
 Examples:  
 `LineItems` – array field expression to repeat LineItem block  
