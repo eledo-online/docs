@@ -25,7 +25,7 @@ Tip: If you need to sort in different directions (e.g., one column in ascending 
 
 # Where to apply?
 
-Result of SORT function is a sorted list. To print that list we use Block Repetition. How to setup the Block Repetition we describe in [Printing Subitems](/_inbox/60_guides/00_guides_for_monday_com/10_template_building/20_printing_subitems.md) guide.
+Result of SORT function is a sorted list. To print that list we use Block Repetition. How to setup the Block Repetition we describe in [Printing Subitems](/_inbox/60_guides/00_guides_for_monday_com/010_template_building/020_printing_subitems.md) guide.
 
 We apply the sorting function in Block Repetition's data expression.
 

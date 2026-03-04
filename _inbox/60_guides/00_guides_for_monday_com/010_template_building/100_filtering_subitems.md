@@ -29,7 +29,7 @@ We can combine multiple conditions to check whether the number is in range:
 
 # Where to apply?
 
-Result of FILTER function is a filtered list. To print that list we use Block Repetition. How to setup the Block Repetition we describe in [Printing Subitems](/_inbox/60_guides/00_guides_for_monday_com/10_template_building/20_printing_subitems.md) guide.
+Result of FILTER function is a filtered list. To print that list we use Block Repetition. How to setup the Block Repetition we describe in [Printing Subitems](/_inbox/60_guides/00_guides_for_monday_com/010_template_building/020_printing_subitems.md) guide.
 
 We apply the filtering function in Block Repetition's data expression.
 
