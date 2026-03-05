@@ -9,8 +9,6 @@ The purpose of this repository is to:
 * Improve structural consistency
 * Provide a scalable foundation for future documentation growth
 
-This repository is currently private and serves as the authoritative writing workspace. Content may be mirrored to the Eledo website using existing tooling.
-
 ---
 
 ## Scope
@@ -20,32 +18,9 @@ This repository focuses on documentation architecture and content organization.
 It does **not** currently:
 
 * Replace the existing Eledo website
-* Introduce a new static site generator
 * Modify production deployment workflows
 
 All changes are incremental and aligned with existing constraints.
-
----
-
-## Repository Structure
-
-```
-/assets           → Images and static assets
-/drafts           → Work-in-progress articles and structural experiments
-/integrations     → Integration-specific documentation
-/rendering        → Shared Eledo documentation topics (optional, reusable content)
-/template-engine  → Shared Eledo documentation topics (optional, reusable content)
-```
-
-Example:
-
-```
-/integrations/n8n/
-```
-
-Each integration has its own subtree.
-
-Shared topics may be referenced rather than duplicated.
 
 ---
 
@@ -81,12 +56,6 @@ Future enhancements (optional):
 
 ---
 
-## Status
-
-Initial focus: n8n integration documentation.
-
-This subtree will serve as a reference implementation for improved documentation structure.
-
----
+> The original documentation structure is preserved in the tag: `docs-baseline-2026-03`
 
 Maintained by: Eledo Documentation Team
