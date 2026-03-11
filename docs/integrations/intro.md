@@ -1,47 +1,27 @@
 ---
 sidebar_position: 1
+title: Integrations
 ---
 
-# Tutorial Intro
+# Integrations
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Eledo integrates with a wide range of automation platforms, e-commerce systems, and APIs.
 
-## Getting Started
+These integrations allow you to generate PDF documents automatically from your data and workflows.
 
-Get started by **creating a new site**.
+Typical use cases include:
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+- generating invoices from e-commerce orders
+- producing shipping labels
+- creating reports or contracts from automation workflows
 
-### What you'll need
+## Available integrations
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+Choose your platform to learn how to connect it with Eledo.
 
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+- n8n
+- Zapier
+- Make
+- WooCommerce
+- monday.com
+- RapidAPI

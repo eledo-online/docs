@@ -1,0 +1,225 @@
+---
+title: Fill an Existing PDF Form
+sidebar_position: 2
+---
+
+# Fill an Existing PDF Form
+
+## What You Will Build
+
+This guide does not attempt to cover every possible template or workflow combination. Instead, it introduces a simple pattern that you can reuse and extend.
+
+We will build a workflow with three components:
+
+1. **Data source** — Google Sheets
+2. **Eledo** — PDF generation
+3. **Data sink** — Google Drive (stores generated PDFs)
+
+Once you understand this pattern, you can adapt it to other data sources and storage systems supported by n8n.
+
+---
+
+## Step 1 — Upload a fillable PDF into Eledo
+
+For this guide, we have prepared a sample fillable PDF. While you may use any PDF, we recommend using ours so it is easier to follow along.
+
+### Instructions
+
+1. Download a sample PDF from [this link](/assets/integrations/pdf-form.pdf)
+2. Log into your Eledo account.
+3. Open **My Templates**.
+4. Click **Upload PDF**, select your file and give it a proper name.
+
+![Fillable PDF Upload](/img/integrations/shared/fillable-pdf-upload.png)
+
+---
+
+## Step 2 — Map PDF form fields to Eledo data fields
+
+Although the PDF already contains fillable fields, these are internal to the document. You must tell Eledo which fields to populate and with what data. Essentially, you are mapping internal PDF form fields to the Eledo data model.
+
+> Note: It is entirely up to you which form fields you want to populate. You might map only certain fields. Equally you can add new fields into the document. Adding new fields is outside of scope of this guide.
+
+Mapping the fields is straight-forward. Every form field has a correct type. You simply need to bind each field to a corresponding data name in Eledo. This is the field you will further use from inside n8n. See below for an example of how we mapped the `fullName` text field. Continue with the mapping for remaining fields.
+
+![Fillable PDF Map Fields](/img/integrations/shared/fillable-pdf-map-fields.png)
+
+After you're done mapping the fields, hit `Save` button to store the changes. Now you have a proper Eledo template.
+
+### Optional step — Check the full data structure in JSON
+In the left-side drawer menu click on `API`. You will see the full data model. It helps you double-check your field mapping. See the payload inside `HTTP Request Body`.
+
+![Verify Data Mapping](/img/integrations/shared/pdf-form-verify-data-mapping.png)
+
+---
+
+## Step 3 — Create the n8n Workflow
+
+Create a new workflow in n8n and add three nodes:
+
+* **Google Sheets** (data source)
+* **Eledo**
+* **Google Drive** (storage)
+
+> Note: Configuration of Google Sheets and Google Drive nodes is outside the scope of this guide. Follow the official n8n documentation for authentication and basic setup.
+
+![Eledo Workflow](/img/integrations/n8n/eledo-workflow-template.png)
+
+---
+
+### Google Sheets Configuration
+
+Create a Google Sheet with the following structure:
+
+| fullName | nameId | gender | isMarried | city | notes |
+| --- | --- | --- | --- | --- | --- |
+| John Smith | 1 | Male | TRUE | Paris | Loves reading. |
+| Peter File | 2 | Male | FALSE | London | Makes own music. |
+| Valentina Rossi | 3 | Female | FALSE | Rome | Rides motorcycles. |
+
+Each row represents one unique person.
+
+![Google Sheet Document](/img/integrations/shared/google-sheet-doc-2.png)
+
+Set up a trigger so that the workflow runs when a row is added or updated.
+
+> Note: The first row must contain headers. n8n automatically uses these headers (`fullName`, `nameId`, ...) as property names.
+
+In the Google Sheets node:
+
+* Authenticate
+* Select the correct document
+* Select the appropriate sheet
+
+In this example, we selected a document named **Eledo demo**.
+
+![Google Sheet n8n](/img/integrations/n8n/google-sheet-n8n.png)
+
+---
+
+### Eledo Node
+
+Add the Eledo node and connect it between Google Sheets and Google Drive.
+
+We will configure it in the next steps.
+
+---
+
+### Google Drive Configuration
+
+Create a folder in Google Drive where generated PDFs will be stored.
+
+In the Google Drive node:
+
+* Authenticate
+* Select **Upload file** action
+* Choose the target folder
+
+![Google Drive Upload File](/img/integrations/n8n/google-drive-upload-file.png)
+
+---
+
+## Step 4 — Configure Authentication
+
+Open the Eledo node configuration.
+
+Before it can be used, credentials must be created.
+
+Follow the **[Authentication](../../authentication.md)** documentation to configure your API key.
+
+---
+
+## Step 5 — Select a Template
+
+In the Eledo node:
+
+* Set **Template Scope** to `Private`
+* Select your copied template (for example: `Fillable PDF (v1)`)
+
+### About Template Scope
+
+* **Private scope** contains your templates and copies of public templates.
+* **Public scope** allows direct use of public templates.
+
+By default, Eledo uses the latest version of the selected template. You may optionally lock a specific version.
+
+> Template names and version numbers may differ slightly. This is expected.
+
+---
+
+## Step 6 — Bind Data Using Guided Fields
+
+Guided Fields are the recommended input method for most templates.
+They support flat data structures (text, number, and date fields).
+
+More complex templates require JSON mode.
+
+### Why Your Sheet Might Have Less Columns
+
+While the PDF form expects 6 parameters, it doesn't mean you have to store all of them in the table. For example, you might use the same `Notes` value for every generated PDF. Or if your form has a `Date` field, you might get current date directly from n8n, there is no need to store it in a table.
+
+---
+
+### Configure Guided Fields
+
+1. Under **Text / Number Fields**, add fields for `fullName`, `nameId`, `gender`, `city` and `notes`.
+2. Under **Boolean Fields**, add field for `isMarried`.
+3. For some values, you might temporarily use static values just to see the effect.
+4. However, our document uses exclusively dynamic fields. Switch all your fields (`fullName`, `nameId`, ...) into **Expression mode**.
+5. Bind values coming from the Google Sheets node.
+
+Refer to the screenshot below for a concrete example.
+
+![Dynamic Fields Configuration](/img/integrations/n8n/eledo-n8n-dynamic-fields-2.png)
+
+---
+
+## Step 7 — Test the Workflow
+
+Click **Execute step** in the Eledo node.
+
+If everything is configured correctly, you should see a generated PDF for each row in your sheet.
+
+Download and verify the results.
+
+---
+
+## Step 8 — Upload PDFs to Google Drive
+
+Now configure the Google Drive node to store the generated files.
+
+Prerequisites:
+
+* Authentication configured
+* Target folder selected
+
+Inside the Google Drive node:
+
+* Set **Operation** to `Upload`
+* Switch the required fields to **Expression mode**
+* Map:
+
+  * **Input Data Field Name** → `{{ $('Generate PDF document').item.binary.document }}`
+  * **File Name** → `{{ $('Generate PDF document').item.binary.document.fileName }}` (optional)
+
+This tells Google Drive to upload the PDF file generated by the Eledo node.
+
+See the screenshot below for exact expression examples.
+
+![Dynamic Fields Configuration](/img/integrations/n8n/n8n-google-drive.png)
+
+## What’s Next?
+![Eledo PDF Form Example](/img/integrations/shared/eledo-pdfform-example.png)
+
+You now have a working automation:
+
+Google Sheets → Eledo → Google Drive
+
+From here, you can:
+
+* Add more rows to your sheet and observe the automatic generation
+* Experiment with dynamic expressions
+* Use JSON mode for complex templates
+* Replace Google Sheets or Google Drive with other integrations
+
+The pattern remains the same.
