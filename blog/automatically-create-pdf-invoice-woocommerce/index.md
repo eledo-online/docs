@@ -1,0 +1,150 @@
+---
+title: Automatically Create and Send Custom PDF Invoice in WooCommerce
+description: Annoying, but essential topic in your business has a lot of solutions. We are aiming on invoice customization to give you more flexibility and new features to impress your customers.
+date: 2026-03-11
+slug: automatically-create-pdf-invoice-woocommerce
+tags:
+  - woocommerce
+  - invoices
+  - automation
+  - pdf
+  - ecommerce
+---
+
+# Automatically create and send custom PDF invoice in WooCommerce
+
+Annoying, but essential topic in your business has a lot of solutions. We are aiming on invoice customization to give you more flexibility and new features to impress your customers.
+
+<!-- truncate -->
+
+### Requirements
+
+- eledo.online account
+- Eledo PDF Attachments for WooCommerce plugin
+
+Eledo is an online PDF service allowing you to design PDF templates and create documents with dynamic data. **Free accounts are also available.** WooCommerce plugin was created to integrate the service with your e-shop. It is open source and free of charge.
+
+### Dry run
+
+Before we spend some time with customization, let's make a dry run.
+
+- Create account at https://eledo.online/register
+- Get API Key from **Integrations → API** page
+- Install **Eledo PDF Attachments for WooCommerce** plugin
+- Navigate to **WooCommerce → Settings → Eledo PDF** and set the API key
+- Select public **Invoice template** and save configuration
+- Navigate to **WooCommerce → PDF Documents** and click **Create** on some order (manual invoice generation)
+- Review created document
+
+### What happened?
+
+You most probably received a **PDF invoice** for your order, which is not fully populated. Invoice number is not as you expect it, the logo is not yours, and you may not like the colors. Everything can be changed to your satisfaction — keep reading.
+
+# Customization
+
+The PDF template we used is a **public one** and therefore **read-only**.  
+To make changes you need to copy it to your personal directory.
+
+1. Click **Edit** on the public template  
+2. Click **Copy**
+
+Now you can modify your own version.
+
+### Company details
+
+Some values are usually included in multiple documents and therefore it is a good idea to define them **globally**.
+
+There are two types of **variables** you can define in your **Eledo user profile**.
+
+**Standard properties**
+
+Used for **text values** such as:
+
+- Company name
+- Address
+- Phone number
+
+**Counters**
+
+Counters are numeric values that **increment automatically**.
+
+To populate global variables used by the template:
+
+1. Open the **Edit screen**
+2. Choose **Input fields**
+3. Click **Add missing to profile**
+
+Missing variables will be added to your profile so you can populate them and save the profile.
+
+### Company logo
+
+The logo can be changed directly in the template editor.
+
+1. Double-click the existing logo
+2. Upload your logo in the **Upload** tab
+3. Use **Browse Server** to select the logo
+4. Adjust width and height if necessary
+5. Confirm with **OK**
+
+We strongly recommend using **SVG format**.
+
+### Invoice number generation
+
+The PDF document identifier (file name) is generated from the expression defined in the **File Name** field in the template editor.
+
+Example from the public invoice template:
+
+```
+$InvoicePrefix + num(#InvoiceCreated,4)
+```
+
+This produces invoice numbers like:
+
+```
+INV0034
+```
+
+Explanation:
+
+- `$InvoicePrefix` → user profile variable  
+- `#InvoiceCreated` → counter defined in the user profile  
+- `num(N, x)` → prints number **N** padded with leading zeroes to **x digits**
+
+If we want to derive the invoice number from the **order number**, the expression could look like this:
+
+```
+$InvoicePrefix + num(id, 4)
+```
+
+To add the **year**, you can use date functions:
+
+```
+$InvoicePrefix + num(year(), 2) + num(#InvoiceCreated, 4)
+```
+
+Read more in the [Expressions guide](/documentation/guides/expressions).
+
+### Styling with CSS
+
+Color, font size or border thickness can be changed using the tools in the template editor, or in a more advanced way using **Cascading Style Sheets (CSS)**.
+
+CSS allows you to change the style of elements globally, for example:
+
+- all tables
+- all paragraphs
+
+CSS can be added in the template editor under:
+
+**Document → Styles**
+
+### Email settings and automation
+
+So far the invoice has been created **manually**.
+
+Automation comes with **email settings**. Invoices are generated on demand by an email notification trigger. The invoice is also generated **only once per order**, even if it is included in multiple email notifications.
+
+Now you need to select which email notifications should include the invoice attachment.
+
+The **payment method filter** helps you prepare different invoice types per payment method.
+
+For example, you can send a **pre-invoice** for **BACS payments** with a **QR code** to make your customer's payment more comfortable.

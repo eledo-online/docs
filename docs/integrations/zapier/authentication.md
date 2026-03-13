@@ -1,0 +1,66 @@
+---
+title: Authentication
+sidebar_position: 2
+---
+
+# Authentication
+
+Authentication allows Zapier to securely communicate with your Eledo account.
+
+Without authentication, Eledo does not know which account should process the request and cannot generate documents on your behalf.
+
+This integration uses a simple **API Key**.
+
+---
+
+## Step 1 — Create an API Key in Eledo
+
+1. Log into your Eledo account at [https://eledo.online/](https://eledo.online/)
+2. Click **Profile** (bottom-left corner of the screen)
+3. Open the **API** tab under the *Your Profile* section
+4. Copy your API key
+
+If you do not have an API key yet, you can generate one in this section.
+
+![API key location inside Profile → API.](/img/integrations/shared/eledo-api-key.png)
+
+---
+
+## Step 2 — Connect Your Account in Zapier
+
+Open the Eledo step inside your Zap.
+
+At the bottom of the `Setup` configuration panel, locate the **Account** field.
+
+If this is your first time setting up authentication:
+
+1. Click the `Select` button
+2. Choose **+ Connect a new account**
+3. Paste your API key into the **API Key** field
+4. Click `Yes, continue to Eledo`
+
+![Credentials window with API key.](/img/integrations/zapier/auth-api-key.png)
+
+After completing these steps, the account will appear in the list available under the `Select` button in the **Account** field.
+
+You can add multiple Eledo accounts. Zapier allows you to choose which account should be used for each specific Zap.
+
+> Note: Zapier automatically tests the connection with Eledo. If successful, the account will appear in the list. If not, Zapier will display an error message explaining the issue.
+
+![Credentials window with API key – Error.](/img/integrations/zapier/auth-api-key-error.png)
+
+If you receive an error:
+
+* Verify that the API key was copied correctly
+* Ensure your internet connection is active
+* Try generating a new API key in Eledo and updating the credential
+
+---
+
+## Notes
+
+* You can generate a new API key at any time under **Profile → API**.
+* If you regenerate the key, remember to update it in any existing Zaps.
+* Invalid or outdated API keys are the most common cause of authentication errors.
+
+Once authentication is complete, you can proceed to selecting a template and mapping your data.

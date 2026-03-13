@@ -1,0 +1,27 @@
+---
+sidebar_position: 1
+title: Integrations
+---
+
+# Integrations
+
+Eledo integrates with a wide range of automation platforms, e-commerce systems, and APIs.
+
+These integrations allow you to generate PDF documents automatically from your data and workflows.
+
+Typical use cases include:
+
+- generating invoices from e-commerce orders
+- producing shipping labels
+- creating reports or contracts from automation workflows
+
+## Available integrations
+
+Choose your platform to learn how to connect it with Eledo.
+
+- n8n
+- Zapier
+- Make
+- WooCommerce
+- monday.com
+- RapidAPI

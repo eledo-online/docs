@@ -1,0 +1,23 @@
+---
+title: Printing Checkbox
+sidebar_position: 6
+---
+
+# Printing Checkbox
+
+To print checkbox ​​from make.com, follow these steps:  
+- In Eledo editor click on a **Dynamic Checkbox** component from top toolbar. Configuration window will appear. 
+- Click into **Data (expression)** field to open Data Expression builder.
+- Type the word you want to represent the checkbox value. It will be used as input field name. This word cannot contain a space nor special characters, just letters, numbers and underscore. For example **Fragile**.
+- Confirm twice and you're done! Dynamic Checkbox component will be placed at cursor position.
+- Save the template and input field will be automatically created from the data expression.
+
+![image](/img/integrations/make/PrintingCheckboxMake1.gif)
+
+- In your make.com scenario click on Eledo modul and refresh data from the template.
+- **Fragile** input field should be now available to be mapped with a date value.
+- Switch the Map toggle for that field, so you can map a value from your data source.
+- Now you can map the boolean value from your data source or use a formula to produce a boolean result.
+- Confirm and you're done!
+
+![image](/img/integrations/make/PrintingCheckboxMake2.gif)

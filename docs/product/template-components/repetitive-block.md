@@ -1,0 +1,21 @@
+---
+title: Repetitive Box
+sidebar_position: 3
+---
+
+# Repetitive Block
+
+Very important template component making document generation more dynamic. You can prepare a block for one item and let it be replicated as many times as there are items in the input data array. Items in a list and rows or columns in a table are just a few examples.
+
+### Configuration
+
+Select the block or place the cursor inside the block's content. Click on the **Block Repetition** button in the editor's toolbar and a configuration window will appear.  
+If it's not possible to select the exact element you want to repeat, select a nested element and use the **Select parent block** button until you reach it.
+
+**Data (expression)**
+
+Define an array field name or formula using the [expression language](../template-building-guides/expressions.md) to be evaluated as an array of items. The selected block will be repeated based on the array items count, and each block's data context will be the corresponding item.
+
+Examples:  
+`LineItems` – array field expression to repeat LineItem block  
+`for(1, 10)` – expression to generate an array containing numbers from 1 to 10

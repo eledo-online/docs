@@ -1,0 +1,64 @@
+---
+title: Overview
+sidebar_position: 1
+---
+
+# Data Expressions overview
+Eledo prepares input fields from your template automatically and it also prints values into PDF from data sent via API. Data expression is used in both operations and it defines which input fields will be created and at the same time how the input data will be processed and printed.
+
+Data expression consists of multiple elements where the most important one is a Variable. When you save your template, Eledo creates input fields from all the variables used in the template.
+
+## Elements
+ - `Name` - Variable
+ - `123` - Constant number
+ - `"Peter"` - Constant string
+ - `+` - Operator
+ - `ABS(X)` - Function
+
+## Variables
+Simple word defines a variable name. It consists of upper or lower case letters and can contain, but cannot start with underscore. Valid names could look like:
+
+`Name`
+`email`
+`UnitPrice`
+`order_number`
+
+You can define or refer variable within an object using dot notation, where `.` character connects object and variable name. Following expression refers City variable of Address object:
+
+`Address.City`
+
+## Numbers
+Numbers and operations with them are handled with highest precision. Acceptable number format is simple: 123.456 - starting with digits, followed by decimal separator and ending with digits again. Decimal part is optional.
+
+## Operators
+You can use following binary operators to perform simple mathematical calculations with variables directly in your template.
+
+`+` `-` `*` `/` `%` `>` `>=` `<` `<=` `=` `==` `!=`
+
+## Functions
+More advanced data processing begins with functions. They are grouped in multiple categories.
+
+### General functions
+`IF` `SWITCH` `FOR` `NEXTCOUNTER` `PROPERTY` `DEFAULT`
+
+### Text functions
+`CONCAT` `LENGTH` `LEFT` `RIGHT` `UPPER` `LOWER` `CAPITALIZE` `CAPITALIZEFULLY` `CHARAT` `SPLIT` `REGEX` `REPLACE` `ABS` `MAX` `MIN` `NUM` `CURR` `ROUND`
+
+### Date functions
+`DATE` `TO_DATE` `DAYS` `DAYS_BETWEEN` `TODAY`
+
+### Array functions
+`SIZE` `FILTER` `SORT_ASC` `SORT_DESC` `GET` `FIRST` `LAST` `MAP` `JOIN`
+
+### Logical functions
+`NOT` `AND` `OR`
+
+### Statistical functions
+`SUM` `SUMC`
+
+### Types
+Variable can be one of the following types: boolean, number, string, date, object and array. Default variable type is string and other types are evaluated based on operations or functions used on them. For example, if you use expression `A + 3`, type of `A` will be set to number. It then eliminates input errors, because user is forced to enter a number.
+
+In cases when expressions `A + 3` and `A + ".pdf"` are used, the `A` variable could be number or string. If the type would be resolved to string, then there is a high risk the first expression would fail due to text input instead of number one. Eledo solves this by resolving the `A` variable type as number.
+
+Auto resolved types can be overriden in Input Fields menu of template editor. If in the previous example the `A` type would be overriden to string, then the first expression `A + 3` would be evaluated as concatenation of text and number converted to text.
