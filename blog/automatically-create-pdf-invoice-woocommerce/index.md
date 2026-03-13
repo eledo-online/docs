@@ -122,7 +122,7 @@ To add the **year**, you can use date functions:
 $InvoicePrefix + num(year(), 2) + num(#InvoiceCreated, 4)
 ```
 
-Read more in the [Expressions guide](/documentation/guides/expressions).
+Read more in the [Expressions guide](/product/template-building-guides/expressions).
 
 ### Styling with CSS
 
