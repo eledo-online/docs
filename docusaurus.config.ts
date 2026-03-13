@@ -18,7 +18,7 @@ const config: Config = {
   url: 'https://eledo-online.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/docs/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -41,11 +41,11 @@ const config: Config = {
       {
         docs: {
           routeBasePath: '/',
-          sidebarPath: './sidebars.ts',
+          sidebarPath: require.resolve('./sidebars.ts'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/eledo-online/docs',
+            'https://github.com/eledo-online/docs/tree/main',
         },
         blog: {
           showReadingTime: true,
@@ -56,14 +56,14 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/eledo-online/docs',
+            'https://github.com/eledo-online/docs/tree/main',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: require.resolve('./src/css/custom.css'),
         },
       } satisfies Preset.Options,
     ],
@@ -91,11 +91,13 @@ const config: Config = {
         {
           type: 'docSidebar',
           sidebarId: 'integrationsSidebar',
+          position: 'left',
           label: 'Integrations',
         },
         {
           type: 'docSidebar',
           sidebarId: 'apiSidebar',
+          position: 'left',
           label: 'API',
         },
         {to: '/blog', label: 'Blog', position: 'left'},

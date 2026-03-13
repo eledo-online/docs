@@ -1,4 +1,8 @@
 # Eledo Documentation Repository
+[![Build](https://github.com/eledo-online/docs/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/eledo-online/docs/actions/workflows/deploy-pages.yml)
+[![Live Docs](https://img.shields.io/badge/docs-live-brightgreen)](https://eledo-online.github.io/docs/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Eledo](https://img.shields.io/badge/Eledo-green.svg)](https://eledo.online/)
 
 This repository contains the **Markdown source and development environment** for the Eledo documentation.
 
