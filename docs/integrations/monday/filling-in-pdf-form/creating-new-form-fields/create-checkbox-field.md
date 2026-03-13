@@ -1,0 +1,15 @@
+---
+title: Create Checkbox Field
+sidebar_position: 3
+---
+
+# Create Checkbox field
+
+To create a checkbox form field ​​in PDF Form, follow these steps:  
+- In Eledo editor click on a Dynamic Checkbox tool and configuration window will appear.
+- Field ID is a unique identifier of your field. It may contain only letters, numbers, underscore character. No space is allowed.
+- For Data (expression) field find and select a Checkbox Column using the Fields navigation menu. You can also use any [Eledo function](/docs/product/data-expressions/general-functions.md).
+- Click on Place button and place the new checkbox form field into your document. 
+- Confirm twice and you're done!
+
+![image](/img/integrations/monday/MondayPDFFormCheckboxFormField.gif)

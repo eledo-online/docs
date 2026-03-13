@@ -1,0 +1,15 @@
+---
+title: Link Column
+sidebar_position: 13
+---
+
+# Printing Link Column
+
+To print a value ​​from a Link Column from your monday.com board, follow these steps:  
+- In Eledo editor click on a **Text box** component from top toolbar. Configuration window will appear. 
+- Click into **URL (expression)** field to open Data Expression builder.
+- Find and select a link column using the Fields navigation menu. Start with the **item** and continue with **link**, **url** for example.
+- Optionally provide a **Display Text** to hide the url in document. Populating **Display Text (expression)** with link's **text** field makes the display text dynamic as well!
+- Confirm twice and you're done! Dynamic link component will be placed at cursor position.
+
+![image](/img/integrations/monday/MondayPrintLinkColumn.gif)

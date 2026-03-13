@@ -1,0 +1,26 @@
+---
+title: Document is not created
+sidebar_position: 1
+---
+
+# Document is not created
+It may happen the document is not created or did not appear in Files column shortly after you trigger its creation. Here are few steps you can follow to identify the cause.
+
+## Check Eledo Logs
+Open Eledo App and navigate to Logs page. There you can find out whether your request has reached Eledo and whether it was processed. White line is a good sign, yellow means there is a warning message and red one stands for error. Click on the log line to read the error message.
+
+![image](/img/product/guides/EledoLogs.png)
+
+## Check monday.com Automation's Run history
+If there is no Eledo Log entry, it is possible the monday.com automation haven't been triggered yet. You can check the status of your automation by opening Run history via Automations center.
+
+![image](/img/integrations/monday/monday_run_history.gif)
+
+## Refresh monday.com board
+Sometimes the monday.com automation has been completed and you can also find the corresponding Eledo Log, but you can't see the PDF file in your Files column. In this case try to do a full refresh of your monday.com board page in your browser.
+
+## Why the delays?
+There are multiple processing queues in the way which may get congested during a busy hour. Retrieving resources like images or data from connected boards for your document also takes some time. Thanks to Log entries you can get an overview of your automation and time it gets to complete.
+
+## Get help
+You can always contact our Helpdesk

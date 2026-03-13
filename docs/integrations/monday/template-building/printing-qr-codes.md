@@ -1,0 +1,41 @@
+---
+title: Printing QR Code
+sidebar_position: 5
+---
+
+# Printing QR Code
+
+To print a QR code ​​from your monday.com board's item, follow these steps:
+- In Eledo editor click on **Barcodes 2D** and select **QR Code** component from top toolbar. Configuration window will appear. 
+- Click into **Data (expression)** field to open Data Expression builder.
+- Find and select a custom column using the Fields navigation menu. Start with the **item** and continue with **link** and **url** for example.
+- Confirm twice and you're done! QR code will be placed at cursor position.
+
+![image](/img/integrations/monday/PrintingQRCodeMonday.gif)
+
+## QR code content types
+QR codes can store different types of content, each with its specific format. Below are the common QR code types along with examples of their encoded content:
+
+### URL (Website Links)
+Redirects the scanner to a website.
+
+Example: ``https://example.com``
+
+Data expression: ``item.link.url``
+
+### Phone Number
+Opens the phone dialer with the number pre-filled.
+
+Example: ``tel:+1234567890``
+
+Data expression: ``CONCAT("tel:", item.phone)``
+
+### Email Address
+Opens the email app with the recipient, subject, and body pre-filled.
+
+Example: ``mailto:support@example.com?subject=Feedback&body=Hello!``
+
+Data expression: ``CONCAT("mailto:", item.email, "?subject=Feedback&body=Hello!")``
+
+### More use cases
+Find out more use cases in [Generating QR codes](/docs/product/template-building-guides/generating-qr-codes.md) article.

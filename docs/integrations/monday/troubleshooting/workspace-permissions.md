@@ -1,0 +1,18 @@
+---
+title: Workspace Permissions
+sidebar_position: 2
+---
+
+# Workspace Permissions
+Sometimes the workspace permissions for Eledo app breaks within your monday.com account and app becomes unusable.
+
+This issue can be identified by strange error message found in Eledo Logs:
+
+```
+monday.com API responded with error: Internal server error
+```
+
+## Solution
+Change workspace permissions for Eledo app via monday.com Administration menu. The workspace permissions will be most probably already selected, but we need to triger the permissions re-calculation. We can do this by applying a change to the workspace permissions for Eledo apps. Then the permissions can be changed again to previous state as necessary.
+
+![image](/img/integrations/monday/MondayEledoAppWorkspacePermissions.gif)

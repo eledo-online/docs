@@ -1,47 +1,36 @@
 ---
+title: Introduction
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Eledo — easy and reliable document automation
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Get started with Eledo to begin automating your document flow — and wonder why you didn’t set it up ages ago. With our private and reliable set-and-forget software, you can create automations that deliver consistently.
 
-## Getting Started
+We could all do with more time.
 
-Get started by **creating a new site**.
+By automating document creation, you can eliminate repetitive tasks and streamline your workflow — whether you’re automatically creating invoices, generating course certificates, or producing proposal documents. Our easy-to-use system will have you up and running in no time.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+---
 
-### What you'll need
+## Easy-to-use editor
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+Easily create and edit templates using Eledo’s fully featured editor. Add a simple text field without fuss, or build complex expressions and conditional logic for more advanced documents.
 
-## Generate a new site
+The flexibility of the editor makes it easy for users of all technical abilities to get started quickly.
 
-Generate a new Docusaurus site using the **classic template**.
+---
 
-The classic template will automatically be added to your project after you run the command:
+## Set-and-forget reliability
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+Nobody wants to revisit a two-month-old flow only to discover it’s not working. Eledo is a robust and secure platform that reliably delivers your generated PDFs every time.
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+Our service is private and secure — giving you ultimate peace of mind.
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+---
 
-## Start your site
+## A word on privacy
 
-Run the development server:
+At Eledo, we take privacy seriously. We will never sell or misuse your data.
 
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Eledo does not store your dynamic data or your generated PDFs — so you can keep sensitive documents fully private.

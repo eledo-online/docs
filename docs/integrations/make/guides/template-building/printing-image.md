@@ -4,3 +4,20 @@ sidebar_position: 5
 ---
 
 # Printing Image
+
+To print an image ​​from Make.com, follow these steps:  
+- In Eledo editor click on a **Dynamic Image** component from top toolbar. Configuration window will appear. 
+- Click into **Data (expression)** field to open Data Expression builder.
+- Type the word you want to represent the image url value. It will be used as input field name. This word cannot contain a space nor special characters, just letters, numbers and underscore. For example **image_url**.
+- You can set the Width and Height dimensions. If you set only one dimension e.g. just height, the width will be automatically calculated to maintain aspect ratio of your image. 
+- Confirm twice and you're done! Dynamic image component will be placed at cursor position.
+- Save the template and input field will be automatically created from the data expression.
+
+![image](/img/integrations/make/PrintingImageMake1.gif)
+
+- In your Make.com scenario click on Eledo module and refresh data from the template.
+- **image_url** input field should be now available to be mapped with a date value.
+- Click into image_url field and choose one from your data source to map the image url value.
+- Confirm and you're done!
+
+![image](/img/integrations/make/PrintingImageMake2.gif)
