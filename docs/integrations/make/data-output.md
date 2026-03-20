@@ -4,3 +4,70 @@ sidebar_position: 4
 ---
 
 # Data Output
+
+The output of the Eledo module depends on the selected action.
+
+Eledo provides two actions in Make:
+
+- **Generate PDF** — returns the generated file
+- **Prepare PDF Download URL** — returns a link to the generated document
+
+After a successful execution, the selected action determines what data is available for mapping in subsequent modules.
+
+![Make File Output](/img/integrations/make/make-file-output.png)
+
+---
+
+## Using the Output in Other Modules
+
+In Make, data flows from one module to another. The Eledo module becomes part of this flow by producing output that can be used in the next step.
+
+Modules that follow Eledo act as **destinations (sinks)** — they receive the generated document and decide what to do with it.
+
+For example, you can:
+
+- Upload the file to Google Drive
+- Send it via email
+- Attach it to a CRM record
+- Store it in another storage service
+
+![Make File Output](/img/integrations/make/eledo-source-sink-flow.png)
+
+---
+
+## Modifying the Output
+
+Some modules allow you to adjust how the generated document is handled.
+
+For example, when uploading to Google Drive, you can:
+
+- use the generated file directly from Eledo
+- optionally map a custom filename
+- choose the destination folder
+
+This means the Eledo module produces the document, while the following module controls how it is stored or delivered.
+
+The exact options depend on the capabilities of the receiving module.
+
+---
+
+## Choosing the Right Action
+
+Use **Generate PDF** when:
+
+- you want to pass the file directly to another module
+- the next module expects a file input (for example, Google Drive upload)
+
+Use **Prepare PDF Download URL** when:
+
+- you want to share a link to the document
+- the receiving system expects a URL instead of a file
+- you do not need to pass the file as binary data
+
+---
+
+## Notes
+
+- The output is available only after the Eledo module runs successfully.
+- If the output does not appear, run the scenario once to populate available data.
+- The availability of output fields depends on the capabilities of the receiving module.
