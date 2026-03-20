@@ -124,6 +124,51 @@ Ensure content is:
 
 ---
 
+## Documentation Ownership
+
+Documentation is organized into domains aligned with product areas.  
+Each domain has a clearly defined owner responsible for maintaining it.
+
+### Responsibilities of an Owner
+
+Each owner is responsible for:
+
+- **Content accuracy** — documentation reflects real product behavior  
+- **Structure** — clear hierarchy and organization within their domain  
+- **Git ↔ CMS synchronization** — no drift between systems  
+- **Maintenance** — updating docs when the product evolves  
+
+---
+
+### Ownership Examples
+
+| Domain        | Subdomain                     | Owner                  |
+|---------------|-------------------------------|------------------------|
+| Integrations  | Monday                        | Ľuboš Husivarga        |
+| Integrations  | Make / n8n / Zapier           | Vladimír Záhradník     |
+
+Ownership will expand as new areas are defined.
+
+---
+
+### Responsibility Rule
+
+> If you build or modify a feature, you are responsible for its documentation.
+
+This ensures documentation scales with the product and does not become a bottleneck.
+
+---
+
+### Notes
+
+- Ownership does not mean exclusivity — others can contribute via pull requests  
+- Owners are responsible for final review and consistency within their domain  
+- All documentation must still follow the Git-first workflow
+
+The documentation system was intentionally bootstrapped by a single author first to establish structure, workflow, and quality standards before broader contribution was introduced.
+
+---
+
 ## Known Tradeoffs
 
 This system introduces a deliberate inefficiency:
