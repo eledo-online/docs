@@ -60,9 +60,11 @@ Use **Generate PDF** when:
 
 Use **Prepare PDF Download URL** when:
 
-- you want to share a link to the document
+- you need a temporary link to retrieve the generated document
 - the receiving system expects a URL instead of a file
 - you do not need to pass the file as binary data
+
+> Note: The download URL is single-use. After the first download, it becomes invalid.
 
 ---
 
