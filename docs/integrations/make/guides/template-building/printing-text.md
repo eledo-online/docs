@@ -5,20 +5,79 @@ sidebar_position: 1
 
 # Printing Text
 
-To print a text value into your PDF using Make.com, follow these steps:
-- In Eledo editor click on a **Text box** component from top toolbar. Configuration window will appear. 
-- Click into **Data (expression)** field to open Data Expression builder.
-- Type a word you want to represent the text value. It will be used as input field name. This word cannot contain a space nor special characters, just letters, numbers and underscore. In our case we type **ProductName**.
-- If you need to format this value, try one of our [text formatting functions](/docs/product/data-expressions/text-functions.md)
-- Confirm twice and dynamic text component will be placed at cursor position.
-- Save the template and input field will be automatically created from the data expression.
+This guide shows how to print dynamic text into your PDF using Make.
 
+---
 
-![image](/img/integrations/make/TextPrintingMake1.gif)
+## Step 1 — Prepare your template
 
-- In your make.com scenario click on Eledo module and refresh Custom Fields for the template.
-- **ProductName** input field should be now available to be mapped with a text value.
-- Click into ProductName field and choose one from your data source to map the value.
-- Confirm and you're done!
+In the Eledo editor:
 
-![image](/img/integrations/make/TextPrintingMake2.gif)
+1. Click the **Text Box (TXT)** component in the toolbar  
+2. Place it into your document  
+3. In **Data (expression)**, enter a field name (for example `ProductName`)  
+4. Confirm and save the template  
+
+![Text Box Configuration](/img/integrations/make/TextPrintingMake1.gif)
+
+👉 Learn more about Text Box: [/docs/product/template-components/text-box.md](/docs/product/template-components/text-box.md)
+
+---
+
+## Step 2 — Use the template in Make
+
+In your Make scenario:
+
+1. Add the **Eledo PDF** module  
+2. Select your template  
+3. Click **Refresh Custom Fields**
+
+You will now see your field (for example `ProductName`) available for mapping.
+
+---
+
+## Step 3 — Map your data
+
+1. Click into the field (for example `ProductName`)  
+2. Select a value from your data source (Google Sheets, CRM, etc.)  
+3. Confirm the mapping  
+
+![Mapping Text Value](/img/integrations/make/TextPrintingMake2.gif)
+
+---
+
+## Step 4 — (Optional) Format the output
+
+You can control how text appears directly in the template using expressions.
+
+Examples:
+
+```
+"Product: " + ProductName
+num(Price, 0, 2) + " €"
+```
+
+👉 Learn how to format values: [/docs/product/template-building-guides/formatting-text.md](/docs/product/template-building-guides/formatting-text.md)
+
+---
+
+## Related guides
+
+- Printing numbers → [Printing Number](./printing-number.md)  
+- Printing dates → [Printing Date](./printing-date.md)  
+
+---
+
+## Result
+
+When the scenario runs:
+
+- data is passed from your source  
+- Eledo fills the Text Box  
+- the final document is generated  
+
+---
+
+## Next steps
+
+- Build a full workflow → [Generate Your First PDF](../scenarios/generate-first-pdf.md)
