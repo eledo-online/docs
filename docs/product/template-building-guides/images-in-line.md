@@ -1,6 +1,6 @@
 ---
 title: Printing Images in Line
-sidebar_position: 9
+sidebar_position: 10
 ---
 
 # Printing Images in Line
