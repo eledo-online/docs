@@ -88,13 +88,12 @@ This option is used when your input contains a date (for example: invoice date, 
 
 When **Type = Date**, you can control how the date is displayed using a format pattern.
 
-Eledo uses standard **Java date formatting patterns**.
+Eledo uses standard Java-style date formatting patterns.
+You don’t need to memorize all options — most common formats are shown below.
 
-Instead of memorizing all options, refer to:
+For a complete reference of all supported patterns, see [**Formatting Dates**](../template-building-guides/formatting-dates.md).
 
-https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
-
-Common examples:
+**Common examples:**
 
 ```
 yyyy-MM-dd
