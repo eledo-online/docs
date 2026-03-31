@@ -108,7 +108,9 @@ Avoid overly complex expressions unless necessary.
 
 ---
 
-## Next steps
+## Related
 
-- Learn how Text Box works → [Text Box](../template-components/text-box.md)
-- Explore all functions → [Text Functions](../data-expressions/text-functions.md)
+- Learn how formatting is applied → [Text Box](../template-components/text-box.md)
+- Format numbers → [Formatting Numbers](./formatting-numbers.md)
+- Format dates → [Formatting Dates](./formatting-dates.md)
+- Explore all available functions → [Text Functions](../data-expressions/text-functions.md)
