@@ -5,59 +5,154 @@ sidebar_position: 2
 
 # Text Box
 
-Basic template component enables you to put dynamic text into your document.
+A **Text Box** allows you to insert dynamic values into your document — such as a name, price, or date.
 
-### Configuration
+Instead of writing static text, you define what value should appear when the document is generated.
 
-Click on **Text Box** button in editor's toolbar and a configuration window will appear. Once confirmed, the Text Box will be placed at the cursor's location.
+![Text Box Configuration](/img/product/templates/text-box-configuration.png)
 
-**Data (expression)**
+---
 
-Define a simple text field name or formula using [expression language](../template-building-guides/expressions.md) to be evaluated and print the resulting value to a document.
+## Add a Text Box
 
-Examples:  
-`Surname` – single field expression to put surname in place  
-`num(Amount, 0, 2) + " €"` – expression to print Amount with 2 decimal places and trailing euro sign
+To insert a Text Box into your document:
 
-**Type**
+1. Open your template in the editor  
+2. Place the cursor where you want the text to appear  
+3. Click the **TXT** button in the toolbar  
+4. The configuration window will open  
+5. Confirm to insert the Text Box into the document
 
-Define the type of input data to be printed as text into the document:
+The Text Box will be placed at the cursor position.
 
-- **Plain text** – plain text with support for new line character `\n`
-- **HTML** – text with HTML markup
-- **Date** – print datetime value in Date format
+![Text Box Toolbar](/img/product/templates/text-box-toolbar.png)
 
-**Date format**
+---
 
-When **Type** is set to Date, the following date string is used to format the datetime value to text in the document. You can use the following letters:
+## How it works
 
-- `y` = year (yy or yyyy)
-- `M` = month (MM)
-- `d` = day in month (dd)
-- `h` = hour (0–12) (hh)
-- `H` = hour (0–23) (HH)
-- `m` = minute in hour (mm)
-- `s` = seconds (ss)
-- `S` = milliseconds (SSS)
-- `z` = time zone text (e.g. Pacific Standard Time)
-- `Z` = time zone, time offset (e.g. -0800)
+Each Text Box is connected to a value using the **Data (expression)** field.
 
-Examples:  
-`yyyy-MM-dd` → 2009-12-31  
-`dd-MM-yyyy` → 31-12-2009  
-`yyyy-MM-dd HH:mm:ss` → 2009-12-31 23:59:59  
-`HH:mm:ss.SSS` → 23:59.59.999  
-`yyyy-MM-dd HH:mm:ss.SSS` → 2009-12-31 23:59:59.999  
-`yyyy-MM-dd HH:mm:ss.SSS Z` → 2009-12-31 23:59:59.999 +0100
+This value becomes available when generating the document through integrations (Make, Zapier, API, etc.).
 
-**Example Value**
+For example:
 
-This value is displayed in the editor instead of the Data (expression). Very useful when a complex formula results in a short value and it breaks the view of the template while designing.
+```
+Surname
+```
 
-**Font**
+prints a value provided at runtime.
 
-Change the font size for the resulting text.
+```
+num(Amount, 0, 2) + " €"
+```
 
-**Color**
+formats a number and adds a currency.
 
-Select the font color of the resulting text.
+You don’t need to fully understand expressions to get started — a simple field name is enough.
+
+---
+
+## Display types
+
+A Text Box can display values in different ways depending on the selected **Type**.
+
+### Plain Text
+
+The default option.
+
+- Displays simple text values
+- Supports line breaks using \n
+
+Use this for most cases — names, labels, addresses, notes.
+
+---
+
+### HTML
+
+Allows you to render formatted content using HTML.
+
+Use this if you need styling inside the value itself (for example bold text or colored text).
+
+---
+
+### Date
+
+Formats a date value into a readable format.
+
+This option is used when your input contains a date (for example: invoice date, birth date).
+
+---
+
+## Date formatting
+
+When **Type = Date**, you can control how the date is displayed using a format pattern.
+
+Eledo uses standard Java-style date formatting patterns.
+You don’t need to memorize all options — most common formats are shown below.
+
+For a complete reference of all supported patterns, see [**Formatting Dates**](../template-building-guides/formatting-dates.md).
+
+**Common examples:**
+
+```
+yyyy-MM-dd
+dd.MM.yyyy
+yyyy-MM-dd HH:mm:ss
+```
+
+---
+
+## Example value (design-time only)
+
+The **Example Value** is shown only inside the editor.
+
+It does **not affect the final output**.
+
+Use it when:
+
+- your expression is long or unreadable  
+- you want to preview layout with realistic data  
+
+Example:
+
+Instead of seeing:
+
+```
+num(Amount, 0, 2) + " €"
+```
+
+you can display:
+
+```
+1,250.00 €
+```
+
+---
+
+## Styling
+
+You can adjust the appearance of the text:
+
+- **Font** → controls font size  
+- **Color** → controls text color  
+
+These settings affect how the value is displayed in the final document.
+
+---
+
+## When to use Text Box
+
+Use a Text Box whenever you need:
+
+- dynamic text (name, address, label)
+- formatted values (numbers, currency)
+- dates
+- calculated output
+
+---
+
+## Next steps
+
+- Learn how expressions work → [Expressions](../template-building-guides/expressions.md)
+- Learn how to format values → [Formatting Text](../template-building-guides/formatting-text.md)

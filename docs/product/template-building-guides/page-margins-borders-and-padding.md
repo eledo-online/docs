@@ -1,6 +1,6 @@
 ---
 title: Page Margins, Borders and Padding
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 # Page Margins, Borders and Padding
