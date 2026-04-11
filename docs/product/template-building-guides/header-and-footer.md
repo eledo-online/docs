@@ -1,6 +1,6 @@
 ---
 title: Header and Footer
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 # Header and Footer
