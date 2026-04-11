@@ -57,7 +57,7 @@ Examples:
 num(Price, 0, 2) + " €"
 ```
 
-👉 Learn how to format values: [/docs/product/template-building-guides/formatting-text.md](/docs/product/template-building-guides/formatting-text.md)
+👉 Learn how to format values: [/docs/product/template-building-guides/printing-text.md](/docs/product/template-building-guides/printing-text.md)
 
 ---
 

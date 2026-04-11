@@ -44,7 +44,7 @@ Surname
 prints the value provided at runtime.
 
 ```
-num(Amount, 0, 2) + " €"
+CONCAT(num(Amount, 0, 2), " €")
 ```
 
 formats a number and adds a currency.
@@ -119,7 +119,7 @@ Example:
 Instead of seeing:
 
 ```
-num(Amount, 0, 2) + " €"
+CONCAT(num(Amount, 0, 2), " €")
 ```
 
 you can display:
@@ -155,4 +155,4 @@ Use a Text Box whenever you need:
 ## Next steps
 
 - Learn how expressions work → [Expressions](../template-building-guides/expressions.md)
-- Learn how to format values → [Formatting Text](../template-building-guides/formatting-text.md)
+- Learn how to format values → [Printing Text](../template-building-guides/printing-text.md)
