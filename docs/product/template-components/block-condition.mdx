@@ -1,0 +1,32 @@
+---
+title: Block Condition
+sidebar_position: 4
+---
+
+# Block Condition
+
+Affects a block's visibility based on a condition expression.
+
+### Configuration
+
+Select the block you want to apply the visibility condition to.  
+Click on the **Block Condition** button in the editor's toolbar and a configuration window will appear.  
+Use the **Select parent element** button to choose the parent of the currently selected block. Specify the condition expression and confirm.
+
+**Test (expression)**
+
+Define a simple field name or formula using the [expression language](../template-building-guides/expressions.mdx) that evaluates to a boolean value.  
+If the result is `true`, the block will be visible; otherwise, it will be hidden.
+
+Examples:  
+`Surname` – evaluates to `true` if `Surname` is populated  
+`quantity > 0` – hides the block when `quantity` is less than or equal to 0
+
+### Type Conversion Table
+
+When your expression doesn't return a boolean type natively, other types are converted to boolean based on the following rules:
+
+Evaluates to `true` if...
+ - Number - The value is not 0
+ - String - The value is populated (non-empty)
+ - Array - The array is not empty
