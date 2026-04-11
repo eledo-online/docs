@@ -1,0 +1,205 @@
+---
+title: Generate Your First PDF
+sidebar_position: 1
+---
+
+# Generate Your First PDF with Make
+
+## What You Will Build
+
+This guide introduces a simple pattern that you can reuse and extend.
+
+We will build a scenario with three components:
+
+1. **Data source** — Google Sheets  
+2. **Eledo** — PDF generation  
+3. **Data sink** — Google Drive (stores generated PDFs)
+
+Once you understand this pattern, you can adapt it to other data sources and storage systems supported by Make.
+
+---
+
+## Step 1 — Create a Simple Template in Eledo
+
+For this guide, we will use a simple template with only a few dynamic fields.
+
+Instead of creating a template from scratch, we recommend selecting one from the public template library and modifying it. This allows you to get started quickly.
+
+If you prefer to create a template manually, refer to:  
+https://eledo.online/documentation/template
+
+### Instructions
+
+1. Log into your Eledo account.
+2. Open **My Templates**.
+3. Click **From Library** to access the public template catalog.
+4. Select a template and click **Try it out**.  
+   This creates a private copy under your account.
+5. For this guide, select **Certificate of Attendance**.
+
+You can freely modify your private copy.
+
+![Certificate of Attendance](/img/integrations/shared/public-template-certificate.png)
+
+---
+
+### Optional — Inspect the Data Structure (Advanced)
+
+In the left-side menu, open **Profile → API** to see the full data model.
+
+You can review the payload inside the `HTTP Request Body` section. This may help you understand how fields are structured before mapping them in Make.
+
+![Certificate Template Data Model](/img/integrations/shared/certificate-template-data-model.png)
+
+---
+
+## Step 2 — Create a New Scenario
+
+Create a new scenario in Make and add three modules in this order:
+
+1. **Data source** — Google Sheets (Watch New Rows)
+2. **Eledo PDF** — Generate PDF
+3. **Data sink** — Google Drive (Upload a File)
+
+> Note: Configuration of Google Sheets and Google Drive authentication is outside the scope of this guide. Refer to official Make documentation for basic setup.
+
+![Eledo Make Scenario](/img/integrations/make/eledo-source-sink-flow.png)
+
+---
+
+## Step 3 — Configure Google Sheets
+
+Create a Google Sheet with the following structure:
+
+| Name  | Surname |
+|-------|---------|
+| John  | Smith   |
+| Peter | File    |
+
+Each row represents one student.
+
+![Google Sheet Document](/img/integrations/shared/google-sheet-doc.png)
+
+In the Google Sheets module:
+
+- Authenticate your account  
+- Select the correct spreadsheet  
+- Select the appropriate worksheet  
+- Configure the module to watch for new or updated rows
+
+> The first row must contain headers. Make uses these headers (`Name`, `Surname`) as field names.
+
+![Google Sheet Make](/img/integrations/make/google-sheet-make.png)
+
+---
+
+## Step 4 — Configure Eledo
+
+The Eledo module receives data from Google Sheets and generates a PDF document.
+
+In the Eledo module:
+
+- Select your **Connection**
+- Select your template
+
+---
+
+## Step 5 — Configure Authentication
+
+If this is your first time using Eledo in Make, you need to create a connection.
+
+Follow the **[Authentication](../../authentication.mdx)** documentation to configure your API key.
+
+---
+
+## Step 6 — Select a Template
+
+In the Eledo module:
+
+- Select your copied template (for example: `Copy of Certificate of Attendance`)
+
+> Only private templates are available in Make. Public templates must first be copied into your account.
+
+Eledo always uses the latest version of the selected template.
+
+---
+
+## Step 7 — Bind Data
+
+After selecting the template, Make displays a dynamic form matching the template structure.
+
+### Why Our Sheet Has Only Two Columns
+
+It is not necessary to populate every field.
+
+Many template fields are static (academy name, course title, instructor name, etc.). Only certain fields change per row — in our case:
+
+- **Name**
+- **Surname**
+
+---
+
+### Configure Form Fields
+
+1. Fill in static fields that will not change (for example, `Organizer name`)
+2. For dynamic fields (`Name`, `Surname`):
+   - click into the field
+   - open the mapping panel
+   - insert values from Google Sheets (double-click or drag and drop)
+
+![Dynamic Fields Configuration](/img/integrations/make/make-dynamic-fields.png)
+
+---
+
+## Step 8 — Run the Scenario
+
+Click **Run once** to execute the scenario.
+
+If everything is configured correctly, Make will:
+
+- read a row from Google Sheets
+- pass the data to Eledo
+- generate a PDF document
+
+You can inspect the output directly in the scenario execution view.
+
+---
+
+## Step 9 — Configure Google Drive
+
+Google Drive stores the generated PDFs.
+
+Create a folder in Google Drive where documents will be uploaded.
+
+In the Google Drive module:
+
+- Choose the destination drive and folder
+- Map the **Data** field to the file content from Eledo
+- Map the **File Name** field to the filename from Eledo
+
+The Eledo module provides both the file content and filename separately.
+
+Optionally, you can:
+
+- adjust the filename
+- change the destination folder
+
+![Google Drive Mapping](/img/integrations/make/make-google-drive.png)
+
+---
+
+## What’s Next?
+
+![Eledo Certificate Example](/img/integrations/shared/eledo-certificate-example.png)
+
+You now have a working automation:
+
+Google Sheets → Eledo → Google Drive
+
+From here, you can:
+
+- Add more rows to your sheet and observe automatic generation  
+- Replace Google Sheets with another data source  
+- Replace Google Drive with email, CRM, or cloud storage  
+
+The pattern remains the same.
