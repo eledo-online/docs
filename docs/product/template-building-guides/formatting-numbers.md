@@ -119,7 +119,7 @@ CURR(56789.99, 0, 3)   → 56,789.990
 
 ## Related
 
-- See [**Formatting Text**](./formatting-text.md) for combining numbers with text  
+- See [**Printing Text**](./printing-text.md) for combining numbers with text
 - See [**Formatting Dates**](./formatting-dates.md) for date formatting  
 
 ---
