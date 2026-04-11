@@ -40,7 +40,11 @@ Although the PDF already contains fillable form fields, these fields are interna
 
 In other words, you are mapping internal PDF form fields to Eledo data fields.
 
-> Note: You are not required to map every form field. You may populate only selected fields. Adding new PDF form fields is outside the scope of this guide.
+:::note
+
+You are not required to map every form field. You may populate only selected fields. Adding new PDF form fields is outside the scope of this guide.
+
+:::
 
 Mapping is straightforward:
 
@@ -75,7 +79,11 @@ Create a new scenario in Make and add three modules in this order:
 2. **Eledo PDF** — Generate PDF  
 3. **Data sink** — Google Drive (Upload a File)
 
-> Note: Configuration of Google Sheets and Google Drive authentication is outside the scope of this guide. Refer to official Make documentation for basic setup.
+:::note
+
+Configuration of Google Sheets and Google Drive authentication is outside the scope of this guide. Refer to official Make documentation for basic setup.
+
+:::
 
 ![Eledo Make Scenario](/img/integrations/make/eledo-source-sink-flow.png)
 
@@ -102,7 +110,11 @@ In the Google Sheets module:
 - Select the appropriate worksheet  
 - Configure the module to watch for new or updated rows
 
-> The first row must contain headers. Make uses these headers (`fullName`, `nameId`, etc.) as field names.
+:::warning
+
+The first row must contain headers. Make uses these headers (`fullName`, `nameId`, etc.) as field names.
+
+:::
 
 ---
 

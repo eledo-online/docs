@@ -40,7 +40,11 @@ Although the PDF already contains fillable form fields, these fields are interna
 
 In other words, you are mapping internal PDF form fields to Eledo data fields.
 
-> Note: You are not required to map every form field. You may populate only selected fields. Adding new PDF form fields is outside the scope of this guide.
+:::note
+
+You are not required to map every form field. You may populate only selected fields. Adding new PDF form fields is outside the scope of this guide.
+
+:::
 
 Mapping is straightforward:
 
@@ -75,7 +79,11 @@ Create a new Zap and add three apps in this order:
 - **Eledo** (action event)  
 - **Google Drive** (action event)
 
-> Note: Configuration of Google Sheets and Google Drive authentication is outside the scope of this guide. Refer to official Zapier documentation for basic setup.
+:::note
+
+Configuration of Google Sheets and Google Drive authentication is outside the scope of this guide. Refer to official Zapier documentation for basic setup.
+
+:::
 
 ![Eledo Zap](/img/integrations/zapier/eledo-zap-template.png)
 
@@ -97,7 +105,11 @@ Each row represents one person.
 
 Configure the trigger so the Zap runs when a row is added or updated.
 
-> The first row must contain headers. Zapier automatically uses these headers (`fullName`, `nameId`, etc.) as property names.
+:::warning
+
+The first row must contain headers. Zapier automatically uses these headers (`fullName`, `nameId`, etc.) as property names.
+
+:::
 
 In the Google Sheets step:
 
@@ -135,7 +147,11 @@ Refer to the **[Authentication](../../authentication.mdx)** documentation for de
 
 Switch to the **Configure** tab in the Eledo step.
 
-> The Zapier integration lists only your private templates.
+:::note
+
+The Zapier integration lists only your private templates.
+
+:::
 
 Select your uploaded template (for example: `Fillable PDF`).
 

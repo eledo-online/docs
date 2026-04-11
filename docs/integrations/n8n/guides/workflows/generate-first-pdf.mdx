@@ -23,11 +23,15 @@ Once you understand this pattern, you can adapt it to other data sources and sto
 
 For this guide, we will use a simple template with only a few dynamic fields.
 
+:::tip
+
 Instead of creating a template from scratch, we recommend selecting one from the public template library and modifying it. This allows you to get started quickly.
 
 If you prefer to create a template manually, refer to:
 
 [https://eledo.online/documentation/template](https://eledo.online/documentation/template)
+
+:::
 
 ### Instructions
 
@@ -58,7 +62,11 @@ Create a new workflow in n8n and add three nodes:
 * **Eledo**
 * **Google Drive** (storage)
 
-> Note: Configuration of Google Sheets and Google Drive nodes is outside the scope of this guide. Follow official n8n documentation for authentication and basic setup.
+:::note
+
+Configuration of Google Sheets and Google Drive nodes is outside the scope of this guide. Follow official n8n documentation for authentication and basic setup.
+
+:::
 
 ![Eledo Workflow](/img/integrations/n8n/eledo-workflow-template.png)
 
@@ -79,7 +87,11 @@ Each row represents one student.
 
 Set up a trigger so that the workflow runs when a row is added or updated.
 
-> Note: The first row must contain headers. n8n automatically uses these headers (`Name`, `Surname`) as property names.
+:::warning
+
+The first row must contain headers. n8n automatically uses these headers (`Name`, `Surname`) as property names.
+
+:::
 
 In the Google Sheets node:
 

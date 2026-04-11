@@ -21,7 +21,11 @@ Once you understand this pattern, you can adapt it to other data sources and sto
 
 ## When to Use JSON Mode
 
-> **Note:** JSON mode is intended for advanced users. If you are working with simple templates, read the **[Guided Fields](../../data-input/guided-fields.mdx)** documentation first.
+:::note
+
+JSON mode is intended for advanced users. If you are working with simple templates, read the **[Guided Fields](../../data-input/guided-fields.mdx)** documentation first.
+
+:::
 
 JSON mode gives you full control over the data sent to Eledo. Instead of filling fields through the UI groups, you provide a complete JSON payload that matches your template structure.
 
@@ -42,11 +46,15 @@ JSON mode supports the entire template structure without limitations imposed by 
 
 For this guide, we will use a complex template with nested fields.
 
+:::tip
+
 Instead of creating a template from scratch, we recommend selecting one from the public template library and modifying it. This allows you to get started quickly.
 
 If you prefer to create a template from scratch, refer to:
 
 [https://eledo.online/documentation/template](https://eledo.online/documentation/template)
+
+:::
 
 ### Instructions
 
@@ -116,7 +124,11 @@ Create a new workflow in n8n and add three nodes:
 * **Eledo**
 * **Google Drive** (storage)
 
-> Note: Configuration of Google Sheets and Google Drive nodes is outside the scope of this guide. Follow the official n8n documentation for authentication and basic setup.
+:::note
+
+Configuration of Google Sheets and Google Drive nodes is outside the scope of this guide. Follow the official n8n documentation for authentication and basic setup.
+
+:::
 
 ![Eledo Workflow](/img/integrations/n8n/eledo-workflow-template.png)
 
@@ -138,7 +150,11 @@ Each row represents one unique person.
 
 Set up a trigger so that the workflow runs when a row is added or updated.
 
-> Note: The first row must contain headers. n8n automatically uses these headers (`clientName`, `clientId`, ...) as property names.
+:::warning
+
+The first row must contain headers. n8n automatically uses these headers (`clientName`, `clientId`, ...) as property names.
+
+:::
 
 In the Google Sheets node:
 
@@ -200,7 +216,11 @@ In the Eledo node:
 
 By default, Eledo uses the latest version of the selected template. You may optionally lock a specific version.
 
-> Template names and version numbers may differ slightly. This is expected.
+:::note
+
+Template names and version numbers may differ slightly. This is expected.
+
+:::
 
 ---
 

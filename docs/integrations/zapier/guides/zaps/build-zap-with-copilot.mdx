@@ -31,10 +31,14 @@ Once you understand this pattern, you can adapt it to other data sources and sto
 
 For this guide, we will use a simple template with a few dynamic fields.
 
+:::tip
+
 Instead of creating a template from scratch, we recommend selecting one from the public template library and modifying it. This allows you to get started quickly.
 
 If you prefer to create a template manually, refer to:  
 https://eledo.online/documentation/template
+
+:::
 
 ### Instructions
 
@@ -74,7 +78,11 @@ Each row represents one student.
 
 ![Google Sheet Document](/img/integrations/shared/google-sheet-doc.png)
 
-> The first row must contain headers. Zapier automatically uses these headers (`Name`, `Surname`) as property names.
+:::warning
+
+The first row must contain headers. Zapier automatically uses these headers (`Name`, `Surname`) as property names.
+
+:::
 
 ---
 
@@ -84,9 +92,11 @@ Each row represents one student.
 2. At the top of the editor, locate the **Copilot AI** prompt.
 3. Describe the flow you want in plain language.
 
-Example prompt:
+:::info[Example prompt]
 
-> I want to create a new Zap where I read data from Google Sheets, process them in Eledo, and store the resulting PDF files in Google Drive.
+I want to create a new Zap where I read data from Google Sheets, process them in Eledo, and store the resulting PDF files in Google Drive.
+
+:::
 
 See the screenshot below for reference.
 
