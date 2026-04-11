@@ -23,10 +23,14 @@ Once you understand this pattern, you can adapt it to other data sources and sto
 
 For this guide, we will use a simple template with only a few dynamic fields.
 
+:::tip
+
 Instead of creating a template from scratch, we recommend selecting one from the public template library and modifying it. This allows you to get started quickly.
 
 If you prefer to create a template manually, refer to:  
 https://eledo.online/documentation/template
+
+:::
 
 ### Instructions
 
@@ -61,7 +65,11 @@ Create a new Zap and add three apps in this order:
 - **Eledo** (action event)  
 - **Google Drive** (action event)
 
-> Note: Configuration of Google Sheets and Google Drive authentication is outside the scope of this guide. Refer to official Zapier documentation for basic setup.
+:::note
+
+Configuration of Google Sheets and Google Drive authentication is outside the scope of this guide. Refer to official Zapier documentation for basic setup.
+
+:::
 
 ![Eledo Zap](/img/integrations/zapier/eledo-zap-template.png)
 
@@ -82,7 +90,11 @@ Each row represents one student.
 
 Set up the trigger so that the Zap runs when a row is added or updated.
 
-> The first row must contain headers. Zapier automatically uses these headers (`Name`, `Surname`) as property names.
+:::warning
+
+The first row must contain headers. Zapier automatically uses these headers (`Name`, `Surname`) as property names.
+
+:::
 
 In the Google Sheets step:
 
@@ -120,7 +132,11 @@ Follow the **[Authentication](../../authentication.mdx)** documentation to confi
 
 Switch to the **Configure** tab in the Eledo step.
 
-> At the moment, the Zapier integration lists only your private templates.
+:::note
+
+At the moment, the Zapier integration lists only your private templates.
+
+:::
 
 Select your copied template (for example: `Copy of Certificate of Attendance`).
 

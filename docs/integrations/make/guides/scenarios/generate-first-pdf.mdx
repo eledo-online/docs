@@ -23,10 +23,14 @@ Once you understand this pattern, you can adapt it to other data sources and sto
 
 For this guide, we will use a simple template with only a few dynamic fields.
 
+:::tip
+
 Instead of creating a template from scratch, we recommend selecting one from the public template library and modifying it. This allows you to get started quickly.
 
 If you prefer to create a template manually, refer to:  
 https://eledo.online/documentation/template
+
+:::
 
 ### Instructions
 
@@ -61,7 +65,11 @@ Create a new scenario in Make and add three modules in this order:
 2. **Eledo PDF** — Generate PDF
 3. **Data sink** — Google Drive (Upload a File)
 
-> Note: Configuration of Google Sheets and Google Drive authentication is outside the scope of this guide. Refer to official Make documentation for basic setup.
+:::note
+
+Configuration of Google Sheets and Google Drive authentication is outside the scope of this guide. Refer to official Make documentation for basic setup.
+
+:::
 
 ![Eledo Make Scenario](/img/integrations/make/eledo-source-sink-flow.png)
 
@@ -87,7 +95,11 @@ In the Google Sheets module:
 - Select the appropriate worksheet  
 - Configure the module to watch for new or updated rows
 
-> The first row must contain headers. Make uses these headers (`Name`, `Surname`) as field names.
+:::warning
+
+The first row must contain headers. Make uses these headers (`Name`, `Surname`) as field names.
+
+:::
 
 ![Google Sheet Make](/img/integrations/make/google-sheet-make.png)
 
