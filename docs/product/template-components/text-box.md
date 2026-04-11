@@ -19,29 +19,29 @@ To insert a Text Box into your document:
 
 1. Open your template in the editor  
 2. Place the cursor where you want the text to appear  
-3. Click the **TXT** button in the toolbar  
+3. Click the **TXT** button in the top toolbar  
 4. The configuration window will open  
 5. Confirm to insert the Text Box into the document
 
 The Text Box will be placed at the cursor position.
 
-![Text Box Toolbar](/img/product/templates/text-box-toolbar.png)
+![Text Box button (TXT) in the top toolbar](/img/product/templates/text-box-toolbar.png)
 
 ---
 
 ## How it works
 
-Each Text Box is connected to a value using the **Data (expression)** field.
+Each Text Box is connected to a value using the **Data (expression)** field. This field can either reference a simple value or use expressions to transform data during document generation.
 
-This value becomes available when generating the document through integrations (Make, Zapier, API, etc.).
+The expression is evaluated when the document is generated, and the resulting value is inserted into the document through integrations (Make, Zapier, API, etc.).
 
-For example:
+**Examples:**
 
 ```
 Surname
 ```
 
-prints a value provided at runtime.
+prints the value provided at runtime.
 
 ```
 num(Amount, 0, 2) + " €"
