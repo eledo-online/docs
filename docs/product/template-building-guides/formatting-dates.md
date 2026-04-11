@@ -111,7 +111,7 @@ DATE(item.date, "E, dd MMM yyyy HH:mm:ss z") → Sat, 25 Feb 2023 13:30:00 CET
 
 ## Related
 
-- See [**Formatting Text**](./formatting-text.md) for combining dates with other values  
+- See [**Printing Text**](./printing-text.md) for combining dates with other values
 - See [**Formatting Numbers**](./formatting-numbers.md) for numeric formatting  
 
 ---
