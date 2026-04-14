@@ -9,7 +9,7 @@ To populate a Text Field ​in PDF Form with a number value from a Number Column
 - In Eledo editor click on the Text Field and configuration window will appear.
 - Click into **Data (expression)** field to open Data Expression builder.
 - Find and select a Number Column using the Fields navigation menu. Start with the **item** and continue with **number** for example.
-- If you need to format this value, try one of our [number formatting functions](/docs/product/data-expressions/number-functions.mdx) such as [CURR](/docs/product/template-building-guides/formatting-numbers.mdx) or [NUM](/docs/product/template-building-guides/formatting-numbers.mdx) 
+- If you need to format this value, try one of our [number formatting functions](/docs/product/template-editor/data-expressions/number-functions.mdx) such as [CURR](/docs/product/template-editor/guides/formatting-numbers.mdx) or [NUM](/docs/product/template-editor/guides/formatting-numbers.mdx) 
 - Confirm twice and you're done! Dynamic text component will be placed at cursor position.
 
 ![image](/img/integrations/monday/MondayPDFFormNumberColumn.gif)
@@ -55,6 +55,6 @@ item.number = 56789.996
 
 `CONCAT("$", CURR(item.number, 0, 2))`  Output: $56,789.99
 
-Find more information about number formatting in this article: [Formatting Numbers](/docs/product/template-building-guides/formatting-numbers.mdx)
+Find more information about number formatting in this article: [Formatting Numbers](/docs/product/template-editor/guides/formatting-numbers.mdx)
 
-Discover all the number functions here: [Number Functions](/docs/product/data-expressions/number-functions.mdx)
+Discover all the number functions here: [Number Functions](/docs/product/template-editor/data-expressions/number-functions.mdx)
