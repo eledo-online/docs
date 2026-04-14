@@ -48,7 +48,7 @@ UNIQUE(items, team)
 
 We will also print each value using Text Box and `$current` data expression.
 
-![Applying Block Repetition to Table Body](/img/product/guides/UniqueListIntoBlockRepetition.gif)
+![Applying Block Repetition to Table Body](/img/product/template-editor/guides/UniqueListIntoBlockRepetition.gif)
 
 ## Nested repetition with FILTER
 Second Block Repetition will be applied to a second table row. In data expression we will be referring to a current value of iteration of outer repetition using `$current` variable.
@@ -59,14 +59,14 @@ FILTER(parent.items, $current == team)
 
 In the FILTER function we refer to `parent.items`, because the outer repetition has changed the context and `items` data expression would refer to items field on the child item, which does not exist.
 
-![Applying Block Repetition to Table Body](/img/product/guides/FilterListInSecondRepetition.gif)
+![Applying Block Repetition to Table Body](/img/product/template-editor/guides/FilterListInSecondRepetition.gif)
 
 Resulting data structure can be checked in Input Fields menu. In our case the `team` field was resolved as Number type due to `==` operator we have used with it. We will need to manually override the default type from Number to String.
 
-![Applying Block Repetition to Table Body](/img/product/guides/TableGroupingInputFields.png)
+![Applying Block Repetition to Table Body](/img/product/template-editor/guides/TableGroupingInputFields.png)
 
 ## Test run
 
 When we create document from our template we should get our items grouped by a team.
 
-![Applying Block Repetition to Table Body](/img/product/guides/TableGroupingTestRun.png)
+![Applying Block Repetition to Table Body](/img/product/template-editor/guides/TableGroupingTestRun.png)
