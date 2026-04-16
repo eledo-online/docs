@@ -3,6 +3,8 @@ title: QR code with a Link to Item
 sidebar_position: 3
 ---
 
+import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
+
 # QR code with a Link to Item
 Many documents may cause a chaos when trying to identify the monday.com Item it was created from. There is an easy solution to this by labeling the documents with QR or Bar codes.
 
@@ -15,3 +17,5 @@ Then the data expression for your QR code link should look like this:
 ```
 CONCAT("https://my-company.monday.com/boards/", id, "/pulses/", item.id)
 ```
+
+<DocFeedbackForm />
