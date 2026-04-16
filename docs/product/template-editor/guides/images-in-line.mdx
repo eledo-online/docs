@@ -17,7 +17,7 @@ DIV.inline-images {
 
 This new style class definition for DIV container goes into Styles
 
-![Applying Block Repetition to Table Body](/img/product/guides/InlineImagesDefineStyle.gif)
+![Applying Block Repetition to Table Body](/img/product/template-editor/guides/InlineImagesDefineStyle.gif)
 
 ## Wrap dynamic image with DIV container
 Steps to setup this layout is slightly reversed. We will add dynamic image first and then we will wrap it with the DIV container.
@@ -25,24 +25,24 @@ Steps to setup this layout is slightly reversed. We will add dynamic image first
 ### Add dynamic image
 For the image we will use **public_url** data expression to remind that URL of the image have to be publicly available from the internet, not private one. We will also remove the height definition of the dynamic image, so this second dimension is automatically calculated and our images are not stretched.
 
-![Applying Block Repetition to Table Body](/img/product/guides/InlineImagesAddDynamicImage.gif)
+![Applying Block Repetition to Table Body](/img/product/template-editor/guides/InlineImagesAddDynamicImage.gif)
 
 ### Wrap image with DIV container
 It can now be added easily once we have all the preparations done. Make sure your dynamic image component is selected and then click on DIV container component. It will replace the Paragraph container which is created by default in Eledo editor. Don't forget to assign style class we have created.
 
 You can double-check the operation was successfuly by inspecting the component's path at the bottom status bar of Eledo editor. Div should be in place of P
 
-![Applying Block Repetition to Table Body](/img/product/guides/InlineImagesWrapWithDIVContainer.gif)
+![Applying Block Repetition to Table Body](/img/product/template-editor/guides/InlineImagesWrapWithDIVContainer.gif)
 
 ### Apply Block Repetition to DIV container
 Last step is to apply the Block Repetition to the DIV container. This way Eledo will repeat the inline DIVs as many times as there are images in the list.
 
-![Applying Block Repetition to Table Body](/img/product/guides/InlineImagesApplyBlockRepetition.gif)
+![Applying Block Repetition to Table Body](/img/product/template-editor/guides/InlineImagesApplyBlockRepetition.gif)
 
 ## Test run
 When we create document from our template we should get a result like this
 
-![Applying Block Repetition to Table Body](/img/product/guides/InlineImagesTestRun.png)
+![Applying Block Repetition to Table Body](/img/product/template-editor/guides/InlineImagesTestRun.png)
 
 ## Improvements
 In the example above we can see the images are displayed without any spacing and it doesn't look good with different heights. Let's try to set constant height and variable width and also add some spacing between the images.
@@ -57,8 +57,8 @@ DIV.inline-images {
 ```
 And set the dynamic image height to constant 100px:
 
-![Applying Block Repetition to Table Body](/img/product/guides/InlineImagesConstantHeight.png)
+![Applying Block Repetition to Table Body](/img/product/template-editor/guides/InlineImagesConstantHeight.png)
 
 Now it looks much better even with more images:
 
-![Applying Block Repetition to Table Body](/img/product/guides/InlineImagesTestRun2.png)
+![Applying Block Repetition to Table Body](/img/product/template-editor/guides/InlineImagesTestRun2.png)
