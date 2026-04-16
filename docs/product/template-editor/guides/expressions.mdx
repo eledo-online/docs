@@ -3,6 +3,8 @@ title: Expressions
 sidebar_position: 2
 ---
 
+import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
+
 # Expressions
 
 Template allows you to use expression language to define variables and operations on them. This way you can derive new values and reduce necessary input either from user or external system.
@@ -72,3 +74,5 @@ You can define or refer to a variable within an object using dot notation, where
 Variable types can be boolean, number, string, date, or vector. Default type is string, but other types are inferred based on operations or functions used. For example, `A + 3` sets `A` to number type, which helps eliminate input errors by forcing number input.
 
 If conflicting types arise, e.g. `A + 3` (number) and `A + ".pdf"` (string), the more format-strict type (number) will be used.
+
+<DocFeedbackForm />
