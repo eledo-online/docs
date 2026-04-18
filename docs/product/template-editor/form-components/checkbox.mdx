@@ -1,29 +1,92 @@
 ---
 title: Checkbox
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Checkbox
 
-This form component enables you to add an interactive checkbox field with a prefilled value into your PDF document.
+A Checkbox allows you to add an interactive checkbox field into your PDF document.
 
-### Configuration
+The checkbox can be prefilled based on data and later modified by the end user.
 
-Click on the **Form** dropdown and select the **Checkbox** item in the editor's toolbar. A configuration window will appear. Once confirmed, the Form Checkbox will be placed at the cursor's location.
+![Checkbox Configuration](/img/product/template-editor/form-components/checkbox-configuration.png)
 
-**Name**
+---
 
-Technical name for the field in the PDF Form document. It should be unique within the document.
+## Add a Checkbox
 
-**Data (expression)**
+To insert a Checkbox into your document:
 
-Define a simple boolean field name or formula using the [expression language](../guides/expressions.mdx) to be evaluated and printed into the document.
+1. Place the cursor where you want the checkbox to appear  
+2. Click the **Form** dropdown in the toolbar  
+3. Select **Checkbox**  
+4. Configure the field and confirm  
 
-Examples:  
-`Question1` – single field expression to check or uncheck the box based on the `Question1` value (`true` or `false`)  
-`Amount > 100` – expression to check the box if `Amount` is greater than 100  
-`Chooser1 == "Red"` – expression to check the box if `Chooser1` value is equal to `"Red"`
+The Checkbox will be inserted at the cursor position.
+
+![Checkbox in Form dropdown](/img/product/template-editor/form-components/checkbox-toolbar.png)
+<figcaption>*Select **Checkbox** from the Form dropdown.*</figcaption>
+
+---
+
+## Configuration
+
+### Name
+
+The technical name of the field in the PDF form.
+
+- Should be unique within the document  
+- Used when processing form data or integrations  
+
+---
+
+### Data (expression)
+
+Defines whether the checkbox is initially checked.
+
+- Evaluated during document generation  
+- Must resolve to a boolean value  
+
+- `true` → checkbox is checked  
+- `false` → checkbox is unchecked  
+
+Examples:
+
+```
+Question1
+```
+
+Checks the box if `Question1` is `true`.
+
+```
+Amount > 100
+```
+
+Checks the box if `Amount` is greater than 100.
+
+```
+Chooser1 == "Red"
+```
+
+Checks the box if `Chooser1` equals `"Red"`.
+
+---
+
+## When to use Checkbox
+
+Use a Checkbox when you need:
+
+- user-editable true/false input  
+- prefilled yes/no values  
+- simple toggles inside a PDF form  
+
+---
+
+## Next steps
+
+- Learn about conditional display → Block Condition  
+- Learn how expressions work → [Expressions](/docs/product/template-editor/guides/expressions.mdx)
 
 <DocFeedbackForm />

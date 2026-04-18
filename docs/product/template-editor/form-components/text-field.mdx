@@ -1,32 +1,112 @@
 ---
 title: Text Field
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Text Field
 
-This component enables you to add an interactive text input field with a prefilled value into your PDF document.
+A Text Field allows you to add an interactive single-line input field into your PDF document.
 
-### Configuration
+The field can be prefilled with data and later edited by the end user.
 
-Click on the **Form** dropdown and select the **Text field** item in the editor's toolbar. A configuration window will appear. Once confirmed, the Form Text field will be placed at the cursor's location.
+![Text Field Configuration](/img/product/template-editor/form-components/text-field-configuration.png)
 
-**Name**
+---
 
-Technical name for the field in the PDF Form document. It should be unique within the document.
+## Add a Text Field
 
-**Data (expression)**
+To insert a Text Field into your document:
 
-Define a simple text field name or formula using the [expression language](../guides/expressions.mdx) to be evaluated and printed into the document.
+1. Place the cursor where you want the field to appear  
+2. Click the **Form** dropdown in the toolbar  
+3. Select **Text Field**  
+4. Configure the field and confirm  
 
-Examples:  
-`Surname` – single field expression to put the surname in place  
-`num(Amount, 0, 2) + " €"` – expression to print the `Amount` with 2 decimal places and a trailing euro sign
+The Text Field will be inserted at the cursor position.
 
-**Size**
+![Text Field in Form dropdown](/img/product/template-editor/form-components/text-field-toolbar.png)
+<figcaption>*Select **Text Field** from the Form dropdown.*</figcaption>
 
-Number specifying the size (width) of the input box. The default value is **20**.
+---
+
+## Configuration
+
+### Name
+
+The technical name of the field in the PDF form.
+
+- Should be unique within the document  
+- Used when processing form data or integrations  
+
+---
+
+### Data (expression)
+
+Defines the value that will be prefilled in the field.
+
+- Can be a simple field name  
+- Or an expression evaluated during document generation  
+
+Examples:
+
+```
+Surname
+```
+
+Inserts the value of `Surname`.
+
+```
+num(Amount, 0, 2) + " €"
+```
+
+Formats the `Amount` with 2 decimal places and adds a euro sign.
+
+---
+
+### Size
+
+Defines the width of the input field.
+
+- Numeric value  
+- Default value is **20**  
+
+---
+
+### Required
+
+Marks the field as mandatory.
+
+- When enabled, the user is required to fill in the field  
+- Validation behavior depends on the PDF viewer  
+
+---
+
+### Name (expression)
+
+Available in the **Advanced** tab.
+
+Allows you to define the field name dynamically using an expression.
+
+- Useful when generating multiple fields programmatically  
+- Evaluated during document generation  
+
+---
+
+## When to use Text Field
+
+Use a Text Field when you need:
+
+- user-editable text input  
+- prefilled values that can be adjusted  
+- simple form interaction inside the PDF  
+
+---
+
+## Next steps
+
+- Learn about multi-line input → [Text Area](./text-area.mdx)
+- Learn how expressions work → [Expressions](/docs/product/template-editor/guides/expressions.mdx)
 
 <DocFeedbackForm />

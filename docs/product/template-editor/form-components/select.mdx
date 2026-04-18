@@ -1,12 +1,112 @@
 ---
 title: Select
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Select
 
-TODO
+A Select field allows you to add a dropdown input into your PDF document.
+
+The user can choose one option from a predefined list.
+
+![Select Configuration](/img/product/template-editor/form-components/select-configuration.png)
+
+---
+
+## Add a Select field
+
+To insert a Select field into your document:
+
+1. Place the cursor where you want the field to appear  
+2. Click the **Form** dropdown in the toolbar  
+3. Select **Select**  
+4. Configure the field and confirm  
+
+The Select field will be inserted at the cursor position.
+
+![Select in Form dropdown](/img/product/template-editor/form-components/select-toolbar.png)
+<figcaption>*Select **Select** from the Form dropdown.*</figcaption>
+
+---
+
+## Configuration
+
+### Name
+
+The technical name of the field in the PDF form.
+
+- Should be unique within the document  
+- Used when processing form data or integrations  
+
+---
+
+### Values (comma separated)
+
+Defines the list of available options.
+
+- Values are separated by commas  
+- Each value becomes one selectable option  
+
+Example:
+
+```
+Red, Green, Blue
+```
+
+Creates a dropdown with three options: Red, Green, Blue.
+
+---
+
+### Data (expression)
+
+Defines the preselected value.
+
+- Must match one of the defined values  
+- Evaluated during document generation  
+
+Example:
+
+```
+Color
+```
+
+Selects the option matching the value of `Color`.
+
+---
+
+### Size
+
+Defines how many options are visible.
+
+- Numeric value  
+- Controls the height of the dropdown  
+
+---
+
+### Required
+
+Marks the field as mandatory.
+
+- When enabled, the user must select a value  
+- Validation behavior depends on the PDF viewer  
+
+---
+
+## When to use Select
+
+Use a Select field when you need:
+
+- a predefined list of options  
+- controlled user input  
+- a compact alternative to multiple checkboxes  
+
+---
+
+## Next steps
+
+- Learn about boolean input → [Checkbox](./checkbox.mdx)
+- Learn how expressions work → [Expressions](/docs/product/template-editor/guides/expressions.mdx)
 
 <DocFeedbackForm />

@@ -1,12 +1,78 @@
 ---
 title: Submit
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Submit
 
-TODO
+A Submit field allows you to add a button into your PDF document that can be used to submit form data.
+
+![Submit Configuration](/img/product/template-editor/form-components/submit-configuration.png)
+
+---
+
+## Add a Submit field
+
+To insert a Submit field into your document:
+
+1. Place the cursor where you want the button to appear  
+2. Click the **Form** dropdown in the toolbar  
+3. Select **Submit**  
+4. Configure the field and confirm  
+
+The Submit field will be inserted at the cursor position.
+
+![Submit in Form dropdown](/img/product/template-editor/form-components/submit-toolbar.png)
+<figcaption>*Select **Submit** from the Form dropdown.*</figcaption>
+
+---
+
+## Configuration
+
+### Name
+
+The technical name of the submit field.
+
+- Used to identify the submit action  
+- Can be referenced when processing form data  
+
+---
+
+### Text
+
+Defines the label displayed on the button.
+
+Example:
+
+    Submit
+
+Displays a button labeled “Submit”.
+
+---
+
+## When to use Submit
+
+Use a Submit field when you need:
+
+- a clear action for completing a form  
+- a button that signals form submission  
+- user interaction flow inside the PDF  
+
+---
+
+## Notes
+
+The behavior of the Submit button depends on the PDF viewer and environment.
+
+Not all viewers support form submission in the same way.
+
+---
+
+## Next steps
+
+- Learn about other form inputs → [Text Field](./text-field.mdx) or [Select](./select.mdx)
+- Learn how expressions work → [Expressions](/docs/product/template-editor/guides/expressions.mdx)
 
 <DocFeedbackForm />
