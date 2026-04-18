@@ -7,6 +7,102 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Dynamic Color
 
-TODO
+Dynamic Color allows you to change the text or background color of a selected block.
+
+This makes it possible to visually highlight content based on data or conditions.
+
+![Dynamic Color Configuration](/img/product/template-editor/components/dynamic-color-configuration.png)
+
+---
+
+## How it works
+
+Dynamic Color applies styling to a selected block.
+
+The color can be defined dynamically using expressions, allowing the appearance of the document to change based on input data.
+
+---
+
+## Add Dynamic Color
+
+To apply dynamic color:
+
+1. Select the content you want to style  
+   or place the cursor inside that content  
+2. Click the **Dynamic Color** icon in the top toolbar  
+3. The selected block will be highlighted  
+4. If needed, use **Select parent block** to expand the selection  
+5. The configuration window will open  
+6. Configure the color settings  
+7. Confirm to apply the changes  
+
+Dynamic Color is applied to existing content.  
+It is not used to insert new elements.
+
+![Dynamic Color icon in the top toolbar](/img/product/template-editor/components/dynamic-color-toolbar.png)
+
+---
+
+## Selecting the correct block
+
+Sometimes the initially selected element is too small.
+
+For example, if your cursor is inside a table cell, you may want to apply color to:
+
+- the text inside the cell  
+- the entire cell  
+- the whole row  
+
+Use **Select parent block** to move up through the document hierarchy.
+
+For example:
+
+- text → table cell → table row → table  
+
+---
+
+## Configuration
+
+### Text color
+
+Defines the color of the text.
+
+- Optional  
+- Overrides the default text color  
+
+---
+
+### Background color
+
+Defines the background color of the selected block.
+
+- Optional  
+- Useful for highlighting or emphasizing content  
+
+---
+
+## Important notes
+
+- Dynamic Color is applied to existing content  
+- The selected block is highlighted before confirmation  
+- Colors are applied during document generation  
+- Final appearance depends on the PDF rendering  
+
+---
+
+## When to use Dynamic Color
+
+Use this component when you need to:
+
+- highlight important values  
+- indicate status (e.g. success, warning, error)  
+- improve readability of generated documents  
+
+---
+
+## Next steps
+
+- Control visibility → [Block Condition](./block-condition.mdx)
+- Repeat styled content → [Block Repetition](./block-repetition.mdx)
 
 <DocFeedbackForm />

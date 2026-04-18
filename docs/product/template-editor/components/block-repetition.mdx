@@ -5,21 +5,117 @@ sidebar_position: 2
 
 import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
-# Repetitive Block
+# Block Repetition
 
-Very important template component making document generation more dynamic. You can prepare a block for one item and let it be replicated as many times as there are items in the input data array. Items in a list and rows or columns in a table are just a few examples.
+Block Repetition allows you to repeat part of your document based on an array of data.
 
-### Configuration
+You define one block of content, and Eledo duplicates it for each item in the input array.
 
-Select the block or place the cursor inside the block's content. Click on the **Block Repetition** button in the editor's toolbar and a configuration window will appear.  
-If it's not possible to select the exact element you want to repeat, select a nested element and use the **Select parent block** button until you reach it.
+This is commonly used for:
 
-**Data (expression)**
+- invoice line items  
+- table rows  
+- lists of products or services
 
-Define an array field name or formula using the [expression language](../guides/expressions.mdx) to be evaluated as an array of items. The selected block will be repeated based on the array items count, and each block's data context will be the corresponding item.
+![Block Repetition Configuration](/img/product/template-editor/components/block-repetition-configuration.png)
 
-Examples:  
-`LineItems` – array field expression to repeat LineItem block  
-`for(1, 10)` – expression to generate an array containing numbers from 1 to 10
+---
+
+## How it works
+
+Block Repetition evaluates a **Data (expression)** that returns an array.
+
+For each item in the array:
+
+- the selected block is duplicated  
+- the data context is set to the current item  
+
+This means you can use fields inside the block that refer to properties of each item.
+
+---
+
+## Add Block Repetition
+
+To create a repetition block:
+
+1. Select the content you want to repeat  
+   or place the cursor inside that content  
+2. Click the **Block Repetition** icon in the top toolbar  
+3. The selected block will be highlighted in yellow  
+4. If needed, use **Select parent block** to expand the selection  
+5. The configuration window will open  
+6. Confirm to apply repetition  
+
+Block Repetition is intended to be used on existing content.  
+It is not used to insert an empty block.
+
+![Block Repetition icon in the top toolbar](/img/product/template-editor/components/block-repetition-toolbar.png)
+
+---
+
+## Selecting the correct block
+
+Sometimes the first selected element is too small.
+
+For example, if your cursor is inside a table cell, you may want to repeat:
+
+- the cell  
+- the whole row  
+- or the entire table  
+
+Use **Select parent block** to move up through the document hierarchy until the correct block is selected.
+
+For example:
+
+- table cell → table row → table  
+
+This helps you choose exactly which part of the document should be repeated.
+
+---
+
+## Configuration
+
+### Data (expression)
+
+Defines the array that controls how many times the block is repeated.
+
+- Must evaluate to an array  
+- Each item becomes one instance of the block  
+
+**Examples:**
+
+    LineItems
+
+Repeats the block for each item in the `LineItems` array.
+
+    for(1, 10)
+
+Generates 10 items and repeats the block 10 times.
+
+---
+
+## Important notes
+
+- Block Repetition should be applied to existing content  
+- The selected block is highlighted before you confirm the action  
+- Each repeated block gets its own data context  
+- Fields inside the block can refer to properties of the current item  
+
+---
+
+## When to use Block Repetition
+
+Use Block Repetition when you need to:
+
+- display a list of items  
+- generate dynamic table rows  
+- repeat structured content based on input data  
+
+---
+
+## Next steps
+
+- Learn how expressions work → [Expressions](../guides/expressions.mdx)  
+- Control visibility of repeated content → [Block Condition](./block-condition.mdx)
 
 <DocFeedbackForm />
