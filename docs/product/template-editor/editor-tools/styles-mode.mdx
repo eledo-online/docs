@@ -1,0 +1,98 @@
+---
+title: Styles Mode
+sidebar_position: 12
+---
+
+import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
+import ImageWithCaption from '@site/src/components/ImageWithCaption';
+
+# Styles Mode
+
+Styles Mode allows you to define global CSS styles for your document.
+
+It controls how the entire document looks, including all elements and components.
+
+:::info
+
+This is an advanced feature intended for users familiar with CSS.
+
+:::
+
+---
+
+## Where to find Styles Mode
+
+You can switch to Styles Mode using the **Styles** button in the editor header.
+
+<ImageWithCaption
+  src="/img/product/template-editor/editor-tools/styles-mode.png"
+  alt="Styles mode editor"
+  caption="Define global CSS styles for the template."
+/>
+
+---
+
+## How it works
+
+- Styles are written using CSS  
+- The styles are applied to the document body and all nested elements  
+- Changes affect the entire document  
+
+Example:
+
+```css
+body {
+  color: black;
+  background-color: white;
+  font-size: 16pt;
+  font-family: Liberation Sans;
+}
+```
+
+---
+
+## What you can control
+
+With Styles Mode, you can:
+
+- define global fonts and colors
+- control spacing and layout
+- style specific elements using CSS selectors
+- apply consistent design across the entire document
+
+---
+
+## When to use Styles Mode
+
+Use Styles Mode when you need to:
+
+- create a consistent document design
+- apply global styling rules
+- customize the appearance beyond the visual editor
+
+---
+
+## Important notes
+
+- Styles Mode is intended for advanced use
+- Requires basic knowledge of CSS
+- Incorrect styles may affect layout or readability
+
+---
+
+## Relationship to other tools
+
+- Basic Formatting — applies inline styles
+- Fonts & Styles — controls text formatting in the editor
+- Div Container — allows grouping elements for styling
+
+Styles Mode works on top of all of these and applies global rules.
+
+---
+
+## Next steps
+
+- Structure layout → [Create Div Container](./create-div-container.mdx)
+- Fine-tune HTML → [Source Mode](./source-mode.mdx)
+
+<DocFeedbackForm />
