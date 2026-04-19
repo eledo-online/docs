@@ -4,10 +4,19 @@ sidebar_position: 5
 ---
 
 import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
+import ImageWithCaption from '@site/src/components/ImageWithCaption';
 
 # Dynamic Image
 
 Dynamic Image allows you to insert images into your document based on data.
+
+Unlike [Image](../document-elements/image.mdx), which is static, Dynamic Image is evaluated during document generation and can change for each document.
+
+:::tip
+Use **[Image](../document-elements/image.mdx)** for static visuals configured in the template.
+
+Use **Dynamic Image** when the image should come from data and change for each generated document.
+:::
 
 The image source is provided at runtime, making it possible to generate documents with dynamic visuals such as:
 
@@ -16,7 +25,11 @@ The image source is provided at runtime, making it possible to generate document
 - attachments  
 - logos or branding assets
 
-![Dynamic Image Configuration](/img/product/template-editor/components/dynamic-image-configuration.png)
+<ImageWithCaption
+  src="/img/product/template-editor/components/dynamic-image-configuration.png"
+  alt="Dynamic Image Configuration"
+  caption="Dynamic Image configuration dialog."
+/>
 
 ---
 

@@ -1,12 +1,114 @@
 ---
 title: 2D
-sidebar_position: 1
+sidebar_position: 3
 ---
 
 import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
+import ImageWithCaption from '@site/src/components/ImageWithCaption';
 
-# 2D
+# 2D Barcodes
 
-TODO
+2D Barcodes encode data in two dimensions, allowing them to store more information than 1D barcodes.
+
+They are commonly used for links, payments, and structured data.
+
+---
+
+## Add a 2D Barcode
+
+To insert a 2D barcode:
+
+1. Place the cursor where you want the barcode  
+2. Click the **2D Barcode** dropdown in the toolbar  
+3. Select a barcode type  
+4. Configure the data  
+5. Confirm to insert
+
+<ImageWithCaption
+  src="/img/product/template-editor/document-elements/barcodes-2d-dropdown.png"
+  alt="Barcodes 2D Dropdown"
+  caption="Select the 2D Barcode from the dropdown menu."
+/>
+
+---
+
+## Supported types
+
+- QR Code  
+- Data Matrix  
+- PDF417  
+- Aztec  
+- Pay by Square (SK / CZ)  
+- SEPA Credit Transfer  
+
+---
+
+## Configuration
+
+All 2D barcodes share the same configuration options.
+
+### Size
+
+Controls the overall size of the barcode.
+
+Available options:
+
+- small  
+- medium  
+- large  
+- extra  
+
+---
+
+### Zoom
+
+Scales the barcode.
+
+Available options:
+
+- 1x  
+- 2x  
+- 3x  
+
+This allows you to increase the barcode size without changing its layout.
+
+---
+
+### Data (expression)
+
+Defines the value encoded in the barcode.
+
+- Must match the format required by the selected barcode type  
+- Evaluated during document generation  
+
+Example:
+
+```
+ProductCode
+```
+
+:::info
+Different barcode types may have specific requirements for the data format.
+:::
+
+---
+
+## When to use 2D Barcodes
+
+Use 2D Barcodes when you need:
+
+- encode larger amounts of data  
+- include URLs or links  
+- generate payment codes (e.g. SEPA, Pay by Square)  
+- store structured or machine-readable data  
+
+2D barcodes are more flexible than 1D barcodes and can represent complex information in a compact space.
+
+---
+
+## Next steps
+
+- Use simpler formats → [1D Barcodes](./1d.mdx)  
+- Learn how expressions work → [Expressions](../../guides/expressions.mdx)
 
 <DocFeedbackForm />
