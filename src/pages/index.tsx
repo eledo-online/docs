@@ -21,7 +21,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             style={{ marginRight: '12px' }}
-            to="/product/intro">
+            to="/product">
             Get Started
           </Link>
 

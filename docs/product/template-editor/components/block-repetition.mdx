@@ -103,6 +103,40 @@ Generates 10 items and repeats the block 10 times.
 
 ---
 
+## Special variables
+
+### $current
+
+Represents the current value in a block repetition.
+
+Example:
+
+```
+UNIQUE(items, team)
+```
+
+Inside the repetition:
+
+```
+$current
+```
+
+This refers to the current unique value of `team`.
+
+### parent
+
+Allows access to data from the parent context in nested repetitions.
+
+Example:
+
+```
+FILTER(parent.items, $current == team)
+```
+
+`parent.items` refers to the original array outside the current repetition.
+
+---
+
 ## Important notes
 
 - Block Repetition should be applied to existing content  

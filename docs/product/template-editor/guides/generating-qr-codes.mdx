@@ -7,59 +7,91 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Generating QR codes
 
-With Eledo QR code component you can easily generate and print a custom QR code into your PDF. The component requires a text value which you can provide directly or use data expression functions to compose one directly in your Eledo template.
+You can generate QR codes in your document using the **2D Barcode → QR Code** component.
 
-## QR Code Content Types
-QR codes can encode various types of content, making them versatile tools for different applications. Here are the most common QR code content types and their uses:
+The QR code content is defined using a data expression.
 
-### URL (Website Links)
-Encodes a web address (e.g., https://example.com) that redirects users to a webpage when scanned.
+---
 
-Common use cases: Marketing campaigns, product pages, event registrations.
+## How it works
 
-Example: `https://example.com`
-
-### Text
-Encodes plain text, which can be displayed directly on the user’s device upon scanning.
-
-Common use cases: Displaying short messages, instructions, or codes.
-
-Example: `Welcome to our store!`
-
-### Phone Number
-Encodes a phone number to initiate a call when scanned.
-
-Common use cases: Customer support lines, sales inquiries.
-
-Example: `tel:+1234567890`
-
-### Email Address
-Encodes an email address, optionally with a predefined subject and body. Scanning it opens the user’s email app.
-
-Common use cases: Feedback collection, support requests.
-
-Example: `mailto:support@example.com?subject=Feedback&body=Hello!`
-
-### SMS (Text Messages)
-Encodes a phone number and a predefined message for sending via SMS.
-
-Common use cases: Promotions, voting, or quick communication.
-
-Example: `smsto:+1234567890:Hello, I need assistance.`
-
-### Wi-Fi Credentials
-Encodes a network name (SSID), password, and encryption type, allowing users to connect to Wi-Fi by scanning the code.
-
-Common use cases: Cafes, hotels, public spaces.
-
-Example: `WIFI:T:WPA;S:MyNetwork;P:password123;;`
-
-### vCard (Contact Information)
-Encodes a digital business card with name, phone, email, address, and other details, enabling users to save it directly to their contacts.
-
-Common use cases: Business cards, networking events.
+- QR codes encode **text data**  
+- You provide the content using an expression  
+- The QR code is generated during document rendering  
 
 Example:
+
+```
+CONCAT("https://example.com?id=", orderId)
+```
+
+---
+
+## Important concept
+
+Eledo does not interpret QR code types directly.
+
+Instead, it encodes the provided text.  
+Different QR code “types” are simply different text formats.
+
+---
+
+## Common QR code formats
+
+You can generate various types of QR codes by formatting the encoded text correctly.
+
+---
+
+### URL (website links)
+
+```
+https://example.com
+```
+
+---
+
+### Text
+
+```
+Welcome to our store!
+```
+
+---
+
+### Phone number
+
+```
+tel:+1234567890
+```
+
+---
+
+### Email
+
+```
+mailto:support@example.com?subject=Feedback&body=Hello
+```
+
+---
+
+### SMS
+
+```
+smsto:+1234567890:Hello, I need assistance.
+```
+
+---
+
+### Wi-Fi credentials
+
+```
+WIFI:T:WPA;S:MyNetwork;P:password123;;
+```
+
+---
+
+### Contact (vCard)
+
 ```
 BEGIN:VCARD
 VERSION:3.0
@@ -69,19 +101,18 @@ EMAIL:john.doe@example.com
 END:VCARD
 ```
 
-### Location (Geolocation)
-Encodes geographic coordinates (latitude and longitude), directing users to a specific location on a map.
+---
 
-Common use cases: Event venues, tourist spots, store locations.
+### Location
 
-Example: `geo:37.7749,-122.4194`
+```
+geo:37.7749,-122.4194
+```
 
-### Calendar Event (iCalendar)
-Encodes details for an event (e.g., title, date, time, and location), which users can add directly to their calendar.
+---
 
-Common use cases: Appointments, webinars, or promotions.
+### Calendar event
 
-Example:
 ```
 BEGIN:VEVENT
 SUMMARY:Team Meeting
@@ -91,33 +122,31 @@ LOCATION:Conference Room
 END:VEVENT
 ```
 
-### Social Media Profiles or Content
-Encodes links to social media pages or actions, such as liking or following a profile.
+---
 
-Common use cases: Boosting social media presence, campaigns.
+### Payment or structured data
 
-Example: `https://www.instagram.com/yourprofile/`
+```
+upi://pay?pa=example@upi&pn=John%20Doe&am=100.00&cu=INR
+```
 
-### App Store Links
-Encodes links to app stores for downloading an app.
+---
 
-Common use cases: Mobile app promotions.
+## When to use QR codes
 
-Example: `https://apps.apple.com/app/id1234567890` (for iOS)
-or `https://play.google.com/store/apps/details?id=com.example.app` (for Android)
+Use QR codes when you need to:
 
-### Payment Information
-Encodes payment data, such as UPI IDs or links to payment portals.
+- link to external systems  
+- encode structured data  
+- provide quick access to information  
 
-Common use cases: Peer-to-peer payments, donations, or purchases.
+---
 
-Example: `upi://pay?pa=example@upi&pn=John%20Doe&am=100.00&cu=INR`
+## Related topics
 
-### Custom Data
-Encodes application-specific information in a format understood by custom software.
+- 2D Barcodes → [2D Barcodes](../document-elements/barcodes/2d.mdx)  
+- Expressions → [Expressions](../data-expressions/index.mdx)
 
-Common use cases: Inventory tracking, logistics, or IoT systems.
-
-Example: `CUSTDATA:ID12345|STATUS:IN_STOCK|LOCATION:WAREHOUSE_A`
+---
 
 <DocFeedbackForm />

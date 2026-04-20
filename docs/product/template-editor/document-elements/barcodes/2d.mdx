@@ -79,17 +79,21 @@ This allows you to increase the barcode size without changing its layout.
 Defines the value encoded in the barcode.
 
 - Must match the format required by the selected barcode type  
-- Evaluated during document generation  
+- Evaluated during document generation
+
+:::info
+
+QR codes encode text — the format of the text determines how the QR code behaves when scanned.
+
+Different barcode types may have specific requirements for the data format.
+
+:::
 
 Example:
 
 ```
 ProductCode
 ```
-
-:::info
-Different barcode types may have specific requirements for the data format.
-:::
 
 ---
 

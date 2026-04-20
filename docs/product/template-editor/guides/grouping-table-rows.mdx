@@ -6,16 +6,47 @@ sidebar_position: 9
 import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Grouping Table Rows
-Table with grouped items can be created in Eledo using combination of nested block repetitions and UNIQUE and FILTER functions.
 
-The idea is to find a list of unique values of a column you would like to group the items by and then using filter function find a group of rows with the same column value.
+You can group rows in a table by combining nested **Block Repetition** components with the `UNIQUE()` and `FILTER()` functions.
 
-Block repetitions will be placed on Table Body container and second Table Row. Table body is used, because it can have multiple table rows inside, 2 in our case. First row will print the group label and second will be used to repeat the grouped rows.
+The idea is:
 
-## Preparing table
-The table needs to have a specific structure to be able to use it for this use case. Eledo editor is currently creating a simplified table which needs to be updated via HTML Source in the editor.
+1. build a list of unique values for the column you want to group by  
+2. repeat the table body for each unique value  
+3. repeat the matching rows inside each group  
 
-We need to separate header and the body of the table. First row of the body may use column span. The code looks like this:
+This guide groups rows by the `team` field.
+
+---
+
+## How it works
+
+The grouping uses two nested repetitions:
+
+- the **outer repetition** iterates over unique group values  
+- the **inner repetition** filters rows belonging to the current group  
+
+The outer repetition is applied to the **table body** (`tbody`), and the inner repetition is applied to the **second table row** inside that body.
+
+The first row prints the group label.  
+The second row repeats the items in that group.
+
+---
+
+## Preparing the table
+
+The table must have a specific structure for this use case.
+
+Eledo currently creates a simplified table in the visual editor, so you need to switch to **Source Mode** and adjust the HTML manually.
+
+The table should have:
+
+- a `thead` for the header  
+- a `tbody` with two rows  
+- the first body row spanning all columns  
+- the second body row used for repeated items  
+
+Example:
 
 ```
 <table border="1" cellpadding="1" cellspacing="1" style="width: 500px;">
@@ -41,36 +72,95 @@ We need to separate header and the body of the table. First row of the body may 
 </table>
 ```
 
-## Outer repetition with UNIQUE list
-With table prepared by example above we can apply the Block Repetition to the table body container. Data expression with UNIQUE function will repeat the table body as many times as there are unique team values.
+---
+
+## Outer repetition with a unique list
+
+Apply **Block Repetition** to the `tbody`.
+
+Use the following expression:
 
 ```
 UNIQUE(items, team)
 ```
 
-We will also print each value using Text Box and `$current` data expression.
+This repeats the table body once for each unique value of `team`.
+
+To display the group label, insert a **Text Box** into the first body row and use:
+
+```
+$current
+```
+
+`$current` refers to the current value produced by the outer repetition.
 
 ![Applying Block Repetition to Table Body](/img/product/template-editor/guides/UniqueListIntoBlockRepetition.gif)
 
+---
+
 ## Nested repetition with FILTER
-Second Block Repetition will be applied to a second table row. In data expression we will be referring to a current value of iteration of outer repetition using `$current` variable.
+
+Apply a second **Block Repetition** to the second table row.
+
+Use the following expression:
 
 ```
 FILTER(parent.items, $current == team)
 ```
 
-In the FILTER function we refer to `parent.items`, because the outer repetition has changed the context and `items` data expression would refer to items field on the child item, which does not exist.
+This filters the original `items` array and keeps only rows where `team` matches the current group value.
+
+### Why `parent.items` is used
+
+After the outer repetition is applied, the data context changes.
+
+At that point:
+
+- `items` would refer to the current repeated item context  
+- `parent.items` refers back to the original array from the outer level  
+
+This is why `parent.items` must be used in the nested repetition.
 
 ![Applying Block Repetition to Table Body](/img/product/template-editor/guides/FilterListInSecondRepetition.gif)
 
-Resulting data structure can be checked in Input Fields menu. In our case the `team` field was resolved as Number type due to `==` operator we have used with it. We will need to manually override the default type from Number to String.
+---
+
+## Input field type adjustment
+
+You can inspect the resulting data structure in the **Input Fields** menu.
+
+In this example, the `team` field may be resolved as **Number** because it is used with the `==` operator.
+
+If `team` is actually text, you need to manually override its type from **Number** to **String**.
 
 ![Applying Block Repetition to Table Body](/img/product/template-editor/guides/TableGroupingInputFields.png)
 
-## Test run
+---
 
-When we create document from our template we should get our items grouped by a team.
+## Result
+
+When the document is generated, the rows are grouped by `team`.
+
+Each group is printed once, followed by all rows that belong to that group.
 
 ![Applying Block Repetition to Table Body](/img/product/template-editor/guides/TableGroupingTestRun.png)
+
+---
+
+## Important notes
+
+- This is an advanced use case  
+- It requires **Source Mode** and a manually adjusted table structure  
+- It depends on nested **Block Repetition** components  
+- It uses `UNIQUE()` and `FILTER()` expressions  
+
+---
+
+## Related topics
+
+- Repeating content → [Block Repetition](../components/block-repetition.mdx)  
+- Editing table structure → [Table](../document-elements/table.mdx)  
+- Source editing → [Source Mode](../editor-tools/source-mode.mdx)  
+- Expressions → [Array Functions](../data-expressions/array-functions.mdx)
 
 <DocFeedbackForm />

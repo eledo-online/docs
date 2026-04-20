@@ -121,7 +121,7 @@ const config: Config = {
           items: [
             {
               label: 'Product',
-              to: '/product/intro',
+              to: '/product',
             },
             {
               label: 'Integrations',
