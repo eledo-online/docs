@@ -129,7 +129,7 @@ const config: Config = {
             },
             {
               label: 'API',
-              to: '/api/overview',
+              to: '/api',
             },
           ],
         },

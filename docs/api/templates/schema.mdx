@@ -1,0 +1,110 @@
+---
+title: Schema
+sidebar_position: 2
+---
+
+import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
+
+# Schema
+
+Returns a template schema that can be used to construct a valid input payload (`file`) for document generation.
+
+- **HTTP Method:** `GET`  
+- **Endpoint:** `https://eledo.online/api/RESTv1/Schema/{template_id}/{template_version}`
+
+---
+
+## Path parameters
+
+| Name               | Type    | Required | Description                      |
+|--------------------|---------|----------|----------------------------------|
+| `template_id`      | String  | Yes      | Template identifier              |
+| `template_version` | Integer | No       | Template version                 |
+
+---
+
+## Query string parameters
+
+| Name         | Type   | Required | Description                     |
+|--------------|--------|----------|---------------------------------|
+| `schemaType` | String | No       | Schema format                   |
+
+---
+
+## Response
+
+### Body
+
+| Name     | Type                  | Description              |
+|----------|-----------------------|--------------------------|
+| `schema` | Array of schema items | Template field structure |
+
+---
+
+## Schema item
+
+| Name       | Type                   | Description                        |
+|------------|------------------------|------------------------------------|
+| `key`      | String                 | Field identifier                   |
+| `type`     | String                 | Field type (e.g. `string`, `number`) |
+| `children` | Array of schema items | Nested fields                      |
+| `list`     | Boolean                | Indicates array field              |
+
+---
+
+## Observed behavior
+
+The following behavior has been observed in real integrations.
+
+### Template version
+
+- If `template_version` is not provided, the **latest version** is returned  
+- Version `0` returns an error (`Template not found`)  
+- Negative versions are accepted and treated as absolute values  
+- Versions higher than the current version return an error  
+
+**Recommendation:**  
+Always use a valid positive version or omit the parameter to use the latest version
+
+---
+
+### Schema type
+
+- Default schema type is `eledo`  
+- Supported values include:
+  - `eledo` (default)
+  - `zapier`
+  - `integromat`  
+- Invalid `schemaType` values do **not** cause an error  
+- Instead, the API silently falls back to the default schema  
+
+**Recommendation:**  
+Use the default schema unless you have a specific need for another format
+
+---
+
+### Validation behavior
+
+- The API performs limited validation of parameters  
+- Invalid values may not always result in clear errors  
+
+**Recommendation:**  
+Validate inputs on the client side
+
+---
+
+## When to use Schema
+
+Use this endpoint to:
+
+- understand required input fields  
+- construct the `file` payload for the Generate endpoint  
+- dynamically build forms or integrations  
+
+---
+
+## Next steps
+
+- Generate document → [Generate](../documents/generate.mdx)
+
+<DocFeedbackForm />

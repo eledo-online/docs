@@ -7,38 +7,115 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # List
 
-Provides a list of Templates.
+Returns a list of templates.
 
 - **HTTP Method:** `GET`  
 - **Endpoint:** `https://eledo.online/api/RESTv1/List`
 
 ---
 
-### Query String Parameters
+## Query string parameters
 
-| Name    | Type    | Required | Description                                |
-|---------|---------|----------|--------------------------------------------|
-| `scope` | String  | No       | `"Mine"` or `"Public"` scope               |
-| `limit` | Integer | No       | Limits result size (useful for pagination) |
-| `page`  | Integer | No       | Page number (useful for pagination)        |
-
----
-
-### Response Body Parameters
-
-| Name        | Type                     | Description         |
-|-------------|--------------------------|---------------------|
-| `templates` | Array of Template objects| List of templates   |
+| Name    | Type    | Required | Description                    |
+|---------|---------|----------|--------------------------------|
+| `scope` | String  | No       | Template scope                 |
+| `limit` | Integer | No       | Maximum number of results      |
+| `page`  | Integer | No       | Page number                    |
 
 ---
 
-### Template Object Properties
+## Response
 
-| Property  | Type     | Description                                      |
-|-----------|----------|--------------------------------------------------|
-| `id`      | String   | Unique identifier of the Template                |
-| `name`    | String   | Template name                                    |
-| `version` | Integer  | Template version                                 |
-| `bulk`    | Boolean  | `true` if the Template is designed for bulk use  |
+### Body
+
+| Name        | Type                      | Description        |
+|-------------|---------------------------|--------------------|
+| `templates` | Array of Template objects | List of templates  |
+| `total`     | Integer                   | Total count (informational) |
+
+---
+
+## Template object
+
+| Property       | Type    | Description                     |
+|----------------|---------|---------------------------------|
+| `id`           | String  | Template identifier             |
+| `name`         | String  | Template name                   |
+| `version`      | Integer | Template version                |
+| `bulk`         | Boolean | Indicates bulk template         |
+| `date`         | Number  | Creation timestamp              |
+| `thumbnailUrl` | String  | Template preview image URL      |
+| `type`         | Integer | Template type                   |
+
+---
+
+## Observed behavior
+
+The following behavior has been observed in real integrations and may differ from typical API expectations.
+
+### Scope
+
+- If `scope` is not provided, only **private templates** are returned  
+- Using `scope=public` returns a larger set of templates  
+
+**Recommendation:** Always specify `scope` explicitly
+
+---
+
+### Limit
+
+- `limit=0` returns all templates  
+- Negative values are treated as absolute values  
+- When combined with `scope`, the `limit` parameter may be ignored  
+- Works reliably only when used alone  
+
+**Recommendation:** Apply client-side limits when needed
+
+---
+
+### Pagination
+
+- `page` parameter appears to have **no effect**  
+- Different page values return identical results  
+
+**Recommendation:** Do not rely on server-side pagination
+
+---
+
+### Query validation
+
+- Unknown query parameters are ignored  
+- Invalid values for known parameters may cause errors  
+- Some error responses may be returned as **HTML instead of JSON**
+
+**Recommendation:** Validate parameters on the client side and handle non-JSON responses
+
+---
+
+## Example response
+
+```
+{
+    "total": 2,
+    "templates": [
+    {
+        "id": "...",
+        "date": 1763113932000,
+        "name": "Example Template",
+        "thumbnailUrl": "https://...",
+        "type": 0,
+        "version": 1,
+        "bulk": false
+    }
+    ]
+}
+```
+
+---
+
+## Next steps
+
+- Retrieve schema → Schema  
+- Generate document → Generate  
 
 <DocFeedbackForm />

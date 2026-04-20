@@ -7,49 +7,102 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Download
 
-Download a PDF document from a previously stored file.  
-**Note:** This action removes a temporary file if applicable.
+Downloads a PDF document created using the **Create File** endpoint.
+
+This endpoint is part of the asynchronous document generation flow.
 
 - **HTTP Method:** `GET`  
 - **Endpoint:** `https://eledo.online/api/RESTv1/Download/{file_id}`
 
 ---
 
-### Path Parameters
+## Path parameters
 
-| Name      | Type   | Required | Description                  |
-|-----------|--------|----------|------------------------------|
-| `file_id` | String | Yes      | Unique identifier of the file |
-
----
-
-### Response Headers
-
-| Header              | Value                                   |
-|---------------------|-----------------------------------------|
-| `Content-Type`       | `application/pdf`                       |
-| `Content-Disposition`| `attachment; filename="file_name"`     |
+| Name      | Type   | Required | Description        |
+|-----------|--------|----------|--------------------|
+| `file_id` | String | Yes      | File identifier    |
 
 ---
 
-### Response Body
+## Response
 
-Binary PDF stream.
+### Success
+
+- **Content-Type:** `application/pdf`  
+- **Body:** Binary PDF data  
+
+### Headers
+
+| Header                | Description                    |
+|------------------------|--------------------------------|
+| `Content-Disposition` | Contains the generated filename |
+
+Example:
+
+```
+content-disposition: attachment; filename="0_0.pdf"; filename*=UTF-8''0_0.pdf
+```
 
 ---
 
-### Error Response Headers
+### Error
 
-| Header        | Value              |
-|---------------|--------------------|
-| `Content-Type` | `application/json` |
+- **Content-Type:** `application/json`  
+
+| Name     | Type  | Description              |
+|----------|-------|--------------------------|
+| `errors` | Array | List of errors           |
 
 ---
 
-### Error Response Body Parameters
+## How it works
 
-| Name     | Type   | Description                                 |
-|----------|--------|---------------------------------------------|
-| `errors` | Array  | List of errors that occurred during the request |
+1. Create a file using **Create File**  
+2. Retrieve the `file_id` or download URL  
+3. Call this endpoint to download the generated PDF  
+
+---
+
+## Observed behavior
+
+### Temporary files
+
+- If the file was created with `temporary=true`, it is removed after download  
+- Subsequent download attempts may fail  
+
+---
+
+### Response handling
+
+- Successful responses return binary PDF data  
+- Errors return JSON  
+- Response type should be detected via `Content-Type`  
+
+---
+
+### Filename handling
+
+- The filename is provided in `Content-Disposition`  
+- Two variants may be present:
+  - `filename="..."`
+  - `filename*=UTF-8''...`
+
+**Recommendation:**  
+Handle both formats when extracting filenames
+
+---
+
+## When to use Download
+
+Use this endpoint when:
+
+- you are using the **Create File** workflow  
+- you need to retrieve a previously generated document  
+
+---
+
+## Next steps
+
+- Create file → [Create File](./create-file.mdx)
 
 <DocFeedbackForm />

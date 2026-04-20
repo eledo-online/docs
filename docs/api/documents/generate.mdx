@@ -7,50 +7,127 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Generate
 
-Main API resource to generate a PDF from a Template and input File.
+Generates a PDF document from a template and input data.
+
+This is the primary endpoint used for document generation.
 
 - **HTTP Method:** `POST`  
 - **Endpoint:** `https://eledo.online/api/RESTv1/Generate`
 
 ---
 
-### Request Body Parameters
+## Request body
 
-| Name             | Type     | Required | Description                                |
-|------------------|----------|----------|--------------------------------------------|
-| `templateId`      | String   | Yes      | Unique identifier of the Template          |
-| `templateVersion` | Integer  | No       | Template version                           |
-| `file`            | Object   | No       | File to be processed                        |
-
----
-
-### Response Headers
-
-| Header               | Value                                   |
-|----------------------|-----------------------------------------|
-| `Content-Type`        | `application/pdf`                       |
-| `Content-Disposition` | `attachment; filename="file_name"`     |
+| Name              | Type    | Required | Description                    |
+|-------------------|---------|----------|--------------------------------|
+| `templateId`      | String  | Yes      | Template identifier            |
+| `templateVersion` | Integer | No       | Template version               |
+| `file`            | Object  | Yes*     | Input data for the template    |
 
 ---
 
-### Response Body
+## Minimal example
 
-Binary PDF stream.
+The following payload is the minimal reliably working request:
+
+```
+{
+    "templateId": "...",
+    "file": null
+}
+```
 
 ---
 
-### Error Response Headers
+## Response
 
-| Header        | Value              |
-|---------------|--------------------|
-| `Content-Type` | `application/json` |
+### Success
+
+- **Content-Type:** `application/pdf`  
+- **Body:** Binary PDF data  
+
+### Headers
+
+| Header                | Description                    |
+|------------------------|--------------------------------|
+| `Content-Disposition` | Contains the generated filename |
+
+Example:
+
+```
+content-disposition: attachment; filename="0_0.pdf"; filename*=UTF-8''0_0.pdf
+```
 
 ---
 
-### Error Response Body Parameters
+### Error
 
-| Name     | Type   | Description                                  |
-|----------|--------|----------------------------------------------|
-| `errors` | Array  | List of errors that occurred during the request |
+- **Content-Type:** `application/json`  
+
+| Name     | Type  | Description                    |
+|----------|-------|--------------------------------|
+| `errors` | Array | List of errors                 |
+
+---
+
+## Observed behavior
+
+The following behavior has been observed in real integrations.
+
+### File parameter
+
+- The `file` field must be present in the request  
+- `file: null` is accepted  
+- `{}` (empty object) is also accepted  
+- Omitting the `file` field may result in errors  
+
+**Recommendation:**  
+Always include the `file` field (use `null` if no data is required)
+
+---
+
+### Input validation
+
+- Partial payloads are accepted  
+- Missing fields do not cause failure  
+- Incorrect types may still produce a PDF with missing values  
+
+**Recommendation:**  
+Do not rely on strict validation — validate inputs on the client side if needed
+
+---
+
+### Response handling
+
+- Successful responses return binary PDF data  
+- Errors return JSON  
+- Response type should be detected via `Content-Type`  
+
+---
+
+### Filename handling
+
+- The filename is provided in `Content-Disposition`  
+- Two variants may be present:
+  - `filename="..."`
+  - `filename*=UTF-8''...`  
+
+**Recommendation:**  
+Handle both formats when extracting filenames
+
+---
+
+## How it works
+
+1. Select a template (`templateId`)  
+2. Provide input data (`file`)  
+3. The API renders and returns a PDF  
+
+---
+
+## Next steps
+
+- List templates → [List](../templates/list.mdx)
+- Retrieve schema → [Schema](../templates/schema.mdx)
 
 <DocFeedbackForm />
