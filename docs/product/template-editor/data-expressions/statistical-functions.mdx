@@ -6,18 +6,29 @@ sidebar_position: 9
 import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Statistical Functions
-# SUM(V, X)
-Sum of expression X on vector V
+
+Statistical functions allow you to aggregate values from arrays.
+
+---
+
+## SUM(V, X)
+
+Returns the sum of expression `X` evaluated for each item in array `V`.
 
 ```
 SUM( items, line_total )
 ```
 
+---
+
 ## SUMC(V, X, F, T)
-Conditional sum of expression X on vector V, where expression F has target value T
+
+Returns the sum of expression `X` for items in array `V` where field `F` equals value `T`.
 
 ```
 SUMC( items, line_total, type, "service" )
 ```
+
+---
 
 <DocFeedbackForm />

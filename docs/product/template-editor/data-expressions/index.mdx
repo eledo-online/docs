@@ -1,0 +1,198 @@
+---
+title: Data Expressions
+sidebar_position: 1
+---
+
+import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
+
+# Data Expressions
+
+Data Expressions allow you to compute values dynamically inside your templates.
+
+Eledo automatically prepares input fields from your template and inserts values into the generated PDF based on data provided via API. Data Expressions are used in both steps — they define which input fields are created and how the data is processed and displayed.
+
+A Data Expression consists of multiple elements, where the most important one is a **variable**. When you save your template, Eledo creates input fields from all variables used in the template.
+
+---
+
+## Elements
+
+A Data Expression can contain:
+
+- `Name` — variable  
+- `123` — constant number  
+- `"Peter"` — constant string  
+- `+` — operator  
+- `ABS(X)` — function  
+
+---
+
+## Variables
+
+A variable represents a value provided as input.
+
+A variable name:
+
+- can contain upper and lower case letters  
+- can contain underscores  
+- cannot start with an underscore  
+
+Valid examples:
+
+```
+Name
+email
+UnitPrice
+order_number
+```
+
+### Object access
+
+You can access nested values using dot notation:
+
+```
+Address.City
+```
+
+This expression refers to the `City` variable inside the `Address` object.
+
+---
+
+## Numbers
+
+Numbers are handled with high precision.
+
+Supported format:
+
+```
+123.456
+```
+
+- must start with digits  
+- optional decimal part  
+- uses `.` as the decimal separator  
+
+---
+
+## Operators
+
+You can use the following operators:
+
+```
++  -  *  /  %  >  >=  <  <=  =  ==  !=
+```
+
+They allow basic calculations and comparisons directly in the template.
+
+---
+
+## Functions
+
+Functions provide more advanced data processing. They are grouped into categories.
+
+### General functions
+
+```
+IF SWITCH FOR NEXTCOUNTER PROPERTY DEFAULT
+```
+
+### Text functions
+
+```
+CONCAT LENGTH LEFT RIGHT UPPER LOWER CAPITALIZE CAPITALIZEFULLY CHARAT SPLIT REGEX REPLACE NUM CURR ROUND
+```
+
+### Date functions
+
+```
+DATE TO_DATE DAYS DAYS_BETWEEN TODAY
+```
+
+### Array functions
+
+```
+SIZE FILTER SORT_ASC SORT_DESC GET FIRST LAST MAP JOIN
+```
+
+### Logical functions
+
+```
+NOT AND OR
+```
+
+### Statistical functions
+
+```
+SUM SUMC
+```
+
+---
+
+## Types
+
+A variable can be one of the following types:
+
+- boolean  
+- number  
+- string  
+- date  
+- object  
+- array  
+
+The default type is **string**.
+
+---
+
+## Type resolution
+
+Eledo automatically determines variable types based on how they are used.
+
+Example:
+
+```
+A + 3
+```
+
+In this case, `A` is treated as a **number**.
+
+This helps prevent input errors by ensuring the correct data type is used.
+
+---
+
+### Mixed usage
+
+If a variable is used in different contexts:
+
+```
+A + 3
+A + ".pdf"
+```
+
+The variable could be interpreted as either number or string.
+
+If resolved as a string, the first expression could fail. To prevent this, Eledo resolves `A` as a **number**.
+
+---
+
+### Manual override
+
+You can override variable types in the **Input Fields** section of the Template Editor.
+
+If overridden:
+
+- the selected type is enforced  
+- expressions behave accordingly  
+
+Example:
+
+If `A` is forced to **string**:
+
+```
+A + 3
+```
+
+This expression will be evaluated as text concatenation instead of numeric addition.
+
+---
+
+<DocFeedbackForm />

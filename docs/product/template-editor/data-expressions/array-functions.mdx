@@ -6,67 +6,99 @@ sidebar_position: 7
 import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Array Functions
+
+Array functions allow you to process and transform lists of values.
+
+---
+
 ## SIZE(A)
-Size of array A
+
+Returns the number of items in array `A`.
 
 ```
 SIZE( items )
 ```
 
+---
+
 ## FILTER(A, C)
-Filters the array A with filter condition C
+
+Returns a new array containing items from `A` that match condition `C`.
 
 ```
 FILTER( items, type == "service" )
 ```
 
+---
+
 ## SORT_ASC(A, F)
-Sorts the array A into ascending order based on F field
+
+Sorts array `A` in ascending order based on field `F`.
 
 ```
 SORT_ASC( items, price )
 ```
 
+---
+
 ## SORT_DESC(A, F)
-Sorts the array A into descending order based on F field
+
+Sorts array `A` in descending order based on field `F`.
 
 ```
 SORT_DESC( items, date )
 ```
 
+---
+
 ## GET(A, N)
-Returns the N-th item of array A
+
+Returns the item at position `N` in array `A`.
 
 ```
 GET( items, 2 )
 ```
 
+---
+
 ## FIRST(A)
-Returns first item of array A
+
+Returns the first item of array `A`.
 
 ```
 FIRST( items )
 ```
 
+---
+
 ## LAST(A)
-Returns last item of array A
+
+Returns the last item of array `A`.
 
 ```
 LAST( items )
 ```
 
+---
+
 ## MAP(A, E)
-Transforms A array into list of values calculated by expression E
+
+Transforms array `A` into a new array using expression `E`.
 
 ```
 MAP( items, name )
 ```
 
+---
+
 ## JOIN(A, S)
-Joins array A with separator S into single text
+
+Joins items of array `A` into a single text using separator `S`.
 
 ```
 JOIN( countries, ", " )
 ```
+
+---
 
 <DocFeedbackForm />
