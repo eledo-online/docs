@@ -7,12 +7,41 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Authentication
 
-Currently, we are using **HTTP Header Authentication** with an **API Key**.
+Eledo uses **HTTP header authentication** with an **API Key**.
 
-### Authentication Headers
+All API requests must include the API Key in the request headers.
 
-| Header   | Type   | Required | Description        |
-|----------|--------|----------|--------------------|
-| Api-Key  | String | Yes      | Use your API Key   |
+---
+
+## Authentication headers
+
+| Header  | Type   | Required | Description        |
+|---------|--------|----------|--------------------|
+| Api-Key | String | Yes      | Your API Key       |
+
+---
+
+## Example
+
+```
+GET /api/RESTv1/Profile
+Api-Key: your_api_key
+```
+
+---
+
+## Important notes
+
+- Requests without a valid API Key will fail  
+- The API Key must be included in every request  
+- Keep your API Key secure and do not expose it in client-side code
+- Invalid API Keys return an authentication error response
+
+---
+
+## Next steps
+
+- Retrieve templates → [List](./templates/list.mdx)
+- Generate documents → [Generate](./documents/generate.mdx)
 
 <DocFeedbackForm />

@@ -1,12 +1,109 @@
 ---
 title: 1D
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
+import ImageWithCaption from '@site/src/components/ImageWithCaption';
 
-# 1D
+# 1D Barcodes
 
-TODO
+1D Barcodes (linear barcodes) encode data using vertical lines of varying widths.
+
+They are widely used for product identification and inventory systems.
+
+---
+
+## Add a 1D Barcode
+
+To insert a 1D barcode:
+
+1. Place the cursor where you want the barcode  
+2. Click the **1D Barcode** dropdown in the toolbar  
+3. Select a barcode type  
+4. Configure the data  
+5. Confirm to insert  
+
+<ImageWithCaption
+  src="/img/product/template-editor/document-elements/barcodes-1d-dropdown.png"
+  alt="Barcodes 1D Dropdown"
+  caption="Select the 1D Barcode from the dropdown menu."
+/>
+
+---
+
+## Supported types
+
+- EAN-8  
+- EAN-13  
+- Code 39  
+- Code 93  
+- Code 128
+
+---
+
+## Configuration
+
+All 1D barcodes share the same configuration options.
+
+### Size
+
+Controls the overall size of the barcode.
+
+Available options:
+
+- small  
+- medium  
+- large  
+- extra  
+
+---
+
+### Zoom
+
+Scales the barcode.
+
+Available options:
+
+- 1x  
+- 2x  
+- 3x  
+
+This allows you to increase the barcode size without changing its layout.
+
+---
+
+### Data (expression)
+
+Defines the value encoded in the barcode.
+
+- Must match the format required by the selected barcode type  
+- Evaluated during document generation  
+
+Example:
+
+```
+ProductCode
+```
+
+:::info
+Different barcode types may have specific requirements for the data format.
+:::
+
+---
+
+## When to use 1D Barcodes
+
+Use 1D Barcodes when you need:
+
+- product codes  
+- inventory tracking  
+- simple numeric or alphanumeric identifiers  
+
+---
+
+## Next steps
+
+- Use advanced encoding → [2D Barcodes](./2d.mdx)
 
 <DocFeedbackForm />

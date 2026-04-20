@@ -6,25 +6,39 @@ sidebar_position: 8
 import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Logical Functions
+
+Logical functions allow you to combine and evaluate boolean values.
+
+---
+
 ## NOT(A)
-Logical negation
+
+Returns the logical negation of `A`.
 
 ```
 NOT( checked )
 ```
 
+---
+
 ## AND(A, B, ...)
-Logical AND
+
+Returns `true` if all provided values are `true`.
 
 ```
-AND( check1, check2, check 3 )
+AND( check1, check2, check3 )
 ```
+
+---
 
 ## OR(A, B, ...)
-Logical OR
+
+Returns `true` if at least one provided value is `true`.
 
 ```
 OR( check1, check2, check3 )
 ```
+
+---
 
 <DocFeedbackForm />

@@ -1,0 +1,123 @@
+---
+title: API Overview
+sidebar_position: 1
+---
+
+import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
+
+# REST API Overview
+
+The Eledo REST API allows you to work with templates, generate PDF documents, and retrieve supporting metadata.
+
+All endpoints are available under:
+
+```
+https://eledo.online/api/RESTv1/
+```
+
+---
+
+## Authentication
+
+Eledo uses **HTTP header authentication** with an **API Key**.
+
+Authentication details are described in the **Authentication** section.
+
+---
+
+## Available endpoints
+
+### Create File
+
+Creates a file within the service that can be used to store transaction data for later use.
+
+- **HTTP Method:** `POST`  
+- **Endpoint:** `https://eledo.online/api/RESTv1/CreateFile`
+
+---
+
+### Download
+
+Downloads a PDF document from a previously stored file.
+
+- **HTTP Method:** `GET`  
+- **Endpoint:** `https://eledo.online/api/RESTv1/Download`
+
+---
+
+### Generate
+
+Generates a PDF document from a template and input data.
+
+This is the main endpoint used for document generation.
+
+- **HTTP Method:** `POST`  
+- **Endpoint:** `https://eledo.online/api/RESTv1/Generate`
+
+---
+
+### List
+
+Returns a list of templates.
+
+- **HTTP Method:** `GET`  
+- **Endpoint:** `https://eledo.online/api/RESTv1/List`
+
+---
+
+### Profile
+
+Returns the current user's profile.
+
+- **HTTP Method:** `GET`  
+- **Endpoint:** `https://eledo.online/api/RESTv1/Profile`
+
+---
+
+### Schema
+
+Returns a template schema that can be used to construct a valid input payload.
+
+- **HTTP Method:** `GET`  
+- **Endpoint:** `https://eledo.online/api/RESTv1/Schema`
+
+---
+
+:::info
+
+The API supports both synchronous and asynchronous document generation.
+
+:::
+
+## Recommended reading order
+
+There are two main ways to generate documents:
+
+### 1. Synchronous generation (most common)
+
+Use this approach when you need an immediate response:
+
+1. **Authentication**  
+2. **List**  
+3. **Schema**  
+4. **Generate**
+
+---
+
+### 2. Asynchronous generation (advanced)
+
+Use this approach when processing larger workloads or when immediate response is not required:
+
+1. **Authentication**  
+2. **Create File**  
+3. **Download**
+
+---
+
+## Important notes
+
+Some endpoints are permissive in practice and may behave differently from what a strict API client would expect.
+
+Where relevant, this documentation includes additional integration notes based on observed behavior.
+
+<DocFeedbackForm />

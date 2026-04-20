@@ -1,9 +1,10 @@
 ---
 title: Dynamic Checkbox
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
+import ImageWithCaption from '@site/src/components/ImageWithCaption';
 
 # Dynamic Checkbox
 
@@ -11,7 +12,11 @@ A Dynamic Checkbox allows you to insert a checkbox into your document that is au
 
 Instead of setting the checkbox manually, you define a value or condition that determines its state when the document is generated.
 
-![Dynamic Checkbox configuration](/img/product/template-editor/components/dynamic-checkbox-configuration.png)
+<ImageWithCaption
+  src="/img/product/template-editor/components/dynamic-checkbox-configuration.png"
+  alt="Dynamic Checkbox configuration"
+  caption="Dynamic Checkbox configuration dialog."
+/>
 
 ---
 
@@ -23,7 +28,7 @@ To insert a Dynamic Checkbox into your document:
 2. Place the cursor where you want the checkbox to appear  
 3. Click the **Dynamic Checkbox** icon in the top toolbar  
 4. The configuration window will open  
-5. Confirm to insert the checkbox into the document  
+5. Confirm to insert the checkbox
 
 The checkbox will be placed at the cursor position.
 
@@ -44,15 +49,21 @@ The value is provided at runtime through integrations (Make, Zapier, API, etc.).
 
 **Examples:**
 
-    Question1
+```
+Question1
+```
 
 Checks the box if the `Question1` value is `true`.
 
-    Amount > 100
+```
+Amount > 100
+```
 
 Checks the box if the `Amount` is greater than 100.
 
-    Chooser1 == "Red"
+```
+Chooser1 == "Red"
+```
 
 Checks the box if the value of `Chooser1` equals `"Red"`.
 
@@ -88,7 +99,9 @@ You can use the same data expression in multiple checkboxes.
 
 For example:
 
-    Question1
+```
+Question1
+```
 
 can be used in several places in the document.
 

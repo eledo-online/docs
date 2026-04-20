@@ -7,117 +7,173 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Text Functions
 
+Text functions allow you to manipulate and analyze text values.
+
+---
+
 ## CONCAT(A, B, ...)
-Concatenates multiple strings into one:
+
+Concatenates multiple values into a single text.
 
 ```
 CONCAT( "Hello", name )
 CONCAT( "INV", NUM( invoiceNumber, 4 ) )
 ```
 
+---
+
 ## LENGTH(T)
-Calculates length of text T
+
+Returns the length of text `T`.
 
 ```
 LENGTH( name )
 ```
 
+---
+
 ## LEFT(T, N)
-Returns left N characters from text T
+
+Returns the first `N` characters from text `T`.
 
 ```
 LEFT( "PO00384", 2 )
 ```
 
+---
+
 ## RIGHT(T, N)
-Returns right N characters from text T
+
+Returns the last `N` characters from text `T`.
 
 ```
 RIGHT( "PO00384", 5 )
 ```
 
+---
+
 ## UPPER(T)
-Converts all text T characters to upper case
+
+Converts all characters in text `T` to uppercase.
 
 ```
 UPPER( name )
 ```
 
+---
+
 ## LOWER(T)
-Converts all text T characters to lower case
+
+Converts all characters in text `T` to lowercase.
 
 ```
 LOWER( name )
 ```
 
+---
+
 ## CAPITALIZE(T)
-Capitalizes a text T changing the first letter to upper case. No other letters are changed.
+
+Capitalizes the first character of text `T`.
+
+Other characters are not modified.
 
 ```
 CAPITALIZE( surname )
 ```
 
+---
+
 ## CAPITALIZEFULLY(T)
-Converts all the whitespace separated words in a text T into capitalized words, that is each word is made up of a upper case character and then a series of lowercase characters.
+
+Capitalizes each word in text `T`.
+
+Each word starts with an uppercase character followed by lowercase characters.
 
 ```
 CAPITALIZEFULLY( fullName )
 ```
 
+---
+
 ## CHARAT(T, N)
-Returns N-th character of text T
+
+Returns the character at position `N` in text `T`.
 
 ```
 CHARAT( name, 3 )
 ```
 
+---
+
 ## SPLIT(T, S)
-Splits text T with separator S into an array
+
+Splits text `T` into an array using separator `S`.
 
 ```
 SPLIT( countries, "," )
 ```
 
+---
+
 ## REGEX(T, R)
-Returns first match of regex R on text T
+
+Returns the first match of regular expression `R` in text `T`.
 
 ```
 REGEX( invoiceNumber, "\d+" )
 ```
 
+---
+
 ## REPLACE(T, A, B)
-Replaces text A with text B in text T
+
+Replaces all occurrences of `A` with `B` in text `T`.
 
 ```
 REPLACE( text, "Dog", "Cat" )
 ```
 
+---
+
 ## CONTAINS(T, A)
-Returns true if text T contains text A
+
+Returns `true` if text `T` contains `A`.
 
 ```
 CONTAINS( text, "yes" )
 ```
 
+---
+
 ## INDEXOF(T, A)
-Returns index of text A in text T
+
+Returns the position of `A` in text `T`.
 
 ```
 INDEXOF( text, "X" )
 ```
 
+---
+
 ## SUBSTRING(T, I)
-Returns subtext of text T, starting at I position
+
+Returns a substring of text `T` starting at position `I`.
 
 ```
 SUBSTRING( text, 3 )
 ```
 
+---
+
 ## SUBSTRING(T, I, J)
-Returns subtext of text T, starting at I position and ending at J position
+
+Returns a substring of text `T` from position `I` to position `J`.
 
 ```
 SUBSTRING( text, 3, 6 )
 ```
+
+---
 
 <DocFeedbackForm />

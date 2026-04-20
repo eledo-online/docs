@@ -7,72 +7,134 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Expressions
 
-Template allows you to use expression language to define variables and operations on them. This way you can derive new values and reduce necessary input either from user or external system.
+Expressions allow you to define dynamic values in your template.
 
-### Elements
+They are used to:
+- insert data into the document  
+- transform values  
+- perform calculations  
+- control formatting  
 
-- `123` - Number  
-- `"Peter"` - Constant string  
-- `Name` - Variable  
-- `+` - Operator  
-- `ABS(X)` - Function  
+Expressions are used throughout the template editor — for example in text, form fields, dynamic images, and file names.
 
-### Numbers
+---
 
-Numbers and operations with them are handled with highest precision. Acceptable number format is simple: `123.456` - starting with digits, followed by decimal separator and ending with digits again. Decimal part is not mandatory.
+## How it works
 
-### Variables
+An expression combines different elements:
 
-A simple word defines a variable name. It consists of upper or lower case letters and can contain, but cannot start with underscore character.
+- values (numbers or text)  
+- variables (input data)  
+- operators (e.g. `+`, `>`)  
+- functions (e.g. `CONCAT`, `DATE`)  
 
-Valid examples:  
-`Name`  
-`email`  
-`UnitPrice`  
-`order_number`
+Example:
 
-You can define or refer to a variable within an object using dot notation, where `.` connects object and variable name. Example:  
-`Address.City`
+```
+CONCAT("Hello ", name)
+```
 
-### Operators
+This expression combines static text with a variable.
 
-- `+` - addition  
-- `-` - subtraction  
-- `*` - multiplication  
-- `/` - division  
-- `%` - modulo  
-- `>` - greater than  
-- `>=` - greater than or equal to  
-- `<` - lower than  
-- `<=` - lower than or equal to  
-- `=` - assignment  
-- `==` - equal  
-- `!=` or `<>` - not equal  
+---
 
-### Functions
+## Variables
 
-- `NOT(A)` - logical negation  
-- `AND(A, B, ...)` - logical AND  
-- `OR(A, B, ...)` - logical OR  
-- `IF(C, A, B)` - if logical condition C is true, result is A, otherwise B  
-- `ABS(A)` - absolute value of number A  
-- `MAX(A, B, ...)` - maximum value of values A, B, ...  
-- `MIN(A, B, ...)` - minimum value of values A, B, ...  
-- `SIZE(V)` - size of vector V  
-- `SUM(V, X)` - sum of expression X on vector V  
-- `SUMC(V, X, F, T)` - conditional sum of expression X on vector V, where expression F has target value T  
-- `NUM(N, D)` - print number N with D digits, pad with leading zeroes  
-- `NUM(N, D, P)` - print number N with D digits and P decimal places, pad with leading and trailing zeroes  
-- `ROUND(D, S)` - round decimal number D with S scale, rounding half up  
-- `REPLACE(A, B, C)` - replace string B with string C in A expression  
-- `DATE(D, F)` - print date D in F format (y, M, d, H, m, s)  
-- `TO_DATE(A, F)` - parse string A to date using format F (y, M, d, H, m, s)  
-- `DAYS(D)` - convert number of days D to date  
+Variables represent input data.
 
-### Types
+Examples:
 
-Variable types can be boolean, number, string, date, or vector. Default type is string, but other types are inferred based on operations or functions used. For example, `A + 3` sets `A` to number type, which helps eliminate input errors by forcing number input.
+```
+Name
+email
+UnitPrice
+order_number
+```
 
-If conflicting types arise, e.g. `A + 3` (number) and `A + ".pdf"` (string), the more format-strict type (number) will be used.
+You can also access nested data using dot notation:
+
+```
+Address.City
+```
+
+---
+
+## Numbers
+
+Numbers use a simple format:
+
+```
+123
+123.456
+```
+
+The decimal part is optional.
+
+---
+
+## Operators
+
+Operators allow you to perform calculations and comparisons.
+
+Examples:
+
+```
+quantity * price
+price > 50
+```
+
+---
+
+## Functions
+
+Functions allow you to transform and format data.
+
+Examples:
+
+```
+CONCAT("INV", NUM(invoiceNumber, 4))
+DATE(TODAY(), "yyyy-MM-dd")
+```
+
+---
+
+## Types
+
+Expressions support different data types:
+
+- string  
+- number  
+- boolean  
+- date  
+- array  
+
+The type is automatically inferred based on how the value is used.
+
+Example:
+
+```
+A + 3
+```
+
+This forces `A` to be treated as a number.
+
+---
+
+## When to use Expressions
+
+Use expressions when you need to:
+
+- combine values  
+- format numbers or dates  
+- generate dynamic text  
+- derive new values from input data  
+
+---
+
+## Related topics
+
+- Full reference → [Data Expressions](../data-expressions/index.mdx)
+
+---
 
 <DocFeedbackForm />

@@ -7,17 +7,40 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # User Profile
 
-Returns the user's profile.
+Returns information about the authenticated user.
 
 - **HTTP Method:** `GET`  
 - **Endpoint:** `https://eledo.online/api/RESTv1/Profile`
 
 ---
 
-### Response Body Parameters
+## Response
+
+### Body
 
 | Name      | Type   | Description                          |
 |-----------|--------|--------------------------------------|
-| `account` | String | Account's login identifier (email)   |
+| `account` | String | Account identifier (email)           |
+
+---
+
+## Example
+
+```
+{
+    "account": "user@example.com"
+}
+```
+
+---
+
+## When to use User Profile
+
+Use this endpoint to:
+
+- verify that authentication is working  
+- retrieve the current account identifier  
+
+---
 
 <DocFeedbackForm />

@@ -1,0 +1,94 @@
+---
+title: Create File
+sidebar_position: 1
+---
+
+import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
+
+# Create File
+
+Creates a file on the server that can later be used to generate and download a PDF document.
+
+This endpoint is typically used together with **Download** for asynchronous document generation.
+
+- **HTTP Method:** `POST`  
+- **Endpoint:** `https://eledo.online/api/RESTv1/CreateFile`
+
+---
+
+## Request body
+
+| Name              | Type    | Required | Description                         |
+|-------------------|---------|----------|-------------------------------------|
+| `templateId`      | String  | Yes      | Template identifier                 |
+| `templateVersion` | Integer | No       | Template version                    |
+| `file`            | Object  | Yes*     | Input data to be stored             |
+| `temporary`       | Boolean | No       | Deletes file after first download   |
+
+---
+
+## Minimal example
+
+```
+{
+    "templateId": "...",
+    "file": null
+}
+```
+
+---
+
+## Response
+
+### Body
+
+| Name     | Type   | Description                      |
+|----------|--------|----------------------------------|
+| `url`    | String | Download URL for the file        |
+| `errors` | Array  | List of errors                   |
+
+---
+
+## How it works
+
+1. Create a file using this endpoint  
+2. Receive a download URL  
+3. Use the **Download** endpoint to retrieve the generated PDF  
+
+---
+
+## Observed behavior
+
+### File parameter
+
+- The `file` field should be included in the request  
+- `file: null` is accepted  
+- Partial payloads are accepted  
+
+**Recommendation:**  
+Always include the `file` field for consistency with the Generate endpoint
+
+---
+
+### Validation
+
+- Validation is permissive  
+- Missing or incomplete data may still result in a generated document  
+
+---
+
+## When to use Create File
+
+Use this endpoint when:
+
+- you need asynchronous document generation  
+- you want to store input data before generating a PDF  
+- you plan to download the result later  
+
+---
+
+## Next steps
+
+- Download document → [Download](./download.mdx)
+
+<DocFeedbackForm />

@@ -7,97 +7,142 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Operators
 
-## Addition
+Operators allow you to perform calculations and comparisons in Data Expressions.
 
-Adds two numbers, usually in connection with variables:
+---
+
+## Addition — `+`
+
+Adds two numbers:
+
 ```
 quantity + 5
 price1 + price2
 ```
 
-But it can also concatenate two strings:
+Also concatenates strings:
+
 ```
 "Hello " + name
 ```
 
-## Subtraction
+---
 
-Subtracts two numbers, usually in connection with variables:
+## Subtraction — `-`
+
+Subtracts one number from another:
+
 ```
 quantity - 6
 total - discount
 ```
 
-## Multiplication
+---
 
-Multiplicates two numbers, usually in connection with variables:
+## Multiplication — `*`
+
+Multiplies two numbers:
+
 ```
 quantity * 3
 quantity * price
 ```
 
-## Division
-Divides one number by another, but not by zero. Usually in connection with variables:
+---
+
+## Division — `/`
+
+Divides one number by another.
+
+Division by zero is not allowed.
 
 ```
 percentage / 100
 ```
 
-## Modulo
-Calculates remainder of division:
+---
+
+## Modulo — `%`
+
+Returns the remainder of a division:
 
 ```
 index % 2
 ```
 
-## Greater Than
-Compares two numbers and returns true if the first one is greater than the second one:
+---
+
+## Greater than — `>`
+
+Returns `true` if the first value is greater than the second:
 
 ```
 price > 50
 ```
 
-## Greater Than or Equal To
-Compares two numbers and returns true if the first one is greater than or equal to the second one:
+---
+
+## Greater than or equal — `>=`
+
+Returns `true` if the first value is greater than or equal to the second:
 
 ```
 price >= 50
 ```
 
-## Lower Than
-Compares two numbers and returns true if the first one is lower than the second one:
+---
+
+## Less than — `<`
+
+Returns `true` if the first value is less than the second:
 
 ```
 price < 50
 ```
 
-## Lower Than or Equal To
-Compares two numbers and returns true if the first one is lower than or equal the second one:
+---
+
+## Less than or equal — `<=`
+
+Returns `true` if the first value is less than or equal to the second:
 
 ```
 price <= 50
 ```
 
-## Assignment
-Assigns evaluated expression to a variable. If variable does not exist in context of data structure then it is created and the variable can be used later in template:
+---
+
+## Assignment — `=`
+
+Assigns the result of an expression to a variable.
+
+If the variable does not exist, it is created and can be reused later in the template:
 
 ```
 line_total = quantity * price
 ```
 
-## Equal
-Compares two numbers and returns true if the first one is equal to second one:
+---
+
+## Equal — `==`
+
+Returns `true` if both values are equal:
 
 ```
 price == 50
 ```
 
-## Not Equal
-Compares two numbers and returns true if the first one is not equal to second one:
+---
+
+## Not equal — `!=`, `<>`
+
+Returns `true` if values are not equal:
 
 ```
 price != 50
 price <> 50
 ```
+
+---
 
 <DocFeedbackForm />

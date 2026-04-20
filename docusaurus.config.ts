@@ -121,7 +121,7 @@ const config: Config = {
           items: [
             {
               label: 'Product',
-              to: '/product/intro',
+              to: '/product',
             },
             {
               label: 'Integrations',
@@ -129,7 +129,7 @@ const config: Config = {
             },
             {
               label: 'API',
-              to: '/api/overview',
+              to: '/api',
             },
           ],
         },
