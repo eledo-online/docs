@@ -1,6 +1,7 @@
 # Eledo Documentation Repository
 [![Build](https://github.com/eledo-online/docs/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/eledo-online/docs/actions/workflows/deploy-pages.yml)
 [![Live Docs](https://img.shields.io/badge/docs-live-brightgreen)](https://eledo-online.github.io/docs/)
+[![Release](https://img.shields.io/github/v/release/eledo-online/docs)](https://github.com/eledo-online/docs/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Eledo](https://img.shields.io/badge/Eledo-green.svg)](https://eledo.online/)
 
