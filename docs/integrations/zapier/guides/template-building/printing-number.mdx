@@ -7,16 +7,91 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Printing Number
 
-To print a number value ​​from make.com, follow these steps:
-- In Eledo editor click on a **Text box** component from top toolbar. Configuration window will appear. 
-- Click into **Data (expression)** field to open Data Expression builder.
-- Type the word you want to represent the value. This word cannot contain a space. For example **Quantity**.
-- If you need to format this value, try one of our [number formatting functions](/docs/product/template-editor/data-expressions/number-functions.mdx) such as [CURR](/docs/product/template-editor/guides/formatting-numbers.mdx) or [NUM](/docs/product/template-editor/guides/formatting-numbers.mdx) 
-- Confirm twice and dynamic text component will be placed at cursor position.
-- Don´t forget to Save the template.
+This guide shows how to print numeric values into your PDF using Zapier.
 
-![image](/img/integrations/make/NumberPrintingMake1.gif)
+---
 
-![image](/img/integrations/zapier/ZapierPrintingNumber.gif)
+## Step 1 — Prepare your template
+
+In the Eledo editor:
+
+1. Add a **Text Box (TXT)** component  
+2. In **Data (expression)**, enter a field name (for example `Quantity`)  
+3. Confirm and save the template  
+
+![Number configuration](/img/integrations/make/NumberPrintingMake1.gif)
+
+:::tip
+
+Learn more about Text Box:  
+→ [/docs/product/template-editor/components/text-box.mdx](/docs/product/template-editor/components/text-box.mdx)
+
+:::
+
+---
+
+## Step 2 — Use the template in Zapier
+
+In your Zap:
+
+1. Add the **Eledo PDF** action  
+2. Select your template  
+3. Load the available fields  
+
+Your field (for example `Quantity`) will appear.
+
+---
+
+## Step 3 — Map your data
+
+1. Click into the field (for example `Quantity`)  
+2. Select a numeric value from your trigger or previous step  
+3. Confirm the mapping  
+
+![Mapping number value](/img/integrations/zapier/ZapierPrintingNumber.gif)
+
+---
+
+## Step 4 — Format the number (recommended)
+
+By default, numbers are converted to text automatically.  
+This may result in inconsistent formatting.
+
+Use formatting functions in the template to control output.
+
+Examples:
+
+```
+NUM(Quantity, 0, 2)
+CURR(Quantity, 0, 2)
+CONCAT("$", CURR(Quantity, 0, 2))
+```
+
+:::tip
+
+Learn more about number formatting:  
+→ [Formatting Numbers](/docs/product/template-editor/guides/formatting-numbers.mdx)  
+→ [Number Functions](/docs/product/template-editor/data-expressions/number-functions.mdx)
+
+:::
+
+---
+
+## Result
+
+When the Zap runs:
+
+- data is passed from your trigger  
+- Eledo fills the Text Box  
+- the formatted number is printed in the document  
+
+---
+
+## Next steps
+
+- Printing dates → [Printing Date](./printing-date.mdx)  
+- Build full workflow → [Generate Your First PDF](../zaps/generate-first-pdf.mdx)
+
+---
 
 <DocFeedbackForm />

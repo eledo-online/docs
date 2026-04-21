@@ -7,16 +7,90 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Printing Date
 
-To print a date value ​​from make.com, follow these steps:
-- In Eledo editor click on a **Text box** component from top toolbar. Configuration window will appear. 
-- Click into **Data (expression)** field to open Data Expression builder.
-- Type the word you want to represent the value. This word cannot contain a space. For example **DeliveryDate**.
-- If you need to format this value, try one of our [DATE functions](/docs/product/template-editor/guides/formatting-dates.mdx)
-- Confirm twice and dynamic text component will be placed at cursor position.
-- Don´t forget to Save the template.
+This guide shows how to print date values into your PDF using Zapier.
 
-![image](/img/integrations/make/PrintingDateMake1.gif)
+---
 
-![image](/img/integrations/zapier/ZapierPrintingDate.gif)
+## Step 1 — Prepare your template
+
+In the Eledo editor:
+
+1. Add a **Text Box (TXT)** component  
+2. In **Data (expression)**, enter a field name (for example `DeliveryDate`)  
+3. Confirm and save the template  
+
+![Date configuration](/img/integrations/make/PrintingDateMake1.gif)
+
+:::tip
+
+Learn more about Text Box:  
+→ [/docs/product/template-editor/components/text-box.mdx](/docs/product/template-editor/components/text-box.mdx)
+
+:::
+
+---
+
+## Step 2 — Use the template in Zapier
+
+In your Zap:
+
+1. Add the **Eledo PDF** action  
+2. Select your template  
+3. Load the available fields  
+
+Your field (for example `DeliveryDate`) will appear.
+
+---
+
+## Step 3 — Map your data
+
+1. Click into the field (for example `DeliveryDate`)  
+2. Select a date value from your trigger or previous step  
+3. Confirm the mapping  
+
+![Mapping date value](/img/integrations/zapier/ZapierPrintingDate.gif)
+
+---
+
+## Step 4 — Format the date (recommended)
+
+By default, dates may be displayed in an unexpected format depending on the input.
+
+Use formatting functions in the template to control output.
+
+Examples:
+
+```
+DATE(DeliveryDate, "yyyy-MM-dd")
+DATE(DeliveryDate, "dd/MM/yyyy")
+DATE(TODAY(), "yyyy-MM-dd")
+```
+
+:::tip
+
+Learn more about date formatting:  
+→ [Formatting Dates](/docs/product/template-editor/guides/formatting-dates.mdx)  
+→ [Date Functions](/docs/product/template-editor/data-expressions/date-functions.mdx)
+
+:::
+
+---
+
+## Result
+
+When the Zap runs:
+
+- data is passed from your trigger  
+- Eledo fills the Text Box  
+- the formatted date is printed in the document  
+
+---
+
+## Next steps
+
+- Printing numbers → [Printing Number](./printing-number.mdx)  
+- Build full workflow → [Generate Your First PDF](../zaps/generate-first-pdf.mdx)
+
+---
 
 <DocFeedbackForm />
