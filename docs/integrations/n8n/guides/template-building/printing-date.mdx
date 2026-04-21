@@ -7,4 +7,92 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Printing Date
 
+This guide shows how to print date values into your PDF using n8n.
+
+---
+
+## Step 1 — Prepare your template
+
+In the Eledo editor:
+
+1. Add a **Text Box (TXT)** component  
+2. In **Data (expression)**, enter a field name (for example `DeliveryDate`)  
+3. Set the **Type** to **Date**  
+4. Confirm and save the template  
+
+![Date configuration](/img/integrations/make/PrintingDateMake1.gif)
+
+:::tip
+
+Learn more about Text Box: [/docs/product/template-editor/components/text-box.mdx](/docs/product/template-editor/components/text-box.mdx)
+
+:::
+
+---
+
+## Step 2 — Use the template in n8n
+
+In your n8n workflow:
+
+1. Add the **Eledo PDF** node  
+2. Select your credentials  
+3. Choose your template  
+4. Make sure **Input** is set to **Guided Fields**
+
+---
+
+## Step 3 — Add and fill the field
+
+In the Eledo node:
+
+1. Click **Add Date Field**  
+2. Select the field (for example `DeliveryDate`)  
+3. Enter a date value into the **Value** field  
+
+![Mapping date value](/img/integrations/n8n/date-printing-n8n.png)
+
+---
+
+## Step 4 — Format the date (recommended)
+
+By default, dates may be displayed in an unexpected format depending on the input.
+
+Use formatting functions in the template to control output.
+
+Examples:
+
+```
+DATE(DeliveryDate, "yyyy-MM-dd")
+DATE(DeliveryDate, "dd/MM/yyyy")
+DATE(TODAY(), "yyyy-MM-dd")
+```
+
+
+:::tip
+
+Learn more about date formatting:  
+→ [Formatting Dates](/docs/product/template-editor/guides/formatting-dates.mdx)  
+→ [Date Functions](/docs/product/template-editor/data-expressions/date-functions.mdx)
+
+:::
+
+---
+
+## Result
+
+When the workflow runs:
+
+- the value is passed to Eledo  
+- Eledo fills the Text Box  
+- the formatted date is printed in the document  
+
+---
+
+## Next steps
+
+- Printing numbers → [Printing Number](./printing-number.mdx)  
+- Build full workflow → [Generate Your First PDF](../workflows/generate-first-pdf.mdx)
+
+---
+
 <DocFeedbackForm />

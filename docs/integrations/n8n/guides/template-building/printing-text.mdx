@@ -7,4 +7,90 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Printing Text
 
+This guide shows how to print dynamic text into your PDF using n8n.
+
+---
+
+## Step 1 — Prepare your template
+
+In the Eledo editor:
+
+1. Click the **Text Box (TXT)** component in the toolbar  
+2. Place it into your document  
+3. In **Data (expression)**, enter a field name (for example `ProductName`)  
+4. Confirm and save the template  
+
+![Text Box Configuration](/img/integrations/make/TextPrintingMake1.gif)
+
+:::tip
+
+Learn more about Text Box: [/docs/product/template-editor/components/text-box.mdx](/docs/product/template-editor/components/text-box.mdx)
+
+:::
+
+---
+
+## Step 2 — Use the template in n8n
+
+In your n8n workflow:
+
+1. Add the **Eledo PDF** node  
+2. Select your credentials  
+3. Choose your template  
+4. Make sure **Input** is set to **Guided Fields**
+
+---
+
+## Step 3 — Add and fill the field
+
+In the Eledo node:
+
+1. Click **Add Text or Number Field**  
+2. Select the field (for example `ProductName`)  
+3. Enter a value into the **Value** field  
+
+![Mapping Text Value](/img/integrations/n8n/text-printing-n8n.png)
+
+---
+
+## Step 4 — (Optional) Format the output
+
+You can control how text appears directly in the template using expressions.
+
+Examples:
+
+```
+"Product: " + ProductName
+NUM(Price, 0, 2) + " €"
+```
+
+:::tip
+
+Learn how to format values: [/docs/product/template-editor/guides/printing-text.mdx](/docs/product/template-editor/guides/printing-text.mdx)
+
+:::
+
+---
+
+## Related guides
+
+- Printing numbers → [Printing Number](./printing-number.mdx)  
+- Printing dates → [Printing Date](./printing-date.mdx)  
+
+---
+
+## Result
+
+When the workflow runs:
+
+- the value is passed to Eledo  
+- Eledo fills the Text Box  
+- the final document is generated  
+
+---
+
+## Next steps
+
+- Build a full workflow → [Generate Your First PDF](../workflows/generate-first-pdf.mdx)
+
 <DocFeedbackForm />

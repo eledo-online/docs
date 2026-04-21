@@ -7,4 +7,70 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Printing Checkbox
 
+This guide shows how to print checkbox values into your PDF using n8n.
+
+---
+
+## Step 1 — Prepare your template
+
+In the Eledo editor:
+
+1. Add a **Dynamic Checkbox** component  
+2. In **Data (expression)**, enter a field name (for example `Fragile`)  
+3. Confirm and save the template  
+
+![Checkbox configuration](/img/integrations/make/PrintingCheckboxMake1.gif)
+
+:::tip
+
+Learn more about Dynamic Checkbox:  
+→ [/docs/product/template-editor/components/dynamic-checkbox.mdx](/docs/product/template-editor/components/dynamic-checkbox.mdx)
+
+:::
+
+---
+
+## Step 2 — Use the template in n8n
+
+In your n8n workflow:
+
+1. Add the **Eledo PDF** node  
+2. Select your credentials  
+3. Choose your template  
+4. Make sure **Input** is set to **Guided Fields**
+
+---
+
+## Step 3 — Add and set the value
+
+In the Eledo node:
+
+1. Click **Add Boolean Field**  
+2. Select the field (for example `Fragile`)  
+3. Set the value using the toggle  
+
+- `true` → checked  
+- `false` → unchecked  
+
+![Mapping checkbox value](/img/integrations/n8n/checkbox-printing-n8n.png)
+
+---
+
+## Result
+
+When the workflow runs:
+
+- the boolean value is passed to Eledo  
+- Eledo evaluates the value  
+- the checkbox is rendered as checked or unchecked  
+
+---
+
+## Next steps
+
+- Print text values → [Printing Text](./printing-text.mdx)  
+- Build full workflow → [Generate Your First PDF](../workflows/generate-first-pdf.mdx)
+
+---
+
 <DocFeedbackForm />
