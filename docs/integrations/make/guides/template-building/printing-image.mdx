@@ -7,21 +7,76 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Printing Image
 
-To print an image ​​from Make.com, follow these steps:  
-- In Eledo editor click on a **Dynamic Image** component from top toolbar. Configuration window will appear. 
-- Click into **Data (expression)** field to open Data Expression builder.
-- Type the word you want to represent the image url value. It will be used as input field name. This word cannot contain a space nor special characters, just letters, numbers and underscore. For example **image_url**.
-- You can set the Width and Height dimensions. If you set only one dimension e.g. just height, the width will be automatically calculated to maintain aspect ratio of your image. 
-- Confirm twice and you're done! Dynamic image component will be placed at cursor position.
-- Save the template and input field will be automatically created from the data expression.
+This guide shows how to print images into your PDF using Make.
 
-![image](/img/integrations/make/PrintingImageMake1.gif)
+---
 
-- In your Make.com scenario click on Eledo module and refresh data from the template.
-- **image_url** input field should be now available to be mapped with a date value.
-- Click into image_url field and choose one from your data source to map the image url value.
-- Confirm and you're done!
+## Step 1 — Prepare your template
 
-![image](/img/integrations/make/PrintingImageMake2.gif)
+In the Eledo editor:
+
+1. Add a **Dynamic Image** component  
+2. In **Data (expression)**, enter a field name (for example `image_url`)  
+3. (Optional) Set width or height  
+4. Confirm and save the template  
+
+If only one dimension is set, the other is calculated automatically to preserve the aspect ratio.
+
+![Dynamic image configuration](/img/integrations/make/PrintingImageMake1.gif)
+
+:::tip
+
+Learn more about Dynamic Image:  
+→ [/docs/product/template-editor/components/dynamic-image.mdx](/docs/product/template-editor/components/dynamic-image.mdx)
+
+:::
+
+---
+
+## Step 2 — Use the template in Make
+
+In your Make scenario:
+
+1. Add the **Eledo PDF** module  
+2. Select your template  
+3. Click **Refresh Custom Fields**
+
+Your field (for example `image_url`) will appear.
+
+---
+
+## Step 3 — Map your data
+
+1. Click into the field (for example `image_url`)  
+2. Select a value from your data source  
+3. Confirm the mapping  
+
+![Mapping image URL](/img/integrations/make/PrintingImageMake2.gif)
+
+---
+
+## Important notes
+
+- The image must be accessible via a public URL  
+- Invalid or inaccessible URLs will result in a missing image  
+
+---
+
+## Result
+
+When the scenario runs:
+
+- the image URL is passed from your source  
+- Eledo loads the image  
+- the image is rendered in the document  
+
+---
+
+## Next steps
+
+- Print multiple images → [Printing Images in Line](/docs/product/template-editor/guides/printing-images-in-line.mdx)  
+- Build full workflow → [Generate Your First PDF](../scenarios/generate-first-pdf.mdx)
+
+---
 
 <DocFeedbackForm />
