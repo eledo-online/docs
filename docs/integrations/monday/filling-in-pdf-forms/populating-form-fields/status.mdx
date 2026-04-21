@@ -5,13 +5,14 @@ sidebar_position: 3
 
 import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
-# Populating Text Field with a Status
+# Populating Status
 
-To print a value ​​in PDF Form from a Status Column from your monday.com, follow these steps:  
-- In Eledo editor click on a custom form field and configuration window will appear.
-- Click into **Data (expression)** field to open Data Expression builder.
-- Find and select a Status Column using the Fields navigation menu. Start with the **item** and continue with **status**, and **label** for example.
-- Confirm twice and you're done! 
+To populate a PDF form field using a value from a Status column in your monday.com board, follow these steps:
+
+- In the Eledo editor, select the form field  
+- Click into **Data (expression)** to open the expression builder  
+- Select a status field (for example: `item.status.label`)  
+- Confirm and apply the value  
 
 ![image](/img/integrations/monday/MondayPDFFormStatusColumn.gif)
 

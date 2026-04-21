@@ -7,39 +7,83 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Printing QR Codes
 
-To print a QR code ​​from your monday.com board's item, follow these steps:
-- In Eledo editor click on **Barcodes 2D** and select **QR Code** component from top toolbar. Configuration window will appear. 
-- Click into **Data (expression)** field to open Data Expression builder.
-- Find and select a custom column using the Fields navigation menu. Start with the **item** and continue with **link** and **url** for example.
-- Confirm twice and you're done! QR code will be placed at cursor position.
+To print a QR code from a monday.com item, follow these steps:
+
+- In the Eledo editor, click **Barcodes 2D** and select the **QR Code** component  
+- Click into **Data (expression)** to open the expression builder  
+- Select a field from the **Fields** panel (for example `item.link.url`)  
+- Confirm and place the QR code into the document  
 
 ![image](/img/integrations/monday/PrintingQRCodeMonday.gif)
 
-## QR code content types
-QR codes can store different types of content, each with its specific format. Below are the common QR code types along with examples of their encoded content:
+---
+
+## QR Code Content Types
+
+QR codes encode text — the format of the value determines how it behaves when scanned.
+
+Below are common examples.
+
+---
 
 ### URL (Website Links)
-Redirects the scanner to a website.
 
-Example: ``https://example.com``
+Opens a webpage.
 
-Data expression: ``item.link.url``
+Example:
+
+```
+https://example.com
+```
+
+Data expression:
+
+```
+item.link.url
+```
+
+---
 
 ### Phone Number
+
 Opens the phone dialer with the number pre-filled.
 
-Example: ``tel:+1234567890``
+Example:
 
-Data expression: ``CONCAT("tel:", item.phone)``
+```
+tel:+1234567890
+```
+
+Data expression:
+
+```
+CONCAT("tel:", item.phone)
+```
+
+---
 
 ### Email Address
-Opens the email app with the recipient, subject, and body pre-filled.
 
-Example: ``mailto:support@example.com?subject=Feedback&body=Hello!``
+Opens the email client with predefined content.
 
-Data expression: ``CONCAT("mailto:", item.email, "?subject=Feedback&body=Hello!")``
+Example:
 
-### More use cases
-Find out more use cases in [Generating QR codes](/docs/product/template-editor/guides/generating-qr-codes.mdx) article.
+```
+mailto:support@example.com?subject=Feedback&body=Hello!
+```
+
+Data expression:
+
+```
+CONCAT("mailto:", item.email, "?subject=Feedback&body=Hello!")
+```
+
+---
+
+## More Use Cases
+
+See: [Generating QR Codes](/docs/product/template-editor/guides/generating-qr-codes.mdx)
+
+---
 
 <DocFeedbackForm />

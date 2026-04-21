@@ -7,13 +7,34 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Create QR Code Field
 
-To insert a QR code ​​into your PDF Form, follow these steps:  
-- In Eledo editor click on a Barcode 2D tool, and configuration window will appear.
-- Field ID is a unique identifier of your field. It may contain only letters, numbers, underscore character. No space is allowed.
-- For Data (expression) field find and select any column you want to refer to using the Fields navigation menu. See a quick tutorial on how to create a [QR code with a link to an item](../../use-cases/qr-code-with-a-link-to-item.mdx).
-- Click on Place button and place the QR code field into your document. 
-- Confirm twice and you're done!
+To create a QR code field in a PDF form, follow these steps:
+
+- In the Eledo editor, select the **QR Code (Barcodes 2D)** tool  
+- Place the field into your document  
+- Set a **Field ID** (letters, numbers, and underscores only; no spaces)  
+- In **Data (expression)**, provide the value to encode (for example: `item.link.url`)  
+- Confirm and apply the configuration  
 
 ![image](/img/integrations/monday/MondayPDFFormBarcodes2D.gif)
+
+---
+
+## Notes
+
+QR codes encode text — the format of the value determines how it behaves when scanned.
+
+Example:
+
+```
+item.link.url
+```
+
+---
+
+## Related
+
+- [QR Code with a Link to Item](../../use-cases/qr-code-with-a-link-to-item.mdx)
+
+---
 
 <DocFeedbackForm />

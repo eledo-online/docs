@@ -7,49 +7,66 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Printing Date Column
 
-To print a value ​​from a Date Column from your monday.com board, follow these steps:  
-- In Eledo editor click on a **Text box** component from top toolbar. Configuration window will appear. 
-- Click into **Data (expression)** field to open Data Expression builder.
-- Find and select a date column using the Fields navigation menu. Start with the **item** and continue with **date** for example.
-- If you need to format this value, try one of our [DATE functions](/docs/product/template-editor/guides/formatting-dates.mdx)
-- Confirm twice and you're done! Dynamic text component will be placed at cursor position.
+To print a value from a Date column in your monday.com board, follow these steps:
+
+- In the Eledo editor, add a **Text Box** component  
+- Click into **Data (expression)** to open the expression builder  
+- Select a date field (for example: `item.date`)  
+- Optionally format the value using [DATE functions](/docs/product/template-editor/guides/formatting-dates.mdx)  
+- Confirm and place the value into the document  
 
 ![image](/img/integrations/monday/MondayPrintDateColumn.gif)
 
-### Formatting Dates:
+---
 
-**Date Format**
+## Formatting Dates
 
-Format the date value into a specific date format with DATE function. Date format consists of case sensitive letters with various meanings. This function depends on Timezone and Locale setting of your template.
+Format dates using:
 
-`DATE(value, date_format)`
+```
+DATE(value, format)
+```
 
-*Example:*
+Examples:
 
-item.date = 14. July 2025
+```
+DATE(item.date, "MM/dd/yyyy")  
+→ 07/14/2025
 
-`DATE(item.date, "MM/dd/yyyy")`   Output: 07/14/2025
+DATE(item.date, "dd/MM/yyyy")  
+→ 14/07/2025
 
-`DATE(item.date, "dd/MM/yyyy")`   Output: 14/07/2025
+DATE(item.date, "EEEE, MMMM d, yyyy")  
+→ Monday, July 14, 2025
 
-`DATE(item.date, "EEEE, MMMM d, yyyy")`   Output: Monday, July 14, 2025
+DATE(item.date, "dd MMMM yyyy")  
+→ 14 July 2025
+```
 
-`DATE(item.date, "dd MMMM yyyy")`   Output: 14 July 2025
+---
 
-Date formatting letters are listed in this article: [Formatting Dates](/docs/product/template-editor/guides/formatting-dates.mdx)
+## Tips
 
-**Tips:**
+Print today’s date:
 
-TODAY() = Prints today's date
+```
+DATE(TODAY(), "yyyy-MM-dd")
+```
 
-`DATE(TODAY(), "yyyy-MM-dd")`
+Calculate difference in days:
 
-item.date = 1. January 2025 ;  item.date_1 = 20. January 2025
+```
+DAYS_BETWEEN(item.date, item.date_1)  
+→ 19
+```
 
-`DAYS_BETWEEN(item.date, item.date_1)` Output: 19
+---
 
-Find more information about data formatting in this article: [Formatting Dates](/docs/product/template-editor/guides/formatting-dates.mdx) 
+See also:
 
-Discover all date functions here: [Date Functions](/docs/product/template-editor/data-expressions/date-functions.mdx) 
+- [Formatting Dates](/docs/product/template-editor/guides/formatting-dates.mdx)  
+- [Date Functions](/docs/product/template-editor/data-expressions/date-functions.mdx)  
+
+---
 
 <DocFeedbackForm />

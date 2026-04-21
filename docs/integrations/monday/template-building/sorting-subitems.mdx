@@ -6,55 +6,99 @@ sidebar_position: 8
 import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Sorting Subitems
-Order of items or subitems may be important in your document and you can sort them in your template to ensure the right order all the time. Subitems can be sorted by one or multiple columns with a priority order.
 
-Sorting of subitems can be done using **SORT_ASC()** and **SORT_DESC()** functions in Eledo data expression. It has two parameters, the source array and sorting conditon.
+The order of items or subitems may be important in your document. You can sort them in your template to ensure a consistent order.
+
+Subitems can be sorted by one or multiple columns with a defined priority.
+
+---
+
+## Sorting Functions
+
+Sorting is done using **SORT_ASC()** and **SORT_DESC()** functions in Eledo data expressions.
+
+These functions take:
+- a source array  
+- one or more sorting conditions  
+
+---
 
 ## Basic Sorting by a Single Column
-To sort subitems by a single column in ascending order, use SORT_ASC() with the column name as the sorting condition. For example:
 
+To sort subitems by a single column in ascending order:
 
-`SORT_ASC(item.subitems, "date")`
+```
+SORT_ASC(item.subitems, "date")
+```
 
-To sort in descending order, use SORT_DESC():
+To sort in descending order:
 
-`SORT_DESC(item.subitems, "number0")`
+```
+SORT_DESC(item.subitems, "number0")
+```
 
-Sorting by Multiple Columns
-For more complex requirements, you can sort subitems by multiple columns with assigned priorities. Sorting will first follow the order of the first column; if values match, it proceeds to sort by the second column and so on.
+---
 
-To sort by `date` first, followed by `number0`, use:
+## Sorting by Multiple Columns
 
-`SORT_ASC(item.subitems, "date", "number0")`
+You can sort by multiple columns with priority.
 
-Tip: If you need to sort in different directions (e.g., one column in ascending order and another in descending), you can combine SORT_ASC() and SORT_DESC() on separate columns.
+Sorting follows the order of columns:
+- first column is primary  
+- next columns are used when values match  
 
+Example:
 
-# Where to apply?
+```
+SORT_ASC(item.subitems, "date", "number0")
+```
 
-Result of SORT function is a sorted list. To print that list we use Block Repetition. How to setup the Block Repetition we describe in [Printing Subitems](./printing-subitems.mdx) guide.
+If you need different sorting directions per column, combine sorting functions accordingly.
 
-We apply the sorting function in Block Repetition's data expression.
+---
+
+## Where to Apply
+
+The result of a SORT function is a sorted list.
+
+To print this list, use **Block Repetition**. Apply the sorting function directly in the Block Repetition data expression.
+
+See: [Printing Subitems](./printing-subitems.mdx)
 
 ![image](/img/integrations/monday/MondaySortingSubitems.gif)
 
+---
+
 ## Practical Examples
-**Sorting by Price**: To sort products by price in ascending order (from lowest to highest), use:
+
+**Sorting by Price**
 
 ```
 SORT_ASC(item.subitems, "number")
 ```
-**Sorting by Date**: To sort events by date in descending order (with the latest events first), use:
 
+Sorts items from lowest to highest price.
+
+---
+
+**Sorting by Date**
 
 ```
 SORT_DESC(item.subitems, "date")
 ```
 
-**Sorting by Text**: To arrange items alphabetically by a text field, such as sorting names in ascending order, use:
+Sorts items with the most recent first.
+
+---
+
+**Sorting by Text**
 
 ```
 SORT_ASC(item.subitems, "text1")
 ```
+
+Sorts items alphabetically.
+
+---
 
 <DocFeedbackForm />

@@ -7,24 +7,41 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Printing Phone Column
 
-To print a value ​​from a Phone Column from your monday.com board, follow these steps:  
-- In Eledo editor click on a **Dynamic Image** component from top toolbar. Configuration window will appear. 
-- Click into **Data (expression)** field to open Data Expression builder.
-- Find and select a phone column using the Fields navigation menu. Start with the **item** and continue with **phone**.
-- Confirm twice and you're done! Dynamic image component will be placed at cursor position.
+To print a value from a Phone column in your monday.com board, follow these steps:
+
+- In the Eledo editor, add a **Text Box** component  
+- Click into **Data (expression)** to open the expression builder  
+- Select the phone field (for example: `item.phone`)  
+- Confirm and place the value into the document  
 
 ![image](/img/integrations/monday/PrintingMondayPhoneColumn.gif)
 
-## National format
-You can format your phone number into National format using our PHONE_FORMAT_NATIONAL function:
+---
 
-`PHONE_FORMAT_NATIONAL(item.phone)`
+## National Format
 
-## International format
-For international phone format use PHONE_FORMAT_INTERNATIONAL function:
+Format the phone number using:
 
-`PHONE_FORMAT_INTERNATIONAL(item.phone)`
+```
+PHONE_FORMAT_NATIONAL(item.phone)
+```
 
-Phone formatting functions relies on Locale setting of your Eledo template. To get these functions work properly make sure your Locale selection contains language and country as well, e.g. `en_US`
+---
+
+## International Format
+
+Format the phone number using:
+
+```
+PHONE_FORMAT_INTERNATIONAL(item.phone)
+```
+
+---
+
+Phone formatting functions depend on the **Locale** setting of your template.
+
+Make sure the locale includes both language and country (for example: `en_US`).
+
+---
 
 <DocFeedbackForm />

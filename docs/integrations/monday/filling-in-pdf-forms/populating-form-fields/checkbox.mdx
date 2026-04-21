@@ -7,19 +7,31 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Populating Checkbox
 
-To populate a Checkbox field with a Checkbox Column from your monday.com, follow these steps:  
-- In Eledo editor click on a checkbox form field and configuration window will appear.
-- Click into **Data (expression)** field to open Data Expression builder.
-- Find and select a Checkbox Column using the Fields navigation menu. Start with the **item** and continue with **checkbox** for example.
-- Confirm twice and you're done!
+To populate a Checkbox field in a PDF form using data from your monday.com board, follow these steps:
 
-## Value mapping
-Checkbox can be populated from other column types like Status or Number column. To convert a text or number value into a boolean requried by checkbox, use one of the following data expressions:
-
-`item.status.label == "Monday"` 
-
-`item.number > 100`
+- In the Eledo editor, select the checkbox form field  
+- Click into **Data (expression)** to open the expression builder  
+- Select a checkbox field (for example: `item.checkbox`)  
+- Confirm and apply the value  
 
 ![image](/img/integrations/monday/MondayPDFFormCheckboxFormField.gif)
+
+---
+
+## Value Mapping
+
+Checkbox fields require a boolean value (`true` or `false`).
+
+You can map values from other column types by using conditions:
+
+Example:
+
+```
+item.status.label == "Monday"  
+
+item.number > 100
+```
+
+---
 
 <DocFeedbackForm />

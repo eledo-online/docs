@@ -7,23 +7,48 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Printing Items from Connected Boards
 
-Every list of items, subitems, connected board items or even attachments can be printed using **Block Repetition**. It can turn any container like Table Row, Table itself, List Item or even Paragraph of your Eledo template into repeatable one.
+Lists of items, subitems, connected board items, or attachments can be printed using **Block Repetition**. It can turn any container—such as a table row, table, list item, or paragraph—into a repeatable block.
 
-Idea behind the Block Repetition is simple, design a block for one item, turn it into repeatable block and Eledo will print it as many times as there are items in your list. Let's learn by example.
+The idea behind Block Repetition is simple: design a block for a single item, turn it into a repeatable block, and Eledo will print it as many times as there are items in your list.
 
-## One Table Row per connected item
-Create a two row table, one for column names and another one for the values. It is good idea to set the table width to desired dimension. Move your cursor into the second table row and click Block Repetition.
+Let’s look at an example.
 
-Configuration window opens and you may notice the Selected Block is Table Cell (TD), but we want to repeat the whole Table Row. Click on **Select Parent Block** to change our Block Repetition selection to the Table Row (TR).
+---
 
-Click into **Data (expression)** field to open Data Expression builder. Find and select an  **item** and continue with **connected_boards** in the navigation menu.
+## One Table Row per Connected Item
+
+Create a table with two rows:
+- one for column headers  
+- one for values  
+
+Set the table width as needed. Place the cursor in the second row and click **Block Repetition**.
+
+The configuration window will open. By default, the selected block is a table cell (TD), but we want to repeat the entire row. Click **Select Parent Block** to change the selection to the table row (TR).
+
+In **Data (expression)**, select:
+
+```
+item.connected_boards
+```
 
 ![image](/img/integrations/monday/MondayPrintingConnectedItems1.gif)
 
-This setup ensures the table row will be repeated as many times as there are connected items in your board. But we need to specify the row content as well. We can use **Text Box** to print column values from the connected item.
+---
 
-It is important to understand that Block Repetition is changing the data context. This means the data expressions of the Text Box does not have any prefix like **items** or **item.connected_boards**.
+This setup ensures the row is repeated for each connected item.
+
+To print values, place **Text Box** components inside the repeated row.
+
+---
+
+## Data Context
+
+Block Repetition changes the data context.
+
+Inside the repeated block, use connected item fields directly, without prefixes such as `item.` or `item.connected_boards`.
 
 ![image](/img/integrations/monday/MondayPrintingConnectedItems2.gif)
+
+---
 
 <DocFeedbackForm />
