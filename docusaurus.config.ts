@@ -125,7 +125,7 @@ const config: Config = {
             },
             {
               label: 'Integrations',
-              to: '/integrations/intro',
+              to: '/integrations',
             },
             {
               label: 'API',

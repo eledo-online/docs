@@ -27,7 +27,7 @@ function HomepageHeader() {
 
           <Link
             className="button button--secondary button--lg"
-            to="/integrations/intro">
+            to="/integrations">
             Integrations
           </Link>
         </div>
