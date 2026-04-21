@@ -95,7 +95,7 @@ The PDF document identifier (file name) is generated from the expression defined
 Example from the public invoice template:
 
 ```
-$InvoicePrefix + num(#InvoiceCreated,4)
+$InvoicePrefix + NUM(#InvoiceCreated,4)
 ```
 
 This produces invoice numbers like:
@@ -108,18 +108,18 @@ Explanation:
 
 - `$InvoicePrefix` → user profile variable  
 - `#InvoiceCreated` → counter defined in the user profile  
-- `num(N, x)` → prints number **N** padded with leading zeroes to **x digits**
+- `NUM(N, x)` → prints number **N** padded with leading zeroes to **x digits**
 
 If we want to derive the invoice number from the **order number**, the expression could look like this:
 
 ```
-$InvoicePrefix + num(id, 4)
+$InvoicePrefix + NUM(id, 4)
 ```
 
 To add the **year**, you can use date functions:
 
 ```
-$InvoicePrefix + num(year(), 2) + num(#InvoiceCreated, 4)
+$InvoicePrefix + NUM(year(), 2) + NUM(#InvoiceCreated, 4)
 ```
 
 :::tip

@@ -7,15 +7,68 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Printing Checkbox
 
-To print checkbox ​​from make.com, follow these steps:  
-- In Eledo editor click on a **Dynamic Checkbox** component from top toolbar. Configuration window will appear. 
-- Click into **Data (expression)** field to open Data Expression builder.
-- Type the word you want to represent the value. This word cannot contain a space. For example **Fragile**.
-- Confirm twice and you're done! Dynamic Checkbox component will be placed at cursor position.
-- Don´t forget to Save the template.
+This guide shows how to print checkbox values into your PDF using Zapier.
 
-![image](/img/integrations/make/PrintingCheckboxMake1.gif)
+---
 
-![image](/img/integrations/zapier/ZapierPrintingCheckbox.gif)
+## Step 1 — Prepare your template
+
+In the Eledo editor:
+
+1. Add a **Dynamic Checkbox** component  
+2. In **Data (expression)**, enter a field name (for example `Fragile`)  
+3. Confirm and save the template  
+
+![Checkbox configuration](/img/integrations/make/PrintingCheckboxMake1.gif)
+
+:::tip
+
+Learn more about Dynamic Checkbox:  
+→ [/docs/product/template-editor/components/dynamic-checkbox.mdx](/docs/product/template-editor/components/dynamic-checkbox.mdx)
+
+:::
+
+---
+
+## Step 2 — Use the template in Zapier
+
+In your Zap:
+
+1. Add the **Eledo PDF** action  
+2. Select your template  
+3. Load the available fields  
+
+Your field (for example `Fragile`) will appear.
+
+---
+
+## Step 3 — Map your data
+
+1. Click into the field (for example `Fragile`)  
+2. Provide a boolean value from your trigger or previous step  
+   - `true` → checked  
+   - `false` → unchecked  
+3. Confirm the mapping  
+
+![Mapping checkbox value](/img/integrations/zapier/ZapierPrintingCheckbox.gif)
+
+---
+
+## Result
+
+When the Zap runs:
+
+- the boolean value is passed from your trigger  
+- Eledo evaluates the value  
+- the checkbox is rendered as checked or unchecked  
+
+---
+
+## Next steps
+
+- Print text values → [Printing Text](./printing-text.mdx)  
+- Build full workflow → [Generate Your First PDF](../zaps/generate-first-pdf.mdx)
+
+---
 
 <DocFeedbackForm />

@@ -1,0 +1,83 @@
+---
+sidebar_position: 2
+title: Data Mapping
+---
+
+import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
+
+# monday.com to Eledo PDF Data Mapping
+
+To print monday.com data into a PDF document, you need to define data expressions in your Eledo template.
+
+You can use data expressions to print values from a monday.com board, item, and subitems. This guide explains how to build them.
+
+---
+
+## Board
+
+Currently, only the following fields can be printed from a monday.com board.
+
+| monday.com column | Eledo data expression | Notes |
+|------------------|----------------------|-------|
+| id | id | Board ID (number) |
+| name | name | Board name (text) |
+| description | description | Board description (text) |
+
+---
+
+## Item
+
+monday.com items can also contain custom columns. These are represented by their **technical name** in data expressions, not by their label.
+
+It may be difficult to find a column’s technical name. To simplify this, use the data structure import available in the Eledo template's **Input Fields** menu.
+
+Select your monday.com connection, choose your board, and click **Import**.
+
+| monday.com column | Eledo data expression | Notes |
+|------------------|----------------------|-------|
+| id | item.id | Item unique identifier (number) |
+| name | item.name | Item name (text) |
+| state | item.state | Item state (text) |
+| updated_at | item.updated_at | Last update date (date) |
+| custom_column | item.custom_column | Custom column (text) — replace *custom_column* with your column's technical name |
+
+---
+
+## Subitems
+
+Subitems are represented as an array attached to the item.
+
+To iterate through the array, use **Block Repetition** with the `item.subitems` data expression.
+
+Inside the Block Repetition, use only the subitem column names (without any prefix).
+
+| monday.com column | Eledo data expression (within Block Repetition) | Notes |
+|------------------|-----------------------------------------------|-------|
+| id | id | Subitem unique identifier (number) |
+| name | name | Subitem name (text) |
+| state | state | Subitem state (text) |
+| updated_at | updated_at | Last update date (date) |
+| custom_column | custom_column | Custom column (text) — replace *custom_column* with your column's technical name |
+
+---
+
+## Image Support
+
+monday.com File columns can contain image attachments that can be included in your PDF.
+
+Since a File column can contain multiple attachments, it is represented as an array.
+
+To iterate through the array, use **Block Repetition** with the `item.file_column` data expression, where *file_column* is the technical name of your File-type column.
+
+Inside the Block Repetition, use only the file field names (without any prefix).
+
+| File field | Eledo data expression (within Block Repetition) | Notes |
+|------------|-----------------------------------------------|-------|
+| assetId | assetId | File unique identifier (number) |
+| name | name | File name (text) |
+| fileType | fileType | File type (text) |
+| isImage | isImage | Indicates whether the file is an image (boolean) |
+| url | url | File URL (text) |
+| file_extension | file_extension | File extension (text) |
+
+<DocFeedbackForm />

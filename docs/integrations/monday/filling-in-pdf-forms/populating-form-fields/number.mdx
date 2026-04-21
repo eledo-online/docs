@@ -1,0 +1,84 @@
+---
+title: Populating Number
+sidebar_position: 2
+---
+
+import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
+
+# Populating Number
+
+To populate a PDF form field using a number value from your monday.com board, follow these steps:
+
+- In the Eledo editor, select the form field  
+- Click into **Data (expression)** to open the expression builder  
+- Select a number field (for example: `item.number`)  
+- Optionally format the value using [number functions](/docs/product/template-editor/data-expressions/number-functions.mdx)  
+- Confirm and apply the value  
+
+![image](/img/integrations/monday/MondayPDFFormNumberColumn.gif)
+
+---
+
+## Formatting Numbers
+
+### Currency Format
+
+```
+CURR(value, leading_zeroes, decimal_places)
+```
+
+Example:
+
+```
+CURR(item.number, 0, 2)  
+→ 56,789.99
+```
+
+---
+
+### Number Format
+
+```
+NUM(value, leading_zeroes, decimal_places)
+```
+
+Examples:
+
+```
+NUM(item.number, 0, 2)  
+→ 12345.00
+```
+
+```
+NUM(item.number, 8, 0)  
+→ 00012345
+```
+
+---
+
+## Tips
+
+To round values:
+
+```
+CURR(ROUND(item.number, 2), 0, 2)  
+→ 1234.57
+```
+
+To add a currency symbol:
+
+```
+CONCAT("$", CURR(item.number, 0, 2))  
+→ $56,789.99
+```
+
+---
+
+See also:
+
+- [Formatting Numbers](/docs/product/template-editor/guides/formatting-numbers.mdx)  
+- [Number Functions](/docs/product/template-editor/data-expressions/number-functions.mdx)
+
+---
+
+<DocFeedbackForm />

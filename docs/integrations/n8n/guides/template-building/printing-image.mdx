@@ -7,4 +7,77 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Printing Image
 
+This guide shows how to print images into your PDF using n8n.
+
+---
+
+## Step 1 — Prepare your template
+
+In the Eledo editor:
+
+1. Add a **Dynamic Image** component  
+2. In **Data (expression)**, enter a field name (for example `image_url`)  
+3. (Optional) Set width or height  
+4. Confirm and save the template  
+
+If only one dimension is set, the other is calculated automatically to preserve the aspect ratio.
+
+![Dynamic image configuration](/img/integrations/make/PrintingImageMake1.gif)
+
+:::tip
+
+Learn more about Dynamic Image:  
+→ [/docs/product/template-editor/components/dynamic-image.mdx](/docs/product/template-editor/components/dynamic-image.mdx)
+
+:::
+
+---
+
+## Step 2 — Use the template in n8n
+
+In your n8n workflow:
+
+1. Add the **Eledo PDF** node  
+2. Select your credentials  
+3. Choose your template  
+4. Make sure **Input** is set to **Guided Fields**
+
+---
+
+## Step 3 — Add and fill the field
+
+In the Eledo node:
+
+1. Click **Add Text or Number Field**  
+2. Select the field (for example `image_url`)  
+3. Enter an image URL into the **Value** field  
+
+![Mapping image URL](/img/integrations/n8n/printing-image-n8n.png)
+
+---
+
+## Important notes
+
+- The image must be accessible via a public URL  
+- Invalid or inaccessible URLs will result in a missing image  
+
+---
+
+## Result
+
+When the workflow runs:
+
+- the image URL is passed to Eledo  
+- Eledo loads the image  
+- the image is rendered in the document  
+
+---
+
+## Next steps
+
+- Print multiple images → [Printing Images in Line](/docs/product/template-editor/guides/printing-images-in-line.mdx)  
+- Build full workflow → [Generate Your First PDF](../workflows/generate-first-pdf.mdx)
+
+---
+
 <DocFeedbackForm />

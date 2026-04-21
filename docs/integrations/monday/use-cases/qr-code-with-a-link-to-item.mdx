@@ -1,21 +1,34 @@
 ---
-title: QR code with a Link to Item
+title: QR Code with a Link to Item
 sidebar_position: 3
 ---
 
 import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
-# QR code with a Link to Item
-Many documents may cause a chaos when trying to identify the monday.com Item it was created from. There is an easy solution to this by labeling the documents with QR or Bar codes.
+# QR Code with a Link to Item
 
-Add a QR code component to your Eledo template. Then you can build up a full URL to your item using data expression and IDs of a current board and item.
+When working with many documents, it can be difficult to identify which monday.com item they were created from. A simple solution is to include a QR code that links back to the original item.
 
-The URL should contain your monday.com domain, make sure you replace 'my-company' in the data expression with your company's domain.
+---
 
-Then the data expression for your QR code link should look like this:
+## Add a QR Code
+
+Add a **QR Code** component to your Eledo template.
+
+Then build a URL to the item using a data expression with the current board and item IDs.
+
+---
+
+## Build the Item URL
+
+The URL must contain your monday.com domain. Replace `my-company` with your actual domain.
+
+Example data expression:
 
 ```
 CONCAT("https://my-company.monday.com/boards/", id, "/pulses/", item.id)
 ```
+
+This will generate a QR code that links directly to the item in monday.com.
 
 <DocFeedbackForm />

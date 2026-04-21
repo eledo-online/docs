@@ -7,16 +7,76 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Printing Image
 
-To print an image ​​from make.com, follow these steps:  
-- In Eledo editor click on a **Dynamic Image** component from top toolbar. Configuration window will appear. 
-- Click into **Data (expression)** field to open Data Expression builder.
-- Type the word you want to represent the value. This word cannot contain a space. For example **image_url**.
-- You can set the Width and Height dimensions. If you set only one dimension e.g. just height, the width will be automatically calculated to maintain aspect ratio of your image. 
-- Confirm twice and you're done! Dynamic image component will be placed at cursor position.
-- Don´t forget to Save the template.
+This guide shows how to print images into your PDF using Zapier.
 
-![image](/img/integrations/make/PrintingImageMake1.gif)
+---
 
-![image](/img/integrations/zapier/ZapierPrintingImage.gif)
+## Step 1 — Prepare your template
+
+In the Eledo editor:
+
+1. Add a **Dynamic Image** component  
+2. In **Data (expression)**, enter a field name (for example `image_url`)  
+3. (Optional) Set width or height  
+4. Confirm and save the template  
+
+If only one dimension is set, the other is calculated automatically to preserve the aspect ratio.
+
+![Dynamic image configuration](/img/integrations/make/PrintingImageMake1.gif)
+
+:::tip
+
+Learn more about Dynamic Image:  
+→ [/docs/product/template-editor/components/dynamic-image.mdx](/docs/product/template-editor/components/dynamic-image.mdx)
+
+:::
+
+---
+
+## Step 2 — Use the template in Zapier
+
+In your Zap:
+
+1. Add the **Eledo PDF** action  
+2. Select your template  
+3. Load the available fields  
+
+Your field (for example `image_url`) will appear.
+
+---
+
+## Step 3 — Map your data
+
+1. Click into the field (for example `image_url`)  
+2. Provide an image URL from your trigger or previous step  
+3. Confirm the mapping  
+
+![Mapping image URL](/img/integrations/zapier/ZapierPrintingImage.gif)
+
+---
+
+## Important notes
+
+- The image must be accessible via a public URL  
+- Invalid or inaccessible URLs will result in a missing image  
+
+---
+
+## Result
+
+When the Zap runs:
+
+- the image URL is passed from your trigger  
+- Eledo loads the image  
+- the image is rendered in the document  
+
+---
+
+## Next steps
+
+- Print multiple images → [Printing Images in Line](/docs/product/template-editor/guides/printing-images-in-line.mdx)  
+- Build full workflow → [Generate Your First PDF](../zaps/generate-first-pdf.mdx)
+
+---
 
 <DocFeedbackForm />

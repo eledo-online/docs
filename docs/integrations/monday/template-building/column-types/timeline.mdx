@@ -1,0 +1,51 @@
+---
+title: Timeline Column
+sidebar_position: 14
+---
+
+import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
+
+# Printing Timeline Column
+
+To print a value from a Timeline column in your monday.com board, follow these steps:
+
+- In the Eledo editor, add a **Text Box** component  
+- Click into **Data (expression)** to open the expression builder  
+- Select a timeline field (for example: `item.timeline.from`)  
+- Optionally format the value using [DATE functions](/docs/product/template-editor/guides/formatting-dates.mdx)  
+- Confirm and place the value into the document  
+
+![image](/img/integrations/monday/PrintingMondayTimelineColumn.gif)
+
+---
+
+## Formatting Timeline Values
+
+Timeline values are dates and can be formatted using the `DATE()` function.
+
+Example:
+
+```
+DATE(item.timeline.from, "MM/dd/yyyy")  
+→ 07/14/2025
+
+DATE(item.timeline.to, "dd/MM/yyyy")  
+→ 14/07/2025
+
+DATE(item.timeline.changed_at, "EEEE, MMMM d, yyyy")  
+→ Monday, July 14, 2025
+
+DATE(item.timeline.from, "dd MMMM yyyy")  
+→ 14 July 2025
+```
+
+---
+
+See also:
+
+- [Formatting Dates](/docs/product/template-editor/guides/formatting-dates.mdx)  
+- [Date Functions](/docs/product/template-editor/data-expressions/date-functions.mdx)  
+
+---
+
+<DocFeedbackForm />

@@ -7,4 +7,81 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Printing QR Code
 
+This guide shows how to print QR codes into your PDF using n8n.
+
+---
+
+## Step 1 — Prepare your template
+
+In the Eledo editor:
+
+1. Click **Barcodes 2D** → select **QR Code**  
+2. In **Data (expression)**, enter a field name (for example `ProductQR`)  
+3. Confirm and save the template  
+
+![QR code configuration](/img/integrations/make/PrintingQRCodeMake1.gif)
+
+:::tip
+
+Learn more about QR codes:  
+→ [/docs/product/template-editor/guides/generating-qr-codes.mdx](/docs/product/template-editor/guides/generating-qr-codes.mdx)
+
+:::
+
+---
+
+## Step 2 — Use the template in n8n
+
+In your n8n workflow:
+
+1. Add the **Eledo PDF** node  
+2. Select your credentials  
+3. Choose your template  
+4. Make sure **Input** is set to **Guided Fields**
+
+---
+
+## Step 3 — Add and set the value
+
+In the Eledo node:
+
+1. Click **Add Text or Number Field**  
+2. Select the field (for example `ProductQR`)  
+3. Enter the value to encode (for example a URL or text)  
+
+![Mapping QR code value](/img/integrations/n8n/qr-code-printing-n8n.png)
+
+---
+
+## Important notes
+
+- QR codes encode text — the format of the value determines behavior  
+- Common use case: encode a URL  
+
+Example:
+
+```
+https://example.com/product/123
+```
+
+
+---
+
+## Result
+
+When the workflow runs:
+
+- the value is passed to Eledo  
+- Eledo encodes it into a QR code  
+- the QR code is rendered in the document  
+
+---
+
+## Next steps
+
+- Learn QR formats → [Generating QR Codes](/docs/product/template-editor/guides/generating-qr-codes.mdx)  
+- Build full workflow → [Generate Your First PDF](../workflows/generate-first-pdf.mdx)
+
+---
+
 <DocFeedbackForm />

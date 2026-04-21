@@ -1,0 +1,37 @@
+---
+title: Location Column
+sidebar_position: 9
+---
+
+import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
+
+# Printing Location Column
+
+To print a value from a Location column in your monday.com board, follow these steps:
+
+- In the Eledo editor, add a **Text Box** component  
+- Click into **Data (expression)** to open the expression builder  
+- Select a location field (for example: `item.location.address`)  
+- Confirm and place the value into the document  
+
+![image](/img/integrations/monday/MondayPrintLocationColumn.gif)
+
+---
+
+## Address Components
+
+You can print the full address or individual parts.
+
+Examples:
+
+```
+item.location.address  
+item.location.city  
+item.location.street  
+```
+
+Some fields support both short and long formats, depending on the data available.
+
+---
+
+<DocFeedbackForm />

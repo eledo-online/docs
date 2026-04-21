@@ -7,4 +7,92 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Printing Number
 
+This guide shows how to print numeric values into your PDF using n8n.
+
+---
+
+## Step 1 — Prepare your template
+
+In the Eledo editor:
+
+1. Add a **Text Box (TXT)** component  
+2. In **Data (expression)**, enter a field name (for example `Quantity`)  
+3. Confirm and save the template  
+
+![Number configuration](/img/integrations/make/NumberPrintingMake1.gif)
+
+:::tip
+
+Learn more about Text Box: [/docs/product/template-editor/components/text-box.mdx](/docs/product/template-editor/components/text-box.mdx)
+
+:::
+
+---
+
+## Step 2 — Use the template in n8n
+
+In your n8n workflow:
+
+1. Add the **Eledo PDF** node  
+2. Select your credentials  
+3. Choose your template  
+4. Make sure **Input** is set to **Guided Fields**
+
+---
+
+## Step 3 — Add and fill the field
+
+In the Eledo node:
+
+1. Click **Add Text or Number Field**  
+2. Select the field (for example `Quantity`)  
+3. Enter a numeric value into the **Value** field  
+
+![Mapping number value](/img/integrations/n8n/number-printing-n8n.png)
+
+---
+
+## Step 4 — Format the number (recommended)
+
+By default, numbers are converted to text automatically.  
+This may result in inconsistent formatting.
+
+Use formatting functions in the template to control output.
+
+Examples:
+
+```
+NUM(Quantity, 0, 2)
+CURR(Quantity, 0, 2)
+CONCAT("$", CURR(Quantity, 0, 2))
+```
+
+
+:::tip
+
+Learn more about number formatting:  
+→ [Formatting Numbers](/docs/product/template-editor/guides/formatting-numbers.mdx)  
+→ [Number Functions](/docs/product/template-editor/data-expressions/number-functions.mdx)
+
+:::
+
+---
+
+## Result
+
+When the workflow runs:
+
+- the value is passed to Eledo  
+- Eledo fills the Text Box  
+- the formatted number is printed in the document  
+
+---
+
+## Next steps
+
+- Printing dates → [Printing Date](./printing-date.mdx)  
+- Build full workflow → [Generate Your First PDF](../workflows/generate-first-pdf.mdx)
+
+---
+
 <DocFeedbackForm />

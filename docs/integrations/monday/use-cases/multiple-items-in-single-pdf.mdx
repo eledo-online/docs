@@ -7,37 +7,65 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Multiple Items in a Single PDF
 
-Printing multiple items into single PDF differs from single item and your Eledo template should be amended to support it.
+Printing multiple items into a single PDF differs from printing a single item, and your Eledo template must be adjusted to support it.
 
-When single item or multiple items are transfered from monday.com into Eledo template, they are stored in **item** and **items** variables. The **items** always contains a list of all the items passed to the template (one or more) and **item** refers to either first item from the list or item which triggered the automation.
+When one or more items are transferred from monday.com into the Eledo template, they are available in the **item** and **items** variables.
 
-## Preparing template
+- **items** always contains a list of all items passed to the template  
+- **item** refers to the first item in the list or the item that triggered the automation  
 
-Usually you print multiple items into a table, one row per item, but thanks to flexibility of Block Repeater you can repeat not just table rows, but also list items, paragraphs or any other container in the template. Data expression for Block Repeater in this case is simply: **items**
+---
 
-Create a two row table, one for column names and another one for the values. It is good idea to set the table width to desired dimension. Move your cursor into the second table row and click Block Repetition.
+## Preparing Template
 
-Configuration window opens and you may notice the Selected Block is Table Cell (TD), but we want to repeat the whole Table Row. We need to click on Select Parent Block to change our Block Repetition selection to the row.
+To print multiple items, you typically use a table with one row per item. However, Block Repetition can be applied to any container, such as table rows, lists, or paragraphs.
 
-Now we can populate data expression for the repetition, which is simply **items**
+In this case, the data expression for Block Repetition is:
+
+```
+items
+```
+
+Create a table with two rows:
+- one for column headers  
+- one for values  
+
+Place the cursor in the second row and click **Block Repetition**.
+
+The configuration window will open. By default, the selected block is a table cell (TD), but we want to repeat the entire row. Click **Select Parent Block** to change the selection to the table row.
+
+Set the data expression to:
+
+```
+items
+```
 
 ![image](/img/integrations/monday/MondayItemsTableRowBlockRepetition.gif)
 
-To print columns you need to place Text Box into the yellow table row where the Block Repeater is applied. Eledo expression builder helps you to populate data expression for the Text Boxes, simply select them from dropdown suggestions.
+---
+
+To print values, place **Text Box** components inside the repeated row.
+
+You can use the expression builder to select fields from the available suggestions.
 
 ![image](/img/integrations/monday/MondayItemsTableTextBoxes.gif)
 
-## Integration Recipe setup
+---
 
-Template should be ready to print multiple items. But it is also required to use proper monday.com Integration Recipe which sends multiple items into your Eledo template.
+## Integration Recipe Setup
 
-There are only few of them and you can identify them by looking for **items** word in the sentence. Currently you should find the following sentences which supports multiple items:
- - When **Button** clicked create **Template** PDF from **Group** items and attach it to **Column**
- - When **Button** clicked create **Template** PDF with multiple items where **status** is **value** and attach it to **Column** of every matched item
-- When **button** clicked   create **template** PDF with multiple items where **status** is **value** and attach it to column of source item.
- - When **Button** clicked create **Template** PDF with multiple items where **status** is **value** and send it to **Webhook URL**
- - Every **time period** create **template** PDF with multiple items where **status** is **value** and send it to **Webhook URL**
- - **Recurring** create **Template** PDF from **Group** items and send it to a **Webhook URL**
+The template is now ready, but you also need to use a monday.com Integration Recipe that sends multiple items to the template.
+
+You can identify these recipes by the word **items** in the description.
+
+Examples of supported recipes:
+
+- When **Button** clicked create **Template** PDF from **Group** items and attach it to **Column**  
+- When **Button** clicked create **Template** PDF with multiple items where **status** is **value** and attach it to **Column** of every matched item  
+- When **Button** clicked create **Template** PDF with multiple items where **status** is **value** and attach it to column of source item  
+- When **Button** clicked create **Template** PDF with multiple items where **status** is **value** and send it to **Webhook URL**  
+- Every **time period** create **Template** PDF with multiple items where **status** is **value** and send it to **Webhook URL**  
+- **Recurring** create **Template** PDF from **Group** items and send it to a **Webhook URL**
 
 ![image](/img/integrations/monday/monday_integration_recipe_multiple_items.png)
 

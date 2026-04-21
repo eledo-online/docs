@@ -7,4 +7,123 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Repeating Table Row
 
+This guide shows how to print a list of items into a table using n8n.
+
+---
+
+## Step 1 — Prepare your template
+
+In the Eledo editor:
+
+1. Create a table with:
+   - one row for headers  
+   - one row for data  
+
+2. Place the cursor inside the second row  
+
+3. Click **Block Repetition**  
+
+4. Click **Select Parent Block** to select the entire table row  
+
+5. In **Data (expression)**, enter the list name (for example `Products`)  
+
+This will repeat the table row for each item in the list.
+
+---
+
+### Add dynamic values
+
+Inside the repeated row:
+
+1. Add **Text Box (TXT)** components  
+2. Use field names for item properties (for example `Name`, `Quantity`, `DeliveryDate`)  
+
+![Repeating table row configuration](/img/integrations/make/RepeatingTableRowMake1.gif)
+
+:::tip
+
+Learn more about Block Repetition:  
+→ [/docs/product/template-editor/components/block-repetition.mdx](/docs/product/template-editor/components/block-repetition.mdx)
+
+:::
+
+---
+
+## Step 2 — Prepare JSON structure
+
+Open your template in Eledo and navigate to the **API** section.
+
+Locate the example request and copy the object assigned to `file`.
+
+Example:
+
+```
+{
+   "Products":[
+      {
+         "Name":"",
+         "Quantity":"",
+         "DeliveryDate":""
+      }
+   ]
+}
+```
+
+
+---
+
+## Step 3 — Use the template in n8n
+
+In your n8n workflow:
+
+1. Add the **Eledo PDF** node  
+2. Select your credentials  
+3. Choose your template  
+4. Set **Input** to **JSON**  
+5. Paste and fill the JSON structure into **Payload (JSON)**  
+
+Example:
+
+```
+{
+   "Products":[
+      {
+         "Name":"Eledo",
+         "Quantity":"1",
+         "DeliveryDate":"2026-04-21"
+      }
+   ]
+}
+```
+
+
+![Mapping table rows](/img/integrations/n8n/repeating-table-row-n8n.png)
+
+---
+
+## Result
+
+When the workflow runs:
+
+- each item in the list is processed  
+- the table row is repeated  
+- values are inserted into each column  
+
+---
+
+## Notes
+
+Repeating rows require structured data.
+
+Because of this, they can only be configured using **[JSON Input Mode](../../data-input/json-mode.mdx)** in n8n.
+
+---
+
+## Next steps
+
+- Grouping rows → [Grouping Table Rows](/docs/product/template-editor/guides/grouping-table-rows.mdx)  
+- Build full workflow → [Generate Your First PDF](../workflows/generate-first-pdf.mdx)
+
+---
+
 <DocFeedbackForm />

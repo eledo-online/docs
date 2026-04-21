@@ -1,0 +1,114 @@
+---
+title: Using Webhook
+sidebar_position: 2
+---
+
+import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
+
+# Using Webhook for Advanced Automation Workflow
+
+If uploading your PDF back to a monday.com board is not sufficient, you can start a custom automation workflow by sending the PDF from Eledo to a webhook.
+
+In this guide, we will create a simple [Make](https://www.make.com/en/register?pc=eledopdf) scenario that:
+- sends the PDF as an email attachment  
+- uploads it back to a monday.com board  
+
+![Filtering subitems](/img/integrations/monday/monday-webhook-make.png)
+
+---
+
+## Obtaining Webhook URL
+
+Create a new Make scenario and start with a **Webhook** module.
+
+1. Create a new webhook  
+2. Copy its URL  
+
+The Make scenario will now wait for the first request to determine the data structure.
+
+![Filtering subitems](/img/integrations/make/make-new-webhook.gif)
+
+---
+
+Add an Integration Recipe to your monday.com board and use the webhook URL from your Make scenario.
+
+Trigger the Integration Recipe and wait for confirmation in Make.
+
+![Filtering subitems](/img/integrations/monday/monday_setup_recipe_with_webhook.gif)
+
+---
+
+After a successful document creation, you should see a **“Successfully determined”** message in the Make webhook module.
+
+![Filtering subitems](/img/integrations/make/make-webhook-wait.gif)
+
+---
+
+## Data Structure
+
+Data sent from Eledo to the webhook contains two parts:
+
+- transaction data (JSON format)  
+- PDF file (binary format)  
+
+The PDF file can be mapped directly to other modules (for example, Email or monday.com upload).
+
+To extract values from the JSON data, use a **JSON Parse** module after the webhook.
+
+![Filtering subitems](/img/integrations/make/make-add-json-parser.gif)
+
+---
+
+## Preparing JSON Structure
+
+To configure the JSON parser, you need to define the expected data structure.
+
+This depends on your template, but typically includes:
+
+- `boardId` (number)  
+- `itemId` (number)  
+- `file` (collection)  
+
+The `file` collection contains data used to generate the PDF (including local variables). It does not include all column values from the monday.com item—only those used in the template.
+
+---
+
+### Generating the Structure
+
+You can generate the structure automatically:
+
+1. Run your Make scenario  
+2. Trigger document creation from monday.com  
+3. Open the scenario run log  
+4. Copy the JSON payload returned by Eledo  
+5. Use it to generate the JSON structure  
+
+![Filtering subitems](/img/integrations/make/make-generate-json-data-structure.gif)
+
+---
+
+## PDF Post-processing
+
+Once the scenario is configured, you can perform additional actions in Make.
+
+For example:
+
+- retrieve additional data from monday.com  
+- send the PDF via email  
+- upload the PDF to monday.com, cloud storage, or ERP systems  
+
+---
+
+### Example: Send Email
+
+![Filtering subitems](/img/integrations/make/make-email-attachment.gif)
+
+---
+
+### Example: Upload to monday.com
+
+![Filtering subitems](/img/integrations/make/make-upload-monday.gif)
+
+---
+
+<DocFeedbackForm />

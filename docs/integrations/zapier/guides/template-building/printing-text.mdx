@@ -7,16 +7,86 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Printing Text
 
-To print a text value ​​from make.com, follow these steps:
-- In Eledo editor click on a **Text box** component from top toolbar. Configuration window will appear. 
-- Click into **Data (expression)** field to open Data Expression builder.
-- Type the word you want to represent the value. This word cannot contain a space. In our case **ProductName**.
-- If you need to format this value, try one of our [text formatting functions](/docs/product/template-editor/data-expressions/text-functions.mdx)
-- Confirm twice and dynamic text component will be placed at cursor position.
-- Don´t forget to Save the template.
+This guide shows how to print dynamic text into your PDF using Zapier.
 
-![image](/img/integrations/make/TextPrintingMake1.gif)
+---
 
-![image](/img/integrations/zapier/ZapierPrintingText.gif)
+## Step 1 — Prepare your template
+
+In the Eledo editor:
+
+1. Add a **Text Box (TXT)** component  
+2. In **Data (expression)**, enter a field name (for example `ProductName`)  
+3. Confirm and save the template  
+
+![Text Box Configuration](/img/integrations/make/TextPrintingMake1.gif)
+
+:::tip
+
+Learn more about Text Box:  
+→ [/docs/product/template-editor/components/text-box.mdx](/docs/product/template-editor/components/text-box.mdx)
+
+:::
+
+---
+
+## Step 2 — Use the template in Zapier
+
+In your Zap:
+
+1. Add the **Eledo PDF** action  
+2. Select your template  
+3. Load the available fields  
+
+Your field (for example `ProductName`) will appear.
+
+---
+
+## Step 3 — Map your data
+
+1. Click into the field (for example `ProductName`)  
+2. Select a value from your trigger or previous step  
+3. Confirm the mapping  
+
+![Mapping Text Value](/img/integrations/zapier/ZapierPrintingText.gif)
+
+---
+
+## Step 4 — (Optional) Format the output
+
+You can control how text appears directly in the template using expressions.
+
+Examples:
+
+```
+"Product: " + ProductName
+NUM(Price, 0, 2) + " €"
+```
+
+:::tip
+
+Learn how to format values:  
+→ [Printing Text](/docs/product/template-editor/guides/printing-text.mdx)
+
+:::
+
+---
+
+## Result
+
+When the Zap runs:
+
+- data is passed from your trigger  
+- Eledo fills the Text Box  
+- the final document is generated  
+
+---
+
+## Next steps
+
+- Printing numbers → [Printing Number](./printing-number.mdx)  
+- Build full workflow → [Generate Your First PDF](../zaps/generate-first-pdf.mdx)
+
+---
 
 <DocFeedbackForm />

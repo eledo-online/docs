@@ -7,15 +7,79 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Printing QR Code
 
-To print QR code ​​from make.com, follow these steps:  
-- In Eledo editor click on **Barcodes 2D** and select **QR Code ** component from top toolbar. Configuration window will appear. 
-- Click into **Data (expression)** field to open Data Expression builder.
-- Type the word you want to represent the value. This word cannot contain a space. For example **ProductQR**.
-- Confirm twice and you're done! Dynamic QR Code will be placed at cursor position.
-- Don´t forget to Save the template.
+This guide shows how to print QR codes into your PDF using Zapier.
 
-![image](/img/integrations/make/PrintingQRCodeMake1.gif)
+---
 
-![image](/img/integrations/zapier/ZapierPrintingQRCode.gif)
+## Step 1 — Prepare your template
+
+In the Eledo editor:
+
+1. Click **Barcodes 2D** → select **QR Code**  
+2. In **Data (expression)**, enter a field name (for example `ProductQR`)  
+3. Confirm and save the template  
+
+![QR code configuration](/img/integrations/make/PrintingQRCodeMake1.gif)
+
+:::tip
+
+Learn more about QR codes:  
+→ [/docs/product/template-editor/guides/generating-qr-codes.mdx](/docs/product/template-editor/guides/generating-qr-codes.mdx)
+
+:::
+
+---
+
+## Step 2 — Use the template in Zapier
+
+In your Zap:
+
+1. Add the **Eledo PDF** action  
+2. Select your template  
+3. Load the available fields  
+
+Your field (for example `ProductQR`) will appear.
+
+---
+
+## Step 3 — Map your data
+
+1. Click into the field (for example `ProductQR`)  
+2. Provide the value to encode (for example a URL or text)  
+3. Confirm the mapping  
+
+![Mapping QR code value](/img/integrations/zapier/ZapierPrintingQRCode.gif)
+
+---
+
+## Important notes
+
+- QR codes encode text — the format of the value determines behavior  
+- Common use case: encode a URL  
+
+Example:
+
+```
+https://example.com/product/123
+```
+
+---
+
+## Result
+
+When the Zap runs:
+
+- the value is passed from your trigger  
+- Eledo encodes it into a QR code  
+- the QR code is rendered in the document  
+
+---
+
+## Next steps
+
+- Learn QR formats → [Generating QR Codes](/docs/product/template-editor/guides/generating-qr-codes.mdx)  
+- Build full workflow → [Generate Your First PDF](../zaps/generate-first-pdf.mdx)
+
+---
 
 <DocFeedbackForm />
