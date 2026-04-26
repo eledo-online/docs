@@ -11,85 +11,87 @@ n8n supports **community nodes** — extensions developed outside of the core n8
 
 Community nodes can be:
 
-* **Verified** — reviewed and approved by the n8n team
-* **Unverified** — published but not yet reviewed
+* **Verified** — reviewed and approved by the n8n team  
+* **Unverified** — published but not reviewed  
 
-Installing a verified node is the recommended method. It ensures compatibility, visibility, and official support within the n8n ecosystem.
-
-At the time of writing, the Eledo node is in the process of validation by the n8n team. Until verification is complete, installation options depend on whether you are using n8n Cloud or a self‑hosted instance.
+The **Eledo node is now verified**, which means it can be installed directly from the n8n interface and is fully supported within the n8n ecosystem.
 
 ---
 
 ## n8n Cloud
 
-If you are using **n8n Cloud**, you can install only verified community nodes.
+If you are using **n8n Cloud**, you can install verified community nodes directly from the UI.
 
-*Note: At the time of writing, the Eledo node is still under review and cannot yet be installed on n8n Cloud.*
+To install the Eledo node:
 
-To install a verified node, you must be the **instance owner** — the person who manages the n8n Cloud workspace and has permission to install extensions.
+1. Open your n8n workspace  
+2. Go to **Settings → Community Nodes**  
+3. Search for **Eledo**  
+4. Click **Install**
 
-Once the Eledo node is verified, installation will follow the official process described in the n8n documentation:
+You must be the **instance owner** (or have sufficient permissions) to install community nodes.
 
-[https://docs.n8n.io/integrations/community-nodes/installation/verified-install/](https://docs.n8n.io/integrations/community-nodes/installation/verified-install/)
+Once installed, the Eledo node will be available in the node panel and can be added to your workflows.
 
 ---
 
-## Self‑Hosted n8n Instance
+## Self-Hosted n8n Instance
 
-If you are running your own n8n instance, you have more flexibility.
+If you are running your own n8n instance, you can install the Eledo node in multiple ways.
 
-You can install:
+### Option 1 — Install via UI (Recommended)
 
-* Verified community nodes (recommended)
-* Unverified community nodes via the n8n UI
-* Unverified community nodes manually
+If your instance supports community node installation via UI:
 
-Installing verified nodes follows the same process described in the **n8n Cloud** section.
+1. Open your n8n instance  
+2. Go to **Settings → Community Nodes**  
+3. Search for **Eledo**  
+4. Click **Install**
 
-A major advantage of self‑hosting is that you are not restricted to verified nodes. You can install any published community node.
+This is the simplest and recommended method.
 
-### Option 1 — Install via UI (Recommended for Most Users)
-
-If your n8n instance allows installing community nodes through the interface, follow the official GUI installation guide:
-
-[https://docs.n8n.io/integrations/community-nodes/installation/gui-install/](https://docs.n8n.io/integrations/community-nodes/installation/gui-install/)
-
-Search for the Eledo package and install it directly from the UI. This is the preferred method for most users.
+---
 
 ### Option 2 — Manual Installation (Docker / Shell Access)
 
-Advanced users can install the node manually inside their n8n environment. This typically involves accessing the Docker container or server shell, creating the required directories, and installing the package using npm.
+Advanced users can install the node manually inside their n8n environment.
 
-The Eledo package is available here:
+The Eledo package is available on npm:
 
-[https://www.npmjs.com/package/@eledo/n8n-nodes-eledo](https://www.npmjs.com/package/@eledo/n8n-nodes-eledo)
+https://www.npmjs.com/package/@eledo/n8n-nodes-eledo
 
-Refer to the official manual installation guide for detailed steps:
+Refer to the official n8n guide for manual installation:
 
-[https://docs.n8n.io/integrations/community-nodes/installation/manual-install/](https://docs.n8n.io/integrations/community-nodes/installation/manual-install/)
+https://docs.n8n.io/integrations/community-nodes/installation/manual-install/
 
 ---
 
-### Version Pinning
+## Version Pinning
 
-Both installation methods (UI and manual) allow you to install a specific version of the node.
+You can install a specific version of the node if needed.
 
-Pinning a version is useful if you need predictable deployments or want to test a particular release.
-
-For example, to install version `1.0.2`, use:
+Example:
 
 ```
 @eledo/n8n-nodes-eledo@1.0.2
 ```
 
-When using the UI, specify the version in the package field. When installing manually, include the version in the npm install command.
+This is useful for:
 
-The `@` symbol specifies the version number.
+- predictable deployments  
+- testing specific releases  
 
-This method is useful if you need predictable deployments or want to test a particular release.
+When using the UI, specify the version in the package field.  
+When installing manually, include the version in the npm install command.
 
 ---
 
-Once the node is installed, you can add it to your workflows like any other n8n node.
+## After Installation
+
+Once installed, the Eledo node appears in your node list and can be used like any other n8n node.
+
+You are now ready to start building workflows.
+
+---
 
 <DocFeedbackForm />
