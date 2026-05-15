@@ -16,11 +16,11 @@ Returns a list of templates.
 
 ## Query string parameters
 
-| Name    | Type    | Required | Description                    |
-|---------|---------|----------|--------------------------------|
-| `scope` | String  | No       | Template scope                 |
-| `limit` | Integer | No       | Maximum number of results      |
-| `page`  | Integer | No       | Page number                    |
+| Name    | Type    | Required | Description                                      |
+|---------|---------|----------|--------------------------------------------------|
+| `scope` | String  | No       | Template scope — `"Mine"` or `"Public"`          |
+| `limit` | Integer | No       | Maximum number of results                        |
+| `page`  | Integer | No       | Page number                                      |
 
 ---
 
@@ -55,10 +55,16 @@ The following behavior has been observed in real integrations and may differ fro
 
 ### Scope
 
-- If `scope` is not provided, only **private templates** are returned  
-- Using `scope=public` returns a larger set of templates  
+The API expects the following values:
 
-**Recommendation:** Always specify `scope` explicitly
+- `scope=Mine`
+- `scope=Public`
+
+If `scope` is omitted, the API behaves similarly to `scope=Mine`.
+
+Internally, some integrations may refer to this as "private" scope, but this is only an implementation detail. The actual API parameter values are `"Mine"` and `"Public"`.
+
+**Recommendation:** Always specify `scope` explicitly using the official API values.
 
 ---
 

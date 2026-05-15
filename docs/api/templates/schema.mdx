@@ -25,9 +25,9 @@ Returns a template schema that can be used to construct a valid input payload (`
 
 ## Query string parameters
 
-| Name         | Type   | Required | Description                     |
-|--------------|--------|----------|---------------------------------|
-| `schemaType` | String | No       | Schema format                   |
+| Name         | Type   | Required | Description                                                       |
+|--------------|--------|----------|-------------------------------------------------------------------|
+| `schemaType` | String | No       | Schema format — `"eledo"` (default), `"zapier"` or `"integromat"` |
 
 ---
 
@@ -43,12 +43,12 @@ Returns a template schema that can be used to construct a valid input payload (`
 
 ## Schema item
 
-| Name       | Type                   | Description                        |
-|------------|------------------------|------------------------------------|
-| `key`      | String                 | Field identifier                   |
+| Name       | Type                   | Description                          |
+|------------|------------------------|--------------------------------------|
+| `key`      | String                 | Field identifier                     |
 | `type`     | String                 | Field type (e.g. `string`, `number`) |
-| `children` | Array of schema items | Nested fields                      |
-| `list`     | Boolean                | Indicates array field              |
+| `children` | Array of schema items  | Nested fields                        |
+| `list`     | Boolean                | Indicates array field                |
 
 ---
 
