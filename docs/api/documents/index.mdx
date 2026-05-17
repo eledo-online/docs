@@ -1,0 +1,86 @@
+---
+title: Documents
+sidebar_position: 1
+---
+
+import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
+
+# Documents
+
+The Documents API provides endpoints for generating, downloading, and managing PDF documents in Eledo.
+
+This section covers the core document generation workflow used by integrations, automation platforms, and custom applications.
+
+---
+
+# Available Endpoints
+
+## Generate
+
+Generates a PDF document from a template and input data.
+
+This is the primary endpoint used for synchronous PDF generation workflows.
+
+### Typical Use Cases
+
+- Generate PDFs directly from automation workflows
+- Populate templates with JSON data
+- Generate invoices, reports, contracts, or labels
+
+### Endpoint Information
+
+- **HTTP Method:** `POST`
+- **Endpoint:** `https://eledo.online/api/RESTv1/Generate`
+
+→ [Generate](./generate.mdx)
+
+---
+
+## Create File
+
+Creates a file resource within Eledo that can later be used for asynchronous document generation and download workflows.
+
+This endpoint is typically used together with the Download endpoint.
+
+### Typical Use Cases
+
+- Large or long-running document generation
+- Deferred document download
+- Background processing workflows
+
+### Endpoint Information
+
+- **HTTP Method:** `POST`
+- **Endpoint:** `https://eledo.online/api/RESTv1/CreateFile`
+
+→ [Create File](./create-file.mdx)
+
+---
+
+## Download
+
+Downloads a PDF document from a previously stored file.
+
+This endpoint is used together with Create File in asynchronous workflows.
+
+### Typical Use Cases
+
+- Retrieve generated documents later
+- Separate generation and download phases
+- Download documents processed in background jobs
+
+### Endpoint Information
+
+- **HTTP Method:** `GET`
+- **Endpoint:** `https://eledo.online/api/RESTv1/Download`
+
+→ [Download](./download.mdx)
+
+---
+
+## Related Sections
+
+- [Templates API](../templates/index.mdx)
+- [Template Editor](/docs/product/template-editor/index.mdx)
+
+<DocFeedbackForm />
