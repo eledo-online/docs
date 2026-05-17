@@ -1,0 +1,64 @@
+---
+title: Templates
+sidebar_position: 1
+---
+
+import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
+
+# Templates
+
+The Templates API provides endpoints for retrieving information about Eledo templates and their expected input structure.
+
+These endpoints are commonly used by integrations, automation platforms, and custom tools that need to dynamically discover templates or build input forms.
+
+---
+
+# Available Endpoints
+
+## List
+
+Returns a list of available templates accessible by the authenticated API key.
+
+This endpoint is typically used to:
+
+- display available templates
+- allow users to select a template dynamically
+- build integration dropdowns and template pickers
+
+### Endpoint Information
+
+- **HTTP Method:** `GET`
+- **Endpoint:** `https://eledo.online/api/RESTv1/Templates`
+
+→ [List](./list.mdx)
+
+---
+
+## Schema
+
+Returns the schema definition of a template.
+
+The schema describes the expected input structure, including field names and data types.
+
+This endpoint is commonly used for:
+
+- dynamic form generation
+- validation
+- guided field mapping
+- integration tooling
+
+### Endpoint Information
+
+- **HTTP Method:** `GET`
+- **Endpoint:** `https://eledo.online/api/RESTv1/Schema`
+
+→ [Schema](./schema.mdx)
+
+---
+
+## Related Sections
+
+- [Documents API](../documents/index.mdx)
+- [Template Editor](/docs/product/template-editor/index.mdx)
+
+<DocFeedbackForm />

@@ -1,0 +1,90 @@
+---
+title: Data Input
+sidebar_position: 1
+---
+
+import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
+
+# Data Input
+
+The Eledo n8n node supports two methods for sending data into your templates:
+
+- **Guided Fields** — simple structured input for flat templates
+- **JSON Mode** — full structured payloads for advanced workflows
+
+The appropriate mode depends on the complexity of your template and workflow.
+
+---
+
+# Available Input Modes
+
+## Guided Fields
+
+Guided Fields provide a simple and user-friendly way to populate templates.
+
+This mode is ideal for templates with flat structures such as:
+
+- names
+- invoice numbers
+- totals
+- dates
+- boolean values
+
+Fields are grouped by data type to match the limitations of the n8n interface.
+
+Recommended for:
+
+- simple workflows
+- fast setup
+- non-technical users
+- prototyping
+
+→ [Guided Fields](./guided-fields.mdx)
+
+---
+
+## JSON Mode
+
+JSON Mode allows you to send complete structured payloads directly to Eledo.
+
+This mode supports:
+
+- nested objects
+- arrays
+- repeating rows
+- complex document structures
+
+Recommended for:
+
+- advanced workflows
+- dynamic payload generation
+- integrations with APIs and databases
+- large or structured documents
+
+→ [JSON Mode](./json-mode.mdx)
+
+---
+
+## Which Mode Should You Use?
+
+### Use Guided Fields when:
+
+- your template has a flat structure
+- you want the simplest possible setup
+- you are testing or prototyping
+
+### Use JSON Mode when:
+
+- your template contains arrays or nested objects
+- you need repeating rows
+- you require full control over the payload structure
+
+---
+
+## Related Sections
+
+- [Template Building](../guides/template-building/index.mdx)
+- [Workflows](../guides/workflows/index.mdx)
+- [Documents API](/docs/api/documents/index.mdx)
+
+<DocFeedbackForm />
