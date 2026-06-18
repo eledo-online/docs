@@ -7,7 +7,7 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # REST API Overview
 
-The Eledo REST API allows you to work with templates, generate PDF documents, and retrieve supporting metadata.
+The Eledo REST API allows you to work with [templates](https://eledo.online/templates), generate PDF documents, and retrieve supporting metadata.
 
 All endpoints are available under:
 
@@ -17,17 +17,17 @@ https://eledo.online/api/RESTv1/
 
 ---
 
-## Authentication
+## [Authentication](./authentication.mdx)
 
 Eledo uses **HTTP header authentication** with an **API Key**.
 
-Authentication details are described in the **Authentication** section.
+Authentication details are described in the [**Authentication**](./authentication.mdx) section.
 
 ---
 
 ## Available endpoints
 
-### Create File
+### [Create File](./documents/create-file.mdx)
 
 Creates a file within the service that can be used to store transaction data for later use.
 
@@ -36,7 +36,7 @@ Creates a file within the service that can be used to store transaction data for
 
 ---
 
-### Download
+### [Download](./documents/download.mdx)
 
 Downloads a PDF document from a previously stored file.
 
@@ -45,7 +45,7 @@ Downloads a PDF document from a previously stored file.
 
 ---
 
-### Generate
+### [Generate](./documents/generate.mdx)
 
 Generates a PDF document from a template and input data.
 
@@ -56,7 +56,7 @@ This is the main endpoint used for document generation.
 
 ---
 
-### List
+### [List](./templates/list.mdx)
 
 Returns a list of templates.
 
@@ -65,7 +65,7 @@ Returns a list of templates.
 
 ---
 
-### Profile
+### [Profile](./user-profile.mdx)
 
 Returns the current user's profile.
 
@@ -74,7 +74,7 @@ Returns the current user's profile.
 
 ---
 
-### Schema
+### [Schema](./templates/schema.mdx)
 
 Returns a template schema that can be used to construct a valid input payload.
 
@@ -97,10 +97,10 @@ There are two main ways to generate documents:
 
 Use this approach when you need an immediate response:
 
-1. **Authentication**  
-2. **List**  
-3. **Schema**  
-4. **Generate**
+1. [**Authentication**](./authentication.mdx)
+2. [**List**](./templates/list.mdx)
+3. [**Schema**](./templates/schema.mdx)
+4. [**Generate**](./documents/generate.mdx)
 
 ---
 
@@ -108,9 +108,9 @@ Use this approach when you need an immediate response:
 
 Use this approach when processing larger workloads or when immediate response is not required:
 
-1. **Authentication**  
-2. **Create File**  
-3. **Download**
+1. [**Authentication**](./authentication.mdx)
+2. [**Create File**](./documents/create-file.mdx)
+3. [**Download**](./documents/download.mdx)
 
 ---
 

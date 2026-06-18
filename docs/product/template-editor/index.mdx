@@ -10,7 +10,7 @@ import ImageWithCaption from '@site/src/components/ImageWithCaption';
 
 The Template Editor is the core tool in Eledo. It allows you to create and modify document templates that are later used to generate PDFs.
 
-With the editor, you design how your document looks and define how data is inserted into it when the document is generated.
+With the editor, you [design](./guides/visual-template-design.mdx) how your document looks and [define](./components/index.mdx) how data is inserted into it when the document is generated.
 
 <ImageWithCaption
   src="/img/product/template-editor/template-editor.png"
@@ -26,9 +26,9 @@ Eledo uses a visual editor (WYSIWYG — What You See Is What You Get).
 
 You build your document directly on the page, similar to a text editor:
 
-- add and format text  
+- [add and format text](./components/text-box.mdx)
 - insert dynamic fields (name, price, date, etc.)  
-- structure the layout visually  
+- [structure the layout visually](./guides/visual-template-design.mdx)
 
 When the document is generated, Eledo replaces these fields with real data.
 
@@ -52,7 +52,7 @@ This is the recommended mode for most users.
 
 ### Source mode
 
-For advanced use cases, you can switch to source mode.
+For advanced use cases, you can switch to [source mode](./editor-tools/source-mode.mdx).
 
 - edit the underlying HTML  
 - fine-tune layout and structure  
@@ -68,7 +68,7 @@ This mode is intended for advanced use cases.
 
 ## Components
 
-Components allow you to insert dynamic content and logic into your document.
+[Components](./components/index.mdx) allow you to insert dynamic content and logic into your document.
 
 Templates are built using components.
 
@@ -76,11 +76,11 @@ You can insert them from the toolbar into your document.
 
 Common components include:
 
-- **Text Box** — display dynamic text values  
-- **Dynamic Checkbox** — show true/false values  
-- **Block Repetition** — repeat content for lists (e.g. invoice items)  
-- **Block Condition** — show or hide parts of the document  
-- **Dynamic Image** — insert images from data  
+- [**Text Box**](./components/text-box.mdx) — display dynamic text values  
+- [**Dynamic Checkbox**](./components/dynamic-checkbox.mdx) — show true/false values  
+- [**Block Repetition**](./components/block-repetition.mdx) — repeat content for lists (e.g. invoice items)  
+- [**Block Condition**](./components/block-condition.mdx) — show or hide parts of the document  
+- [**Dynamic Image**](./components/dynamic-image.mdx) — insert images from data
 
 Each component can be configured to control how data is displayed.
 
@@ -97,7 +97,7 @@ Templates are built using a cursor-based workflow:
 
 The component is inserted exactly at the cursor position.
 
-You can then adjust the layout using standard editing actions such as typing, line breaks, and formatting.
+You can then adjust the layout using standard editing actions such as typing, line breaks, and [formatting](./editor-tools/basic-formatting.mdx).
 
 ---
 
@@ -111,13 +111,13 @@ With the Template Editor, you can create:
 - contracts  
 - any structured PDF document  
 
-From simple templates to complex documents with dynamic content and logic.
+From [simple templates to complex documents](https://eledo.online/templates) with dynamic content and logic.
 
 ---
 
 ## Next steps
 
-- Explore available components → Components
+- Explore available components → [Components](./components/index.mdx)
 - Learn how to use expressions → [Expressions](/docs/product/template-editor/guides/expressions.mdx)
 - Learn how to format values → [Printing Text](/docs/product/template-editor/guides/printing-text.mdx)
 

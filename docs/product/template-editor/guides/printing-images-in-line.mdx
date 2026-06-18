@@ -11,10 +11,10 @@ You can display multiple images in a row and automatically wrap them to the next
 
 This is achieved using:
 
-- **Dynamic Image**  
-- **DIV Container**  
-- **Block Repetition**  
-- custom CSS (`inline-block`)  
+- [**Dynamic Image**](../components/dynamic-image.mdx)
+- [**DIV Container**](../editor-tools/create-div-container.mdx)
+- [**Block Repetition**](../components/block-repetition.mdx)
+- [custom CSS](../editor-tools/styles-mode.mdx) (`inline-block`)  
 
 ---
 
@@ -24,15 +24,15 @@ By default, elements are rendered as `block`, meaning each item appears on a new
 
 To display images side by side:
 
-- wrap each image in a **DIV container**  
+- wrap each image in a [**DIV Container**](../editor-tools/create-div-container.mdx)
 - set the container's display to `inline-block`  
-- repeat the container using **Block Repetition**  
+- repeat the container using [**Block Repetition**](../components/block-repetition.mdx)
 
 ---
 
 ## Step 1: Define custom style
 
-Add a style for the DIV container:
+Add a [style](../editor-tools/styles-mode.mdx) for the DIV container:
 
 ```
 div.inline-images {
@@ -50,7 +50,7 @@ Add this style in **[Styles Mode](../editor-tools/styles-mode.mdx)**.
 
 ## Step 2: Add Dynamic Image
 
-Insert a **Dynamic Image** component.
+Insert a [**Dynamic Image**](../components/dynamic-image.mdx) component.
 
 Use a field that contains a publicly accessible image URL.
 
@@ -68,7 +68,7 @@ Remove the height (or width) to preserve aspect ratio.
 
 ## Step 3: Wrap with DIV container
 
-Select the Dynamic Image and wrap it using **Create DIV Container**.
+Select the Dynamic Image and wrap it using [**Create DIV Container**](../editor-tools/create-div-container.mdx).
 
 - This replaces the default paragraph (`<p>`) container  
 - Assign the `inline-images` class  
@@ -81,7 +81,7 @@ You can verify the structure in the editor’s component path (bottom bar).
 
 ## Step 4: Apply Block Repetition
 
-Apply **Block Repetition** to the DIV container.
+Apply [**Block Repetition**](../components/block-repetition.mdx) to the DIV container.
 
 This repeats the container for each image in your list.
 

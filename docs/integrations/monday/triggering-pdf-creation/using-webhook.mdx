@@ -7,9 +7,9 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Using Webhook for Advanced Automation Workflow
 
-If uploading your PDF back to a monday.com board is not sufficient, you can start a custom automation workflow by sending the PDF from Eledo to a webhook.
+If uploading your PDF back to a [monday.com](https://monday.com/) board is not sufficient, you can start a custom automation workflow by sending the PDF from Eledo to a webhook.
 
-In this guide, we will create a simple [Make](https://www.make.com/en/register?pc=eledopdf) scenario that:
+In this guide, we will create a simple Monday workflow that:
 - sends the PDF as an email attachment  
 - uploads it back to a monday.com board  
 
@@ -19,26 +19,26 @@ In this guide, we will create a simple [Make](https://www.make.com/en/register?p
 
 ## Obtaining Webhook URL
 
-Create a new Make scenario and start with a **Webhook** module.
+Create a new Monday workflow and start with a **Webhook** module.
 
 1. Create a new webhook  
 2. Copy its URL  
 
-The Make scenario will now wait for the first request to determine the data structure.
+The Monday workflow will now wait for the first request to determine the data structure.
 
 ![Filtering subitems](/img/integrations/make/make-new-webhook.gif)
 
 ---
 
-Add an Integration Recipe to your monday.com board and use the webhook URL from your Make scenario.
+Add an Integration Recipe to your monday.com board and use the webhook URL from your Monday workflow.
 
-Trigger the Integration Recipe and wait for confirmation in Make.
+Trigger the Integration Recipe and wait for confirmation in Monday.
 
 ![Filtering subitems](/img/integrations/monday/monday_setup_recipe_with_webhook.gif)
 
 ---
 
-After a successful document creation, you should see a **“Successfully determined”** message in the Make webhook module.
+After a successful document creation, you should see a **“Successfully determined”** message in the Monday webhook module.
 
 ![Filtering subitems](/img/integrations/make/make-webhook-wait.gif)
 
@@ -77,7 +77,7 @@ The `file` collection contains data used to generate the PDF (including local va
 
 You can generate the structure automatically:
 
-1. Run your Make scenario  
+1. Run your Monday workflow  
 2. Trigger document creation from monday.com  
 3. Open the scenario run log  
 4. Copy the JSON payload returned by Eledo  
@@ -89,7 +89,7 @@ You can generate the structure automatically:
 
 ## PDF Post-processing
 
-Once the scenario is configured, you can perform additional actions in Make.
+Once the scenario is configured, you can perform additional actions in Monday.
 
 For example:
 

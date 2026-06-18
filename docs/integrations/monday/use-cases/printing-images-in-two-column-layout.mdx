@@ -7,7 +7,7 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Images in a 2-Column Layout
 
-To display images in two columns, use Block Repetition together with indexed access to the file array.
+To display images in two columns, use [Block Repetition](/docs/product/template-editor/components/block-repetition.mdx) together with indexed access to the file array.
 
 ---
 
@@ -15,7 +15,9 @@ To display images in two columns, use Block Repetition together with indexed acc
 
 Use the following data expression to iterate over the images in pairs:
 
-    FOR(1, SIZE(item.file_mknjndsx) / 2 + 1)
+```
+FOR(1, SIZE(item.file_mknjndsx) / 2 + 1)
+```
 
 ---
 
