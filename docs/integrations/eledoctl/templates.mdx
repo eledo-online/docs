@@ -1,0 +1,141 @@
+---
+title: Templates
+sidebar_position: 5
+---
+
+# Templates
+
+The `templates` command lists the Eledo templates available to the currently authenticated account.
+
+Use it after authentication to find the template you want to use when generating a document.
+
+```
+eledoctl templates
+```
+
+In visual workflow integrations, template selection is usually part of the workflow configuration. In `eledoctl`, template discovery is exposed as a separate command so you can inspect available templates directly from the terminal.
+
+---
+
+## Before You Start
+
+Make sure you are [authenticated](./authentication.mdx):
+
+```
+eledoctl login
+```
+
+You can verify the connection with:
+
+```
+eledoctl profile
+```
+
+Once authentication works, list your templates:
+
+```
+eledoctl templates
+```
+
+---
+
+## Basic Usage
+
+Run:
+
+```
+eledoctl templates
+```
+
+The command returns the templates available to your Eledo account.
+
+Use the listed template ID when generating a document:
+
+```
+eledoctl documents generate TEMPLATE_ID \
+    --payload-file data.json \
+    --output document.pdf
+```
+
+Replace `TEMPLATE_ID` with the ID of the template you want to use.
+
+---
+
+## When to Use This Command
+
+Use `eledoctl templates` when you want to:
+
+* check which templates are available to your account
+* find the template ID required by the generate command
+* verify that a newly created template is visible through the API
+* confirm that your API key has access to the expected templates
+* prepare a shell script or cron job that generates documents from a known template
+
+This command does not generate documents. It only lists available templates.
+
+---
+
+## Typical Workflow
+
+A common first-time workflow looks like this:
+
+```
+eledoctl login
+eledoctl profile
+eledoctl templates
+```
+
+After you identify the template you want to use, generate a document:
+
+```
+eledoctl documents generate TEMPLATE_ID \
+    --add-field clientName="Acme Ltd" \
+    --add-field invoiceNumber="INV-2026-001" \
+    --output invoice.pdf
+```
+
+---
+
+## Using Templates in Scripts
+
+In most scripts, you usually do not need to run `eledoctl templates` every time.
+
+A typical pattern is:
+
+1. Run `eledoctl templates` manually.
+2. Copy the template ID.
+3. Store the template ID in your script, configuration file, or environment variable.
+4. Use that template ID with `eledoctl documents generate`.
+
+Example shell script:
+
+```
+TEMPLATE_ID="your-template-id"
+
+eledoctl documents generate "$TEMPLATE_ID" \
+    --payload-file data.json \
+    --output document.pdf
+```
+
+This keeps the script simple and predictable.
+
+---
+
+## Troubleshooting
+
+If `eledoctl templates` fails:
+
+* verify that you have already run `eledoctl login`
+* run `eledoctl profile` to check that authentication works
+* make sure your API key is valid
+* confirm that your Eledo account has access to templates
+* check your internet connection
+* try generating a new API key in Eledo and logging in again
+
+If the command succeeds but the expected template is missing:
+
+* verify that the template exists in Eledo
+* check that you are using the correct Eledo account
+* confirm that the API key belongs to the account that owns or can access the template
+
+Once you have the correct template ID, you can use it to generate documents from the command line.

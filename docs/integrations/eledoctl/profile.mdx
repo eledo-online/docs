@@ -1,0 +1,110 @@
+---
+title: Profile
+sidebar_position: 4
+---
+
+# Profile
+
+The `profile` command checks which Eledo account is currently connected to `eledoctl`.
+
+Use it after [authentication](./authentication.mdx) to verify that your API key works and that the CLI can communicate with Eledo.
+
+```
+eledoctl profile
+```
+
+If authentication is configured correctly, the command returns information about the authenticated Eledo account.
+
+---
+
+## When to Use This Command
+
+Use `eledoctl profile` when you want to:
+
+* verify that login was successful
+* check that your API key is valid
+* confirm which Eledo account is currently configured
+* test connectivity before generating documents
+* debug authentication issues in local scripts or CI/CD jobs
+
+This command does not generate documents. It only validates the current connection.
+
+---
+
+## Basic Usage
+
+Run:
+
+```
+eledoctl profile
+```
+
+Example flow:
+
+```
+eledoctl login
+eledoctl profile
+```
+
+If the profile command succeeds, you can continue with other commands such as:
+
+```
+eledoctl templates
+eledoctl documents generate TEMPLATE_ID --output document.pdf
+```
+
+---
+
+## Using Profile in Scripts
+
+The `profile` command can also be used in setup scripts to fail early if authentication is not configured correctly.
+
+For example:
+
+```
+eledoctl profile
+eledoctl documents generate TEMPLATE_ID \
+    --payload-file data.json \
+    --output document.pdf
+```
+
+If the profile check fails, the script should stop before attempting to generate a document.
+
+---
+
+## Using Profile in CI/CD
+
+In CI/CD environments, authenticate with the `ELEDO_API_TOKEN` environment variable first:
+
+```
+ELEDO_API_TOKEN=YOUR_ELEDO_API_KEY eledoctl login
+eledoctl profile
+```
+
+Store the API key as a secret in your CI/CD system and expose it only during the job that needs access to Eledo.
+
+---
+
+## Troubleshooting
+
+If `eledoctl profile` fails:
+
+* verify that you have already run `eledoctl login`
+* check that the API key was copied correctly
+* make sure the API key has not been regenerated or revoked
+* ensure your internet connection is working
+* try logging in again with a fresh API key
+
+To log in again:
+
+```
+eledoctl login
+```
+
+or in a non-interactive environment:
+
+```
+ELEDO_API_TOKEN=YOUR_ELEDO_API_KEY eledoctl login
+```
+
+Once `eledoctl profile` succeeds, your CLI is ready to list templates and generate documents.
