@@ -1,0 +1,117 @@
+---
+title: Installation
+sidebar_position: 2
+---
+
+# Installation
+
+[`eledoctl`](https://pypi.org/project/eledoctl/) is distributed as a Python command-line tool.
+
+The recommended installation method is [`uv`](https://docs.astral.sh/uv/), especially if you want to install `eledoctl` as an isolated command-line tool.
+
+---
+
+## Install with uv
+
+If you already have `uv` installed, install `eledoctl` with:
+
+```
+uv tool install eledoctl
+```
+
+After installation, verify that the command is available:
+
+```
+eledoctl --help
+```
+
+You should see the list of available commands.
+
+---
+
+## Upgrade eledoctl
+
+To upgrade to the latest version:
+
+```
+uv tool upgrade eledoctl
+```
+
+This is useful when a new version of the CLI is released.
+
+---
+
+## Install with pip
+
+You can also install `eledoctl` with `pip`:
+
+```
+pip install eledoctl
+```
+
+After installation, verify the command:
+
+```
+eledoctl --help
+```
+
+If the command is not found, make sure your Python scripts directory is available in your `PATH`.
+
+---
+
+## Local Project Installation
+
+If you want to use `eledoctl` inside a Python project, install it as a project dependency:
+
+```
+uv add eledoctl
+```
+
+or with pip:
+
+```
+pip install eledoctl
+```
+
+This is useful when your scripts or backend tooling depend on the Python package directly.
+
+---
+
+## After Installation
+
+Once installed, authenticate with your Eledo account:
+
+```
+eledoctl login
+```
+
+Then list your available templates:
+
+```
+eledoctl templates
+```
+
+You are now ready to generate documents from the command line.
+
+---
+
+## When to Use eledoctl
+
+Use `eledoctl` when you want to generate Eledo documents from:
+
+* terminal commands
+* shell scripts
+* backend tools
+* CI/CD jobs
+* cron jobs
+* custom automation
+
+For example, a scheduled job can generate a PDF every morning using a saved JSON payload:
+
+```
+eledoctl documents generate TEMPLATE_ID \
+    --payload-file daily-report.json \
+    --output daily-report.pdf
+```
+
+For visual workflow automation, use one of the Eledo integrations such as Make, Zapier, Monday, or n8n.

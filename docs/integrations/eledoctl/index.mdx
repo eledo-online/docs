@@ -1,0 +1,118 @@
+---
+title: Overview
+sidebar_position: 1
+---
+
+# Overview
+
+## What is Eledo?
+
+Eledo is a service for generating PDF documents through automation.
+
+Imagine running an e-shop and needing to create an invoice for every order. With Eledo, this process can be automated.
+
+You need two things:
+
+1. A template — you define what information should be filled in, such as name, address, invoice details, or order data.
+2. A way to send data to Eledo — this can be done through integrations, API calls, or command-line tools such as `eledoctl`.
+
+The setup is done once. After that, Eledo can generate documents whenever your application, script, or automation needs them.
+
+Templates are created using our visual editor on the website. Eledo also supports PDF forms, which are handled as a slightly different type of template.
+
+---
+
+## What is eledoctl?
+
+[`eledoctl`](https://pypi.org/project/eledoctl/) is the official command-line toolkit for Eledo.
+
+It is designed for developers, operators, and technical users who want to generate Eledo documents from:
+
+* local terminal commands
+* shell scripts
+* backend tools
+* CI/CD jobs
+* cron jobs
+* scheduled automation
+* custom internal tooling
+
+Unlike visual workflow integrations such as Make, Zapier, Monday, or n8n, `eledoctl` does not require building a workflow. It can generate a single PDF directly from the command line.
+
+A typical command looks like this:
+
+```
+eledoctl documents generate TEMPLATE_ID \
+    --add-field clientName="Acme Ltd" \
+    --add-field invoiceNumber="INV-2026-001" \
+    --output invoice.pdf
+```
+
+This makes `eledoctl` useful when you need direct, scriptable document generation.
+
+---
+
+## How eledoctl Works
+
+The basic flow is straightforward:
+
+1. [Install](./installation.mdx) `eledoctl`.
+2. [Authenticate](./authentication.mdx) with your Eledo API token.
+3. [List available templates](./templates.mdx).
+4. [Generate a document](./documents/generate.mdx) from a selected template.
+5. Save the generated PDF to a file or use it in another script.
+
+For example:
+
+```
+eledoctl login
+eledoctl templates
+eledoctl documents generate TEMPLATE_ID --payload-file data.json --output document.pdf
+```
+
+You can provide document data as simple fields, a JSON string, a JSON file, or standard input.
+
+---
+
+## Designed to Be Practical
+
+Eledo was designed to be tolerant to incomplete data.
+
+If you send incomplete data, Eledo still attempts to render the PDF. Missing fields remain empty, but the document is generated.
+
+We chose this strategy deliberately. In many real-world scenarios, receiving a partially filled document is better than receiving no document at all.
+
+This behavior also makes `eledoctl` useful in scripts, where you may want the document generation step to complete even when some optional fields are not available.
+
+---
+
+## When to Use eledoctl
+
+Use `eledoctl` when you want direct command-line access to Eledo document generation.
+
+It is a good fit for:
+
+* generating one document from a terminal
+* testing templates during development
+* creating PDFs from shell scripts
+* running scheduled document generation with cron
+* integrating Eledo into CI/CD pipelines
+* connecting Eledo to custom backend tools
+* generating documents without a visual automation platform
+
+If you prefer visual workflows and no-code automation, use one of the Eledo workflow integrations instead.
+
+---
+
+## What to Expect in This Documentation
+
+This documentation is split into focused sections. You do not need to read everything — open the part relevant to your current task.
+
+We cover:
+
+* [Installation](./installation.mdx)
+* [Authentication setup](./authentication.mdx)
+* Checking the connected account with [Profile](./profile.mdx)
+* Listing available [Templates](./templates.mdx)
+* Generating PDFs with [Generate Documents](./documents/generate.mdx)
+
+If something is unclear or missing, it means the documentation needs improvement — not that the feature is unsupported.
