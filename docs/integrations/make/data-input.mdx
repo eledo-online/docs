@@ -9,7 +9,7 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 Data input is configured directly inside the Eledo module.
 
-First, select a template. Once selected, Make retrieves the template schema and generates a dynamic input form that mirrors the template fields.
+First, select a template. Once selected, [Make](https://www.make.com/) retrieves the template schema and generates a dynamic input form that mirrors the template fields.
 
 This is the main way to bind your data to template fields in Make.
 
@@ -67,7 +67,11 @@ To insert dynamic data:
 
 Make displays outputs from previous modules and allows you to map them directly to the selected template field.
 
-> Note: Make sure a source module is already added and configured before mapping dynamic values. Otherwise, the data you want to insert will not be available yet.
+:::note
+
+Make sure a source module is already added and configured before mapping dynamic values. Otherwise, the data you want to insert will not be available yet.
+
+:::
 
 ![Make Data Binding.](/img/integrations/make/make-data-binding.png)
 
@@ -132,7 +136,7 @@ In practice:
 - Eledo interprets them based on the template field type
 - formatting should be handled inside the template
 
-For example, numeric values are typically formatted in the template using Eledo functions rather than inside Make.
+For example, numeric values are typically formatted in the template using [Eledo functions](/docs/product/template-editor/data-expressions/number-functions.mdx) rather than inside Make.
 
 This keeps the behavior consistent across different integrations.
 

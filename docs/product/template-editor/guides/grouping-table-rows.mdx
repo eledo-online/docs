@@ -7,7 +7,7 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 # Grouping Table Rows
 
-You can group rows in a table by combining nested **Block Repetition** components with the `UNIQUE()` and `FILTER()` functions.
+You can group rows in a [table](../document-elements/table.mdx) by combining nested [**Block Repetition**](../components/block-repetition.mdx) components with the `UNIQUE()` and `FILTER()` functions.
 
 The idea is:
 
@@ -37,7 +37,7 @@ The second row repeats the items in that group.
 
 The table must have a specific structure for this use case.
 
-Eledo currently creates a simplified table in the visual editor, so you need to switch to **Source Mode** and adjust the HTML manually.
+Eledo currently creates a simplified table in the visual editor, so you need to switch to [**Source Mode**](../editor-tools/source-mode.mdx) and adjust the HTML manually.
 
 The table should have:
 
@@ -76,7 +76,7 @@ Example:
 
 ## Outer repetition with a unique list
 
-Apply **Block Repetition** to the `tbody`.
+Apply [**Block Repetition**](../components/block-repetition.mdx) to the `tbody`.
 
 Use the following expression:
 
@@ -86,7 +86,7 @@ UNIQUE(items, team)
 
 This repeats the table body once for each unique value of `team`.
 
-To display the group label, insert a **Text Box** into the first body row and use:
+To display the group label, insert a [**Text Box**](../components/text-box.mdx) into the first body row and use:
 
 ```
 $current
@@ -100,7 +100,7 @@ $current
 
 ## Nested repetition with FILTER
 
-Apply a second **Block Repetition** to the second table row.
+Apply a second [**Block Repetition**](../components/block-repetition.mdx) to the second table row.
 
 Use the following expression:
 
@@ -150,8 +150,8 @@ Each group is printed once, followed by all rows that belong to that group.
 ## Important notes
 
 - This is an advanced use case  
-- It requires **Source Mode** and a manually adjusted table structure  
-- It depends on nested **Block Repetition** components  
+- It requires [**Source Mode**](../editor-tools/source-mode.mdx) and a manually adjusted table structure  
+- It depends on nested [**Block Repetition**](../components/block-repetition.mdx) components  
 - It uses `UNIQUE()` and `FILTER()` expressions  
 
 ---

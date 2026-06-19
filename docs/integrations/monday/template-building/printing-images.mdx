@@ -9,7 +9,7 @@ import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
 
 To print an image from a Files column in your monday.com board, follow these steps:
 
-- In the Eledo editor, add a **Dynamic Image** component  
+- In the Eledo editor, add a [**Dynamic Image**](/docs/product/template-editor/components/dynamic-image.mdx) component  
 - Click into **Data (expression)** to open the expression builder  
 - Select a `public_url` field from the Files column (for example: `item.file.public_url`)  
 - Optionally set width or height (if only one is set, the other is calculated automatically to preserve aspect ratio)  
@@ -21,16 +21,16 @@ To print an image from a Files column in your monday.com board, follow these ste
 
 ## Printing Multiple Images
 
-You can also print multiple images from a Files column using **Block Repetition**.
+You can also print multiple images from a Files column using [**Block Repetition**](/docs/product/template-editor/components/block-repetition.mdx).
 
-- Click inside a table row and enable **Block Repetition**  
+- Click inside a table row and enable [**Block Repetition**](/docs/product/template-editor/components/block-repetition.mdx)  
 - Use **Select Parent Block** to target the table row (TR)  
 - Set the data expression to the Files column (for example: `item.files`)  
 
 To print file details:
 
-- Add a **Text Box** and map the `name` field  
-- Add a **Dynamic Image** and map the `public_url` field  
+- Add a [**Text Box**](/docs/product/template-editor/components/text-box.mdx) and map the `name` field  
+- Add a [**Dynamic Image**](/docs/product/template-editor/components/dynamic-image.mdx) and map the `public_url` field  
 
 ![image](/img/integrations/monday/MondayPrintingImages2.gif)
 
