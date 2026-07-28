@@ -24,6 +24,33 @@ This allows you to design the entire page layout — not just fixed areas at the
 
 ---
 
+## Main and Background documents
+
+The Template Editor contains two separate document areas:
+
+- **Main** — contains the primary document content
+- **Background** — contains page-level elements rendered behind the Main document
+
+Use the left-side menu in the Template Editor to switch between **Main** and **Background**.
+
+![Main and Background document options in the Template Editor sidebar](/img/product/template-editor/guides/main-background-document-menu.png)
+
+The two documents are independent.
+
+The Main document is not placed inside the Background document. During PDF generation, Eledo renders the Background first and then renders the Main document on top of it.
+
+This means the Background can provide repeated page elements such as:
+
+- logos
+- titles
+- page numbers
+- decorative elements
+- header and footer layouts
+
+However, the Background does not automatically reserve space for the Main document. Page margins must be configured explicitly to prevent the two layers from overlapping.
+
+---
+
 ## How it works
 
 - The **Background document** is rendered first  
@@ -43,16 +70,20 @@ A simple way to structure the page is to use a [**3-row table**](../document-ele
 
 ### Step 1: Create a full-page table
 
+Select **Background** from the left-side menu.
+
 In the Background document:
 
-- create a table with **1 column and 3 rows**  
-- set width and height to **100%**  
+- create a table with **1 column and 3 rows**
+- set width and height to **100%**
 
-This divides the page into:
+This divides the Background layout into:
 
-- header  
-- content  
-- footer  
+- header
+- empty middle area
+- footer
+
+The middle row does not contain the Main document. It only creates space between the header and footer inside the Background layout.
 
 ![Creating 3 row table for header and footer concept](/img/product/template-editor/guides/CreateTable.gif)
 
@@ -100,12 +131,13 @@ Since the Background and Main documents are rendered independently:
 - Background is drawn first  
 - Main content is drawn on top  
 
-If elements overlap, the main content will cover the background.
+If elements overlap, the Main content will cover the Background.
 
 To prevent layout issues:
 
-1. Define header and footer height in the Background table  
-2. Increase top and bottom margins in the Main document  
+1. Define header and footer height in the Background table
+2. Select **Main** from the left-side menu
+3. Increase the top and bottom margins in the Main document
 
 Margins are configured in [**Styles**](../editor-tools/styles-mode.mdx) using CSS.
 
