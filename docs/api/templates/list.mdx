@@ -58,55 +58,6 @@ Returns a list of templates.
 
 ---
 
-## Observed behavior
-
-The following behavior has been observed in real integrations and may differ from typical API expectations.
-
-### Scope
-
-The API expects the following values:
-
-- `scope=Mine`
-- `scope=Public`
-
-If `scope` is omitted, the API behaves similarly to `scope=Mine`.
-
-Internally, some integrations may refer to this as "private" scope, but this is only an implementation detail. The actual API parameter values are `"Mine"` and `"Public"`.
-
-**Recommendation:** Always specify `scope` explicitly using the official API values.
-
----
-
-### Limit
-
-- `limit=0` returns all templates  
-- Negative values are treated as absolute values  
-- When combined with `scope`, the `limit` parameter may be ignored  
-- Works reliably only when used alone  
-
-**Recommendation:** Apply client-side limits when needed
-
----
-
-### Pagination
-
-- `page` parameter appears to have **no effect**  
-- Different page values return identical results  
-
-**Recommendation:** Do not rely on server-side pagination
-
----
-
-### Query validation
-
-- Unknown query parameters are ignored  
-- Invalid values for known parameters may cause errors  
-- Some error responses may be returned as **HTML instead of JSON**
-
-**Recommendation:** Validate parameters on the client side and handle non-JSON responses
-
----
-
 ## Example response
 
 ```

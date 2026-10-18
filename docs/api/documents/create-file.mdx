@@ -65,26 +65,6 @@ This endpoint is typically used together with [**Download**](./download.mdx) for
 
 ---
 
-## Observed behavior
-
-### File parameter
-
-- The `file` field should be included in the request  
-- `file: null` is accepted  
-- Partial payloads are accepted  
-
-**Recommendation:**  
-Always include the `file` field for consistency with the Generate endpoint
-
----
-
-### Validation
-
-- Validation is permissive  
-- Missing or incomplete data may still result in a generated document  
-
----
-
 ## When to use Create File
 
 Use this endpoint when:

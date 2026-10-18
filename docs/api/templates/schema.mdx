@@ -27,7 +27,7 @@ Returns a template schema that can be used to construct a valid input payload (`
 | Name               | Type    | Required | Description                      |
 |--------------------|---------|----------|----------------------------------|
 | `template_id`      | String  | Yes      | Template identifier              |
-| `template_version` | Integer | No       | Template version                 |
+| `template_version` | Integer | No       | Template version. If not provided, the **latest version** is returned                 |
 
 ---
 
@@ -57,47 +57,6 @@ Returns a template schema that can be used to construct a valid input payload (`
 | `type`     | String                 | Field type (e.g. `string`, `number`) |
 | `children` | Array of schema items  | Nested fields                        |
 | `list`     | Boolean                | Indicates array field                |
-
----
-
-## Observed behavior
-
-The following behavior has been observed in real integrations.
-
-### Template version
-
-- If `template_version` is not provided, the **latest version** is returned  
-- Version `0` returns an error (`Template not found`)  
-- Negative versions are accepted and treated as absolute values  
-- Versions higher than the current version return an error  
-
-**Recommendation:**  
-Always use a valid positive version or omit the parameter to use the latest version
-
----
-
-### Schema type
-
-- Default schema type is `eledo`  
-- Supported values include:
-  - `eledo` (default)
-  - `zapier`
-  - `integromat`  
-- Invalid `schemaType` values do **not** cause an error  
-- Instead, the API silently falls back to the default schema  
-
-**Recommendation:**  
-Use the default schema unless you have a specific need for another format
-
----
-
-### Validation behavior
-
-- The API performs limited validation of parameters  
-- Invalid values may not always result in clear errors  
-
-**Recommendation:**  
-Validate inputs on the client side
 
 ---
 

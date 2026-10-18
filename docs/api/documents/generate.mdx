@@ -79,41 +79,6 @@ content-disposition: attachment; filename="0_0.pdf"; filename*=UTF-8''0_0.pdf
 
 ---
 
-## Observed behavior
-
-The following behavior has been observed in real integrations.
-
-### File parameter
-
-- The `file` field must be present in the request  
-- `file: null` is accepted  
-- `{}` (empty object) is also accepted  
-- Omitting the `file` field may result in errors  
-
-**Recommendation:**  
-Always include the `file` field (use `null` if no data is required)
-
----
-
-### Input validation
-
-- Partial payloads are accepted  
-- Missing fields do not cause failure  
-- Incorrect types may still produce a PDF with missing values  
-
-**Recommendation:**  
-Do not rely on strict validation — validate inputs on the client side if needed
-
----
-
-### Response handling
-
-- Successful responses return binary PDF data  
-- Errors return JSON  
-- Response type should be detected via `Content-Type`  
-
----
-
 ### Filename handling
 
 - The filename is provided in `Content-Disposition`  

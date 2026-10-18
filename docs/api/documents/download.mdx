@@ -71,23 +71,6 @@ content-disposition: attachment; filename="0_0.pdf"; filename*=UTF-8''0_0.pdf
 
 ---
 
-## Observed behavior
-
-### Temporary files
-
-- If the file was created with `temporary=true`, it is removed after download  
-- Subsequent download attempts may fail  
-
----
-
-### Response handling
-
-- Successful responses return binary PDF data  
-- Errors return JSON  
-- Response type should be detected via `Content-Type`  
-
----
-
 ### Filename handling
 
 - The filename is provided in `Content-Disposition`  
