@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Introduction
+title: Overview
 description: "Learn how to get started with the Eledo monday.com integration by preparing a document template and setting up an integration recipe."
 keywords:
   - Eledo monday.com integration
@@ -12,34 +12,60 @@ keywords:
   - board view
 ---
 
-import DocFeedbackForm from '@site/src/components/DocFeedbackForm';
+# Guides for monday.com
 
-# Get Started in Two Steps
-
-Set up automated PDF creation in two steps:
+Set up your automated PDF creation in two steps:
 
 - Prepare a document template  
-- Set up an integration recipe  
+- Set up an integration recipe / automation  
 
 ---
 
-## Template
+## Template building
+Learn how to prepare a template of your document using dynamic components and data expressions in our editor.
+- **[Printing Columns by Type](./template-building/column-types/index.mdx)**  
+Find out how to print values from various column types from monday.com board
+- **[Printing Subitems](./template-building/printing-subitems.mdx)**  
+Learn how to print multiple subitems into your document
+- **[Printing Columns from Connected Item](./template-building/printing-columns-from-connected-item.mdx)**  
+Easy way to print column from connected item
+- **[Printing Images](./template-building/printing-images.mdx)**  
+Get your images into your document with this simple guide
+- **[Printing QR Codes](./template-building/printing-qr-codes.mdx)**  
+Generate and print QR codes into your document
 
-Once your Eledo app is installed from the [monday.com App Marketplace](https://monday.com/app-marketplace), add the Eledo editor as a board view to prepare your document template.
+[more...](./template-building/index.mdx)
 
-![image](/img/integrations/monday/MondayAddEledoView.gif)
+## Filling in PDF Form
+Upload PDF you already have and populate existing form fields or place a new ones.
+- **[Populating Form Fields](./filling-in-pdf-forms/populating-form-fields/index.mdx)**  
+Find out how you can populate existing Form Fields in your PDF Form.
 
----
+- **[Creating New Form Fields](./filling-in-pdf-forms/creating-new-form-fields/index.mdx)**  
+Add new form fields and get them populated.
 
-## Integration Recipe
+## Triggering PDF creation
+When your template is ready, it's time to automate! Set up an integration recipe (automation) in your monday.com board.
 
-When your template is ready, it's time to use it in your automation. Set up an integration recipe (automation) for your monday.com board using one of the predefined Eledo recipes or actions.
+- **[Setting Up Integration Recipe](./triggering-pdf-creation/setting-up-integration-recipe.mdx)**  
+Setup automated PDF creation to be started with a Button click, Status change and more..
 
-Choose:
-- when the document should be created  
-- which template should be used  
-- where the document should be uploaded  
+- **[Using Webhook for advanced automation workflow](./triggering-pdf-creation/using-webhook.mdx)**  
+ Create more advanced automation workflow once your PDF is generated
 
-![image](/img/integrations/monday/MondayAddIntegrationRecipe.gif)
+## Use Cases
+- **[Creating PDFs for Each Subitem Separately](./use-cases/creating-pdfs-for-each-subitem-separately.mdx)**  
+Learn how to automatically generate and attach a separate PDF for each subitem.
 
-<DocFeedbackForm />
+- **[Multiple Items in a Single PDF](./use-cases/multiple-items-in-single-pdf.mdx)**  
+You can print multiple items from your monday.com board into a single PDF file. Useful in many cases, especially in Reports.
+
+- **[QR Code with a Link to Item](./use-cases/qr-code-with-a-link-to-item.mdx)**  
+Place a QR code with link to monday.com item for easier tracking.
+
+## Troubleshooting
+- **[Document Not Created](./troubleshooting/document-not-created.mdx)**  
+Sometimes the document is delayed or not created at all. Find out why in this article.
+
+- **[Workspace Permissions](./troubleshooting/workspace-permissions.mdx)**  
+Eledo becomes unusable when "Internal Server Error" message starts to appear.
