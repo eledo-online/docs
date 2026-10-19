@@ -26,79 +26,15 @@ https://eledo.online/api/RESTv1/
 
 ---
 
-## [Authentication](./authentication.mdx)
+## Authentication
 
 Eledo uses **HTTP header authentication** with an **API Key**.
 
-Authentication details are described in the [**Authentication**](./authentication.mdx) section.
+Authentication details are described in the **[Authentication](./authentication.mdx)** section.
 
 ---
 
-## Available endpoints
-
-### [Create File](./documents/create-file.mdx)
-
-Creates a file within the service that can be used to store transaction data for later use.
-
-- **HTTP Method:** `POST`  
-- **Endpoint:** `https://eledo.online/api/RESTv1/CreateFile`
-
----
-
-### [Download](./documents/download.mdx)
-
-Downloads a PDF document from a previously stored file.
-
-- **HTTP Method:** `GET`  
-- **Endpoint:** `https://eledo.online/api/RESTv1/Download`
-
----
-
-### [Generate](./documents/generate.mdx)
-
-Generates a PDF document from a template and input data.
-
-This is the main endpoint used for document generation.
-
-- **HTTP Method:** `POST`  
-- **Endpoint:** `https://eledo.online/api/RESTv1/Generate`
-
----
-
-### [List](./templates/list.mdx)
-
-Returns a list of templates.
-
-- **HTTP Method:** `GET`  
-- **Endpoint:** `https://eledo.online/api/RESTv1/List`
-
----
-
-### [Profile](./user-profile.mdx)
-
-Returns the current user's profile.
-
-- **HTTP Method:** `GET`  
-- **Endpoint:** `https://eledo.online/api/RESTv1/Profile`
-
----
-
-### [Schema](./templates/schema.mdx)
-
-Returns a template schema that can be used to construct a valid input payload.
-
-- **HTTP Method:** `GET`  
-- **Endpoint:** `https://eledo.online/api/RESTv1/Schema`
-
----
-
-:::info
-
-The API supports both synchronous and asynchronous document generation.
-
-:::
-
-## Recommended reading order
+## Document Generation
 
 There are two main ways to generate documents:
 
@@ -106,10 +42,11 @@ There are two main ways to generate documents:
 
 Use this approach when you need an immediate response:
 
-1. [**Authentication**](./authentication.mdx)
-2. [**List**](./templates/list.mdx)
-3. [**Schema**](./templates/schema.mdx)
-4. [**Generate**](./documents/generate.mdx)
+1. **[List](./templates/list.mdx)** Get a list of your templates and find out a template ID for further API calls
+
+2. **[Schema](./templates/schema.mdx)** Retrieve JSON schema for a specific template and organize your data into a JSON payload for generation endpoint
+
+3. **[Generate](./documents/generate.mdx)** Generate your document and get it as a response
 
 ---
 
@@ -117,16 +54,13 @@ Use this approach when you need an immediate response:
 
 Use this approach when processing larger workloads or when immediate response is not required:
 
-1. [**Authentication**](./authentication.mdx)
-2. [**Create File**](./documents/create-file.mdx)
-3. [**Download**](./documents/download.mdx)
+1. **[Create File](./documents/create-file.mdx)** Store your JSON data as a File and get a download URL
 
----
+2. **[Download](./documents/download.mdx)** Generate and download your document with File ID included in download URL
 
-## Important notes
+## Identification
 
-Some endpoints are permissive in practice and may behave differently from what a strict API client would expect.
-
-Where relevant, this documentation includes additional integration notes based on observed behavior.
+When working with multiple API Keys it's good to know which account they are for.
+ - **[User Profile](./user-profile.mdx)** Identify a profile you are authenticated for
 
 <DocFeedbackForm />
